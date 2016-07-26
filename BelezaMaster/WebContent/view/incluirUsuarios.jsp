@@ -8,6 +8,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<hr>
+<h1> Cadastrar Usuário </h1>
+<hr>
 
 
 <div id=bordaform>
