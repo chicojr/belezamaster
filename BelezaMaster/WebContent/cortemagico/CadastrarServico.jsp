@@ -1,34 +1,39 @@
- <!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>✂ Corte Mágico </title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
 <link href="css/style.css" rel='stylesheet' type='text/css' />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
-
 </head>
 <body>
 
 	<div class="contact" id="contact">
 		<div class="container">
 			<div class="row">
-				<h3 class="m_3">Login</h3>
+				<h3 class="m_3">Cadastrar serviço</h3>
 				<div class="m_4">
-					<span class="bottom_line"> </span>
+					<div class="bottom_line_cs"> </div>
 				</div>
-				<form method="post" action="contact-post.html">
+				<form method="post" action="-">
 					<div class="col-md-6 commentform">
 						<p class="comment-form-author">
-							<label for="author">Nome de Usuário</label> <input id="author"
-								name="author" type="text" value="" size="30" required="required">
+							<label for="author">Nome do serviço</label> 
+							<input id="author" name="author" type="text" value="" size="30" maxlength=30 required="required">
 						</p>
-						<p>
-							<label for="author">Senha</label> <input id="author"
-								name="author" type="password" value="" size="30"
-								required="required">
+						
+							<p> <label for="author">Descrição</label> 
+					             <input id="author"name="author" type="text" value="" size="30" maxlength=50 required="required">
+						</p>
+						<br>
+				
+							<label for="author">Valor</label> 
+							<input id="author" name="author" type="text" value="" size="30" maxlength=7 required="required">
 						</p>
 					</div>
 					<div class="col-md-6 commentform_desc"></div>

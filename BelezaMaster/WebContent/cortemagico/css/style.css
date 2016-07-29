@@ -195,6 +195,25 @@ i.frame{
 	margin-bottom: 5%;
 	position: relative;
 }
+
+div.bottom_line_cs{
+	width: 280px;
+	display: block;
+	border-bottom: 2px solid #FF69B4;
+	position: absolute;
+	bottom:-10px;
+	margin:0 15px;
+}
+
+div.bottom_line{
+	width: 249px;
+	display: block;
+	border-bottom: 2px solid #FF69B4;
+	position: absolute;
+	bottom:-10px;
+	margin:0 15px;
+}
+
 span.bottom_line{
 	width: 50px;
 	display: block;
