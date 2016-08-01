@@ -20,16 +20,16 @@
 					  </br>
 						<input id="author" name="author" type="text" value="" size="30" aria-required="true">
 					  </p>
-					   <p><label class="span">Senha</label>
+					   <p><label class="span span2">Senha</label>
 					   </br>
 						<input id="author" name="author" type="text" value="" size="30" aria-required="true">
 					  </p>
 					  <input type="checkbox" name="checkbox"> <span class="remenber">Lembrar-se de mim</span>
 					  <span class="link-password"><!--<a href="#" class="link-password-02">Esqueci a senha</a></span>-->
 					  </p>
-					   <input name="submit" type="button" id="submit" value="Entrar">			
+					   <input name="submit" type="button" id="btn" value="Entrar">			
 					  &nbsp;
-					   <input name="submit" type="button" id="submit" value="Cadastre-se">
+					   <input name="submit" class="btn2" type="button" id="btn" value="Cadastre-se">
 					   </form>
 					</div>
 					</center>

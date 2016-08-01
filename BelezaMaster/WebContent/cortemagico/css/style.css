@@ -1,6 +1,6 @@
 @font-face {
       font-family: 'caviar_dreamsregular';
-      src: url(fonts/CaviarDreams-webfont.ttf) format('truetype');
+      src: url(../fonts/CaviarDreams-webfont.ttf) format('truetype');
   }
 html, body{
 	font-family: 'Roboto', sans-serif;
@@ -19,7 +19,6 @@ html, body{
 	padding: 6% 0;
 }
 h3.m_3{
-	
 	color:#fff;
 	font-size:2em;
 	font-family: 'caviar_dreamsregular';
@@ -34,9 +33,12 @@ span.bottom_line{
 	width: 50px;
 	display: block;
 	border-bottom: 2px solid #FF69B4;
-	position: absolute;
 	bottom:-10px;
 	margin:0 15px;
+	margin-right:3.5%;
+}
+span.bottom_line2{
+	margin-right:20%;
 }
 p.comment-form-author {
 	margin-bottom: 20px;
@@ -49,7 +51,15 @@ p.comment-form-author {
 	height: 30px;
 	font-size: 20px;
 }
-#submit {
+#author:focus{
+	-webkit-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+	border:#ffffff solid 2px;
+	
+}
+#btn {
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1em;
@@ -66,9 +76,15 @@ p.comment-form-author {
 	border: none;
 	cursor: pointer;
 	outline: none;
-	
 }
-#submit:hover {
+
+.btn2{
+	margin-right:7%;
+}
+
+
+
+#btn:hover {
 	background:#fff;
 	color:#FF69B4
 }
@@ -95,6 +111,7 @@ color:#fff;
 }
 .remenber{
 color:#fff;
+margin-right:6.5%;
 }
 .footer-bottom{
 	background:#353f47;
@@ -106,4 +123,11 @@ color:#fff;
   margin-right: auto;
   margin-left: auto;
   
+}
+.span{
+	color:#fff;
+	margin-right:17%;
+}
+.span2{
+	margin-right:21.5%;
 }

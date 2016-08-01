@@ -6,46 +6,50 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Cadastro do Profissional | Beleza Master</title>
 </head>
 <body>
+
+
+<center>
 <div class="contact">
 <h3 class="m_3">Cadastrar Profissional</h3>
-<div class="m_4"><span class="bottom_line"> </span></div>
+<div class="m_4"><span class="bottom_line bottom_line2"> </span></div>
 <div style="text-align: center; color: red; font-size:22px "> ${mensagem} </div>
 
 <p />
 
 
  <form action="IncluirProfissionais" method="post">
- 	<span class="span">Nome do Profissional: <br /></span>
- 	<input type="text" id="author" name="nome" maxlength="50" required="required"/>
+ 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label class="span">Nome do Profissional:</label> <br />
+ 	<input type="text" class="text" id="author" name="nome" maxlength="50" required="required"/>
  	<p />
- 	<span class="span">Profissão: <br /></span>
+ 	<label class="span">Profissão:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br />
  	<input type="text" id="author" name="profissao"  maxlength="20" required="required"/>
  	<p />
- 	<span class="span">CPF: <br /></span>
+ 	<label class="span">CPF:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br />
  	<input type="text" id="author" name="cpf" maxlength="14" required="required"/>
  	<p />
- 	<span class="span">E-mail: <br /></span>
+ 	<label class="span">E-mail:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br />
  	<input type="text" id="author" name="email" maxlength="50" required="required"/>
  	<p />
- 	<span class="span">Endereço: <br /></span>
+ 	<label class="span">Endereço:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br />
  	<input type="text" id="author" name="endereco" maxlength="50" required="required"/>
  	<p />
- 	<span class="span">Telefone: <br /></span>
+ 	<label class="span">Telefone:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br />
  	<input type="text" id="author" name="telefone" maxlength="10" required="required"/>
  	<p />
- 	<span class="span">Celular: <br /></span>
+ 	<label class="span">Celular:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <br />
  	<input type="text" id="author" name="celular" maxlength="10" required="required"/>
  	</p>
  		
- 		<input type="submit" id="submit" value="Cadastrar" name="btn-cadastrar" />
+ 		<input type="reset" id="btn" value="Limpar" name="btn-limpar" />
  		&nbsp;&nbsp;
- 		<input type="reset" id="submit" value="Limpar" name="btn-limpar" />
+ 		<input type="submit" id="btn" class="btn2" value="Cadastrar" name="btn-cadastro" />&nbsp;&nbsp;
  	<p />
  
  	</form>
  	</div>
+ 	</center>
 </body>
 </html>
