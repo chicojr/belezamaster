@@ -12,7 +12,7 @@ public class ProfissionalController {
 	
 	//CADASTRANDO O PROFISSIONAL
 	
-	@RequestMapping("/exibirincluirprofissional")
+	@RequestMapping("/exibiriIncluirProfissional")
 	public String exibirIncluirProfissional(Profissional profissional) {
 	return "incluirProfissional";
 	}
@@ -27,6 +27,10 @@ public class ProfissionalController {
 	return "incluirProfissional";
 	
 	}
-
+	
+	@RequestMapping("/exibirListaProfissional")
+	public String exibirListaProfissional() {
+	return "cortemagico/pesquisarProfissional";
+	}
 	
 }

@@ -3,59 +3,71 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript" src="view/js/script.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Cadastrar Profissional</title>
+<title>Cadastrar Profissional | Beleza Master</title>
 </head>
 <body>
-<hr>
-<fieldset style="background-color: aqua;">
-<h1 align="center">Cadastrar Profissional</h1><br><br>
-<div style="text-align: center; color: red; font-size:40px "> ${mensagem} </div>
-</fieldset>
-<hr>
-<fieldset style="background-color:gray ; ">
-<center>
- <form action="incluirProfissional" method="post">
-   <br>
- 	NOME DO PROFISSIONAL: <br />
- 	<input type="text" name="nome" maxlength="50" required="required"/>
- 	<br>
+<div class="menu">
+				<ul class="nav" id="nav">
+				   <li><a href="#">Cadastrar Usuário</a></li>
+				   <li><a href="#">Pesquisar Profissional</a></li>
+				   <li><a href="#">Cadastrar Profissional</a></li>
+				   <li><a href="#">Home</a></li>
+			    </ul>
+			    
+</div>
+
+<div class="msg"> ${mensagem} </div>
+<div class="contact">
+<h3 class="m_3">Cadastrar Profissional</h3>
+<div class="m_4"><span class="bottom_line"> </span></div>
+
+
+
+ <form name="form1" action="incluirProfissional" method="post">
+ 	<label class="span">Nome do Profissional: <br /></label>
+ 	<input type="text" id="author" name="nome" maxlength="50" value="${profissional.nome}" onkeypress='return soLetras(event)' required="required"/>
+ 	<p />
+ 	</br>
+ 	<label class="span">Profissão: <br /></label>
+ 	<input type="text" id="author" name="profissao"  maxlength="20" value="${profissional.profissao}" onkeypress='return soLetras(event)' required="required"/>
+ 	<p />
+ 	</br>
+ 	<label class="span">CPF: <br /></label>
+ 	<input type="text" id="author" name="cpf" maxlength="14" value="${profissional.cpf}" onblur="javascript: validarCPF(this.value);"
+					onkeypress="javascript: mascara(this, cpf_mask);" required="required"/>
+ 	<p />
+ 	</br>
+ 	<label class="span">E-mail: <br /></label>
+ 	<input type="text" id="author" name="email" value="${profissional.email}" maxlength="50" required="required"/>
+ 	<p />
+ 	</br>
+ 	<label class="span">Endereço: <br /></label>
+ 	<input type="text" id="author" name="endereco" value="${profissional.endereco}" maxlength="50" required="required"/>
+ 	<p />
+ 	</br>
+ 	<label class="span">Telefone: <br /></label>
+ 	<input type="text" id="author" name="telefone" value="${profissional.telefone}" maxlength="14" onkeydown="mascara1( this )" onkeyup="mascara( this )" required="required"/>
+ 	<p />
+ 	</br>
+ 	<label class="span">Celular: <br /></label>
  	
- 	<br>
- 	PROFISSÃO:<br>
- 	<input type="text" name="profissao"  maxlength="20" required="required"/>
- 	<br>
- 	
- 	<br>
- 	CPF: <br />
- 	<input type="text" name="cpf" maxlength="14" required="required"/>
- 	<br>
- 	
- 	<br>
- 	E-MAIL: <br>
- 	<input type="email" name="email" maxlength="50" required="required"/>
- 	<br>
- 	
- 	<br>
- 	ENDEREÇO: <br />
- 	<input type="text" name="endereco" maxlength="50" required="required"/>
- 	<br>
- 	
- 	<br>
- 	TELEFONE: <br />
- 	<input type="text" name="telefone" maxlength="10" required="required"/>
- 	<br>
- 	
- 	<br>
- 	CELULAR: <br />
- 	<input type="text" name="celular" maxlength="10" required="required"/>
- 	<br>
- 	<br>
- 	<br>
- 	
- 	<input type="submit" value="Confirmar" name="btn-cadastroProfissional"/>
+ 	<input type="text" id="author" name="celular" value="${profissional.celular}" maxlength="14" required="required"/>
+ 	</p>
+ 		</br>
+ 		<input type="submit" id="submit" value="Cadastrar" name="btn-cadastrar" />
+ 		&nbsp;&nbsp;
+ 		<input type="reset" id="submit" value="Limpar" name="btn-limpar" />
+ 		
+ 	<p />
+ 
  	</form>
- 	</center>
- 	</fieldset>
+ 	</div>
+ 	<div class="footer-bottom">
+ 		
+ 		</div>
 </body>
 </html>
