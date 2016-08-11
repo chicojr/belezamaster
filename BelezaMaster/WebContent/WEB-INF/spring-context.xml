@@ -28,4 +28,7 @@
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
  
 </bean>
+<mvc:interceptors>
+<bean class="br.com.ifpe.belezamaster.util.AutorizadorInterceptor" />
+</mvc:interceptors>
 </beans>

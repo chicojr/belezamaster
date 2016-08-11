@@ -60,3 +60,17 @@ function remove(str, sub) {
 
 	return r;
 }
+
+//valida campo nome
+function soLetras(obj) {
+	var tecla = (window.event) ? event.keyCode : obj.which;
+	if ((tecla >= 65 && tecla <= 90) || (tecla >= 97 && tecla <= 122))
+		return true;
+	else {
+		if (tecla != 8 && tecla !=32 && tecla !=11 )
+			return false;
+		else
+			return true;
+	}
+}
+
