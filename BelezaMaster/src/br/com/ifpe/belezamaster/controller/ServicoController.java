@@ -10,8 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.ifpe.belezamaster.model.profissional.Profissional;
-import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
 import br.com.ifpe.belezamaster.model.servico.Servico;
 import br.com.ifpe.belezamaster.model.servico.ServicoDao;
 
@@ -31,7 +29,7 @@ public class ServicoController {
 		
 		ServicoDao dao = new ServicoDao();
 		dao.salvar(servico);
-		model.addAttribute("mensagem","O Serviço foi cadastrado com sucesso!");
+		model.addAttribute("mensagem","O Serviï¿½o foi cadastrado com sucesso!");
 
 		if (result.hasErrors()) {
 			return "forward:exibirIncluirServico";
@@ -52,16 +50,17 @@ public class ServicoController {
     }
 	
 	
-	//Remover servico
+				//Remover servico
 	@RequestMapping("/removerServico")
 	public String removerProduto(Servico servico, Model model) {
 	ServicoDao dao = new ServicoDao();
 	dao.remover(servico);
+	
 	model.addAttribute("mensagem", "Produto Removido com Sucesso");
-	return "servico/listarServico";
-	}
-		
-	}
+	return "forward:exibirListarServico";
+		}
+			
+		}
 
 	
 	
