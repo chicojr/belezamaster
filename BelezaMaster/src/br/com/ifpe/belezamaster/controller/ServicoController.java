@@ -12,79 +12,84 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.belezamaster.model.servico.Servico;
 import br.com.ifpe.belezamaster.model.servico.ServicoDao;
-
+import br.com.ifpe.belezamaster.model.usuario.Usuario;
+import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 
 @Controller
 public class ServicoController {
 
 	@RequestMapping("/exibirIncluirServico")
-	public String exibirIncluirServico(){
+	public String exibirIncluirServico() {
 		return "servico/incluirServico";
+		
+			}
+	
+	@RequestMapping("/exibirFazerReserva")
+	public String exibirFazerReserva(){
+		return "servico/fazerReserva";
 		
 			}
 	
 //incluir servico
 	@RequestMapping("/incluirServico")
-	public String incluirServico(@Valid Servico servico,BindingResult result, Model model){
-		
+	public String incluirServico(@Valid Servico servico, BindingResult result, Model model) {
+
 		ServicoDao dao = new ServicoDao();
 		dao.salvar(servico);
-		model.addAttribute("mensagem","O Servi�o foi cadastrado com sucesso!");
+		model.addAttribute("mensagem", "O Serviço foi cadastrado com sucesso!");
 
 		if (result.hasErrors()) {
 			return "forward:exibirIncluirServico";
-			}
-		
+		}
+
 		return "servico/incluirServico";
 	}
-	
-	//listar servico
+
+	// pesquiar Servico
 	@RequestMapping("/exibirListarServico")
-    public String listarServico(Model model) {
+	public String exibirListaServico() {
+		return "servico/pesquisarServico";
+	}
 
-	ServicoDao dao = new ServicoDao();
-	List<Servico> listaServico = dao.listar();
-	model.addAttribute("listaServico", listaServico);
+	// pesquiar servico
+	@RequestMapping("pesquisarServico")
+	public String PesquisarServico(Model model, String nome) {
+		ServicoDao dao = new ServicoDao();
+		List<Servico> listaServico = dao.buscar(nome);
+		model.addAttribute("listaServico", listaServico);
+		return "servico/pesquisarServico";
+	}
 
-	return "servico/listarServico";
-    }
-	
-	
-				//Remover servico
+	// alterar Servico
+	@RequestMapping("/exibirAlterarServico")
+	public String exibirServico( Model model ,Servico servico) {
+		ServicoDao dao = new ServicoDao();
+		Servico server = dao.buscarPorCodigo(servico.getCodigo());
+		model.addAttribute("servico", server);
+		return "servico/alterarServico";
+	}
+
+	// Redireciona para alterar servico
+	@RequestMapping("/alterarServico")
+	public String alterarServico(Servico servico, Model model) {
+		ServicoDao dao = new ServicoDao();
+		dao.alterar(servico);
+		model.addAttribute("msg", " O Servico foi alterado com Sucesso!");
+		return "servico/alterarServico";
+
+	}
+
+	// Remover servico
 	@RequestMapping("/removerServico")
 	public String removerProduto(Servico servico, Model model) {
-	ServicoDao dao = new ServicoDao();
-	dao.remover(servico);
-	
-	model.addAttribute("mensagem", "Produto Removido com Sucesso");
-	return "forward:exibirListarServico";
-		}
-			
-		}
+		ServicoDao dao = new ServicoDao();
+		dao.remover(servico);
 
-	
-	
-	/*
-	
-//pesquisar servico
+		model.addAttribute("mensagem", "Produto Removido com Sucesso");
+		return "forward:exibirListarServico";
+	}
 
-	@RequestMapping("/exibirPesquisarServico")
-    public String exibirPesquisarServico(Model model,Servico servico) {
-
-		
-		return "servico/pesquisarServico";
-	}	
-	
-	@RequestMapping("/PesquisarServico")
-    public String PesquisarServico(Model model,String nome) {
-
-	ServicoDao dao = new ServicoDao();
-	List<Servico> pesquisarServico = dao.pesquisar(nome);
-	model.addAttribute("pesquisarServico", pesquisarServico);
-
-	return "servico/pesquiarServico";
-    }
-	*/
+}
 
 	
 	
