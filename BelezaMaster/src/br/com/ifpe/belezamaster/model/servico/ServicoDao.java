@@ -7,8 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ifpe.belezamaster.model.profissional.Profissional;
-import br.com.ifpe.belezamaster.model.usuario.Usuario;
+
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ServicoDao {

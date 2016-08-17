@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
-import br.com.ifpe.belezamaster.model.servico.Servico;
-import br.com.ifpe.belezamaster.model.servico.ServicoDao;
-import br.com.ifpe.belezamaster.model.usuario.Usuario;
-import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
+
 
 @Controller
 public class ProfissionalController {

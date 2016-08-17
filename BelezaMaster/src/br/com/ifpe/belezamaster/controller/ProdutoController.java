@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.belezamaster.model.produto.Produto;
 import br.com.ifpe.belezamaster.model.produto.ProdutoDao;
-import br.com.ifpe.belezamaster.model.servico.Servico;
-import br.com.ifpe.belezamaster.model.servico.ServicoDao;
+
 
 @Controller
 public class ProdutoController {

@@ -17,7 +17,24 @@
 
 <body>
 
-<c:import url="cabecalho.jsp" />
+
+
+	<div class="menu">
+		<ul class="nav" id="nav">
+			<li><a href="exibirListarProduto">Listar Produto</a></li>
+			<li><a href="exibirListarServico">Listar Serviço</a></li>
+			<li><a href="exibirPesquisarPorCpf">Pesquisar Usuário</a></li>
+			<li><a href="exibirListaProfissional">Pesquisar Profissional</a></li>
+			<li><a href="exibirListarUsuario">Listar Usuário</a></li>
+			<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>
+			<li><a href="exibirIncluirProduto">Cadastrar Produto</a></li>
+			<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>
+			<li><a href="exibirIncluirProfissional">Cadastrar
+					Profissional</a></li>
+			<li><a href="exibirLogin">Home</a></li>
+
+		</ul>
+	</div>
 	<div class="msg"> ${mensagem} </div>
 	<div class="contact">
 		<h3 class="m_3">Fazer Reservas</h3>
@@ -69,8 +86,27 @@
 		
 	</div>
 
-<c:import url="rodape.jsp" />
-
+<div class="footer-bottom">
+		<div class="container">
+			<ul class="footer-nav">
+				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
+				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
+				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
+				<li><a href="exibirListaProfissional">Pesquisar
+						Profissional</a></li>|
+				<li><a href="exibirIncluirProfissional">Cadastrar
+						Profissional</a></li>|
+				<li><a href="exibirLogin">Home</a></li>
+			</ul>
+			<div class="copy">
+				<p>
+					© 2014 Template by <a href="#" target="_blank"
+						class="link-password-02">ALM e Suplementos</a>
+				</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
 
 </body>
 </html>
