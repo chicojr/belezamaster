@@ -80,7 +80,7 @@ public class ServicoController {
 
 	// Remover servico
 	@RequestMapping("/removerServico")
-	public String removerProduto(Servico servico, Model model) {
+	public String removerServico(Servico servico, Model model) {
 		ServicoDao dao = new ServicoDao();
 		dao.remover(servico);
 
