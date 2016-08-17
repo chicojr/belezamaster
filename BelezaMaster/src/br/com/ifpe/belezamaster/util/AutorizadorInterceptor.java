@@ -16,7 +16,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter{
 		String uri = request.getRequestURI();
 		if (uri.contains("fonts") || uri.contains("css") ||
 		uri.contains("img") || uri.contains("js") || uri.endsWith("exibirLogin")
-		|| uri.endsWith("efetuarLogin") || uri.endsWith("view/index")) {
+		|| uri.endsWith("efetuarLogin") || uri.endsWith("view/index") || uri.endsWith("exibirIncluirUsuario") || uri.endsWith("incluirUsuario")) {
 		return true;
 		}		
 		

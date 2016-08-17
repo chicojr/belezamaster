@@ -46,7 +46,7 @@ public class ProfissionalDao {
 	public Profissional buscarPorId(int id) {
 
 		try {
-			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM profissional WHERE id = ?");
+			PreparedStatement stmt = connection.prepareStatement("SELECT * FROM PROFISSIONAL WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -68,18 +68,20 @@ public class ProfissionalDao {
 	// Alterar
 
 	public void alterar(Profissional profissional) {
+		String sql = "UPDATE PROFISSIONAL SET nome = ?, profissao = ?, email = ?, endereco = ?,telefone = ?,celular = ? WHERE id=?";
+
 
 		try {
-			String sql = "UPDATE PROFISSIONAL SET nome = ?, profissao = ?, cpf = ?,email = ?, endereco = ?,telefone = ?,celular = ?";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1, profissional.getNome());
 			stmt.setString(2, profissional.getProfissao());
-			stmt.setString(3, profissional.getCpf());
-			stmt.setString(4, profissional.getEmail());
-			stmt.setString(5, profissional.getEndereco());
-			stmt.setString(6, profissional.getTelefone());
-			stmt.setString(7, profissional.getCelular());
+			stmt.setString(3, profissional.getEmail());
+			stmt.setString(4, profissional.getEndereco());
+			stmt.setString(5, profissional.getTelefone());
+			stmt.setString(6, profissional.getCelular());
+			stmt.setInt(7, profissional.getId());
+
 
 			stmt.execute();
 			connection.close();
@@ -128,29 +130,6 @@ public class ProfissionalDao {
 		}
 	}
 
-	// ListarProfissional
-
-	public List<Profissional> listar() {
-
-		try {
-			List<Profissional> listaProfissional = new ArrayList<Profissional>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM PROFISSIONAL ORDER BY nome");
-
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				listaProfissional.add(montarObjeto(rs));
-			}
-
-			rs.close();
-			stmt.close();
-			connection.close();
-
-			return listaProfissional;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
 
 	// Montar o Objeto
 
@@ -158,14 +137,14 @@ public class ProfissionalDao {
 
 		Profissional profissional = new Profissional();
 
-		profissional.setId(rs.getInt("ID"));
-		profissional.setNome(rs.getString("NOME"));
-		profissional.setProfissao(rs.getString("PROFISSAO"));
-		profissional.setCpf(rs.getString("CPF"));
-		profissional.setEmail(rs.getString("EMAIL"));
-		profissional.setEndereco(rs.getString("ENDERECO"));
-		profissional.setTelefone(rs.getString("TELEFONE"));
-		profissional.setCelular(rs.getString("CELULAR"));
+		profissional.setId(rs.getInt("id"));
+		profissional.setNome(rs.getString("nome"));
+		profissional.setProfissao(rs.getString("profissao"));
+		profissional.setCpf(rs.getString("cpf"));
+		profissional.setEmail(rs.getString("email"));
+		profissional.setEndereco(rs.getString("endereco"));
+		profissional.setTelefone(rs.getString("telefone"));
+		profissional.setCelular(rs.getString("celular"));
 		return profissional;
 
 	}

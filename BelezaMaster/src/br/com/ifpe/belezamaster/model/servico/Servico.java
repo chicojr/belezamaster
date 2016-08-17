@@ -7,11 +7,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Servico {
      
 	@NotEmpty(message="O campo de ser preenchido")
-	@Size(max= 30, message=" O nome do serviço deve ter no máximo 30 caracteres")
+	@Size(max= 30, message=" O nome do serviÃ§o deve ter no maximo 30 caracteres")
 	private String nome;
 	
 	@NotEmpty(message=" O campo de ser preenchido")
-	@Size(max= 50, message="A descrição deve ter no máximo 50 caracteres ")
+	@Size(max= 50, message="A descricao deve ter no maximo 50 caracteres ")
 	private String descricao;  
 	
 	private double valor;

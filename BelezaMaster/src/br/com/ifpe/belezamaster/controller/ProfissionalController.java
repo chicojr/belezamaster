@@ -30,7 +30,7 @@ public class ProfissionalController {
 		ProfissionalDao dao = new ProfissionalDao();
 		dao.salvar(profissional);
 		model.addAttribute("mensagem", "Profissional Adicionado com Sucesso!");
-		return "profissional/incluirProfissional";
+		return "forward:exibirListaProfissional";
 
 	}
 
@@ -60,19 +60,19 @@ public class ProfissionalController {
 
 	}
 
-	// Redireciona para alterar usuario
+	// Redireciona para alterar profissional
 	@RequestMapping("/alterarProfissional")
 	public String alterarProfissional(Profissional Profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		dao.alterar(Profissional);
 		model.addAttribute("msgPr", " O Profissional foi alterado com Sucesso!");
-		return "profissional/alterarProfissional";
+		return "forward:exibirListaProfissional";
 
 		
 	}
 	//remover profissional
 	@RequestMapping("/removerProfissional")
-	public String removerProduto(Profissional profissional, Model model) {
+	public String removeProfissional(Profissional profissional, Model model) {
 	ProfissionalDao dao = new ProfissionalDao();
 	dao.remover(profissional);
 	model.addAttribute("remove", "Profissional Removido com Sucesso");

@@ -16,22 +16,28 @@
 <script type="text/javascript" src="view/js/validaCPF.js"></script>
 <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript"src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+<script type="text/javascript"
+	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
 <body>
-<div class="menu">
+
+	<div class="menu">
 		<ul class="nav" id="nav">
+			<li><a href="exibirListarProduto">Listar Produto</a></li>
 			<li><a href="exibirListarServico">Listar Serviço</a></li>
 			<li><a href="exibirPesquisarPorCpf">Pesquisar Usuário</a></li>
 			<li><a href="exibirListaProfissional">Pesquisar Profissional</a></li>
-			<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>
+			<li><a href="exibirListarUsuario">Listar Usuário</a></li>
 			<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>
-		    <li><a href="exibirIncluirProduto">Cadastrar Produto</a></li>
-		    <li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>		
-			<li><a href="exibirIncluirProfissional">Cadastrar Profissional</a></li>
+			<li><a href="exibirIncluirProduto">Cadastrar Produto</a></li>
+			<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>
+			<li><a href="exibirIncluirProfissional">Cadastrar
+					Profissional</a></li>
 			<li><a href="exibirLogin">Home</a></li>
+
 		</ul>
 	</div>
+
 	<div class="contact">
 		<h3 class="m_3">Pesquisar Alterar Usuário</h3>
 		<div class="m_4">
@@ -47,34 +53,37 @@
 				<label class="span" for="inputNome">CPF:</label><br /> <input
 					type="text" class="form-control author" id="cpf" name="cpf"
 					style="width: 500px;" required="required" value="${usuario.cpf}">
-					<br><br />
-			<input type="submit" class="submit" value="Salvar">
+				<br> <br /> <input type="submit" class="submit" value="Buscar">
 			</div>
 			<br />
 		</form>
 	</div>
 	<div class="footer-bottom">
-<div class="container">
-				<ul class="footer-nav">
-	  			 <li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-				   <li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-				   <li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-				   <li><a href="exibirListaProfissional">Pesquisar Profissional</a></li>|
-				   <li><a href="exibirIncluirProfissional">Cadastrar Profissional</a></li>|
-				   <li><a href="exibirLogin">Home</a></li> 
-	  		</ul>
-	  		<div class="copy">
-			   <p>© 2014 Template by <a href="#" target="_blank" class="link-password-02">ALM e Suplementos</a></p>
-		    </div>
-		    <div class="clear"></div>
-	  	
-	  </div>
-</div>
-<script type="text/javascript">
+		<div class="container">
+			<ul class="footer-nav">
+				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
+				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
+				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
+				<li><a href="exibirListaProfissional">Pesquisar
+						Profissional</a></li>|
+				<li><a href="exibirIncluirProfissional">Cadastrar
+						Profissional</a></li>|
+				<li><a href="exibirLogin">Home</a></li>
+			</ul>
+			<div class="copy">
+				<p>
+					© 2014 Template by <a href="#" target="_blank"
+						class="link-password-02">ALM e Suplementos</a>
+				</p>
+			</div>
+			<div class="clear"></div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
 		jQuery.noConflict();
 		jQuery(function($) {
 			$("#cpf").mask("999.999.999-99");
-			
 
 		});
 	</script>
