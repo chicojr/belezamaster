@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative - Start Bootstrap Theme</title>
+    <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,16 +55,22 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                        <a class="page-scroll" href="#home">Home</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Services</a>
+                        <a class="page-scroll" href="#sobre">Sobre</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#services">Serviços</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#galeria">Galeria</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contato">Contato</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#">Login</a>
                     </li>
                 </ul>
             </div>
@@ -73,7 +79,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header>
+    <header id="home">
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">Beleza Master Especializada em Designer de Cortes</h1>
@@ -84,7 +90,7 @@
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section class="bg-primary" id="sobre">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -145,7 +151,7 @@
         </div>
     </section>
 
-    <section class="no-padding" id="portfolio">
+    <section class="no-padding" id="galeria">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
@@ -241,7 +247,7 @@
             </div>
         </div>
     </section>
-    <section id="contact" class="bg-dark">
+    <section id="contato" class="bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
