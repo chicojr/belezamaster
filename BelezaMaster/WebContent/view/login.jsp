@@ -19,7 +19,7 @@
 		    <li><a href="exibirIncluirProduto">Cadastrar Produto</a></li>
 		    <li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>		
 			<li><a href="exibirIncluirProfissional">Cadastrar Profissional</a></li>
-			<li><a href="exibirLogin">Home</a></li>
+			<li><a href="exibirIndex">Home</a></li>
 		</ul>
 	</div>
 <div class="msg"> ${msg} </div>
