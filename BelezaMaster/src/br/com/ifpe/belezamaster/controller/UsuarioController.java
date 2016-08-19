@@ -17,10 +17,17 @@ import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 @Controller
 public class UsuarioController {
 
+	//Exibir Página Inicial
+	@RequestMapping("/exibirIndex")
+	public String exibirIndex() {
+		return "index";
+		
+	}
+	
 	// Exibir Login
 	@RequestMapping("/exibirLogin")
 	public String exibirLogin() {
-		return "index";
+		return "login";
 
 	}
 
