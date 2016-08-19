@@ -1,224 +1,32 @@
-*{
-	margin:0;
+body{
+   
 }
-.menu{
-	background:#FF79BC;
-	padding: 10px;
-	opacity: 9.0;
+
+#login-dp{
+    min-width: 350px;
+    padding: 30px 30px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
 }
-  .menu li{
-	display:inline-block;
-	float:right;
- }
- .menu li:first-child{
-   	margin-left:0;
- }
- .menu li a{
-  	display: block;
-	font-size:15px;
-	text-transform: uppercase;
-	padding:10px 20px;
-	color: #FFF;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-	font-weight: 600;
-	text-decoration:none;
- }
- .menu li a:hover{
-	 background:#fff;
-	 color:#FF69B4;
- } 
- .nav:before,
-.nav:after {
-    content: " "; 
-    display: table; 
+#login-dp .help-block{
+    font-size:12px    
 }
-.nav:after {
-    clear: both;
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
 }
-.nav ul {
-    list-style: none;
+#login-dp .form-group {
+    margin-bottom: 10px;
 }
-.nav li ul{
-    	width:100%;   	
+@media(max-width:768px){
+    #login-dp{
+        background-color:rgba(68, 68, 68, 0.9) ;
+        color: #fff;
     }
-@font-face {
-      font-family: 'caviar_dreamsregular';
-      src: url(../fonts/CaviarDreams-webfont.ttf) format('truetype');
-  }
-html, body{
-	overflow-x:hidden;
-	font-family: 'Roboto', sans-serif;
-	background: #444444;
-}
-.contact{
-	margin-left:38%;
-	width: 100%;
-	/*background: url(../images/footer_bg.jpg) no-repeat;*/
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	background-position: center;
-	background-size: 100% 100%;
-	padding: 6% 0;
-	
-}
-h3.m_3{
-	
-	color:#fff;
-	font-size:2em;
-	font-family: 'caviar_dreamsregular';
-	text-transform:uppercase;
-	margin:0 15px;
-}
-.m_4{
-	margin-bottom: 5%;
-	position: relative;
-}
-span.bottom_line{
-	width: 50px;
-	display: block;
-	border-bottom: 2px solid #FF69B4;
-	position: absolute;
-	bottom:-10px;
-	margin:0 15px;
-}
-p.comment-form-author {
-	margin-bottom: 20px;
-	}
-.author{
-	color:#fff;
-	width: 400px;
-	border:#FF69B4 solid 2px;
-	background: transparent;
-	padding: 5px;
-	height: 30px;
-	font-size: 20px;
-}
-.author:focus{
-	border:#fff solid 2px;
-	-webkit-transtion:all 0.3s linear;
-	-moz-transition:all 0.3s linear;
-	-o-transition:all 0.3s linear;
-	transition:all 0.3s linear;
-}
-.submit {
-	color: #fff;
-	font-family: 'Roboto', sans-serif;
-	font-size: 1em;
-	padding: 20px 30px;
-	text-transform: uppercase;
-	background: #FF69B4;
-	display: inline-block;
-	-webkit-transition: all 0.3s ease-out;
-	-moz-transition: all 0.3s ease-out;
-	-ms-transition: all 0.3s ease-out;
-	-o-transition: all 0.3s ease-out;
-	transition: all 0.3s ease-out;
-	font-weight: 500;
-	border: none;
-	cursor: pointer;
-	outline: none;
-	
-}
-.submit:hover {
-	background:#fff;
-	color:#FF69B4
-}
-.link-password{
-	margin-left:8.5%; 
-	color: #400000;
-}
-.link-password-02{
-	color: #fff;
-	text-decoration: none;
-	-webkit-transition: all 0.3s linear;
-	-moz-transition: all 0.3s linear;
-	-o-transition:all 0.3s linear;
-	transition:all 0.3s linear; 
-}
-.link-password-02:hover{
-	color: #FF69B4;
-}
-.login{
-color:#fff;
-}
-.password{
-color:#fff;
-}
-.remenber{
-color:#fff;
-}
-.footer-bottom{
-	background:#383838;
-	padding:6% 0;
-}
-.container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-  
-}
-.span{
-	color:#fff;
-}
-.msg{
-	font-weight: 600;
-	font-size: 30px;
-	text-align:center;
-	width:100%;
-	padding: 55px;
-	color: #fff;
-	-webkit-transition: all 0.2s ease;
-	-moz-transition: all 0.2s ease;
-	-o-transition: all 0.2s ease;
-	transition: all 0.2s ease;
-}
-.clear{clear: both;
-}
-ul.footer-nav{
-	float:left;
-	list-style:none;
-	color:#536169;
-	padding:0;
-}
-ul.footer-nav li:first-child{
-	margin-left: 0;
-}
-ul.footer-nav li{
-	display:inline-block;
-	margin:0 10px;
-}
-ul.footer-nav li a{
-	color:#536169;
-	font-size:0.85em;
-	font-weight:500;
-	text-decoration:none;
-	text-transform:uppercase;
-}
-ul.footer-nav li a:hover{
-	color:#fff;
-}
-.copy{
-	float:right;
-}
-.copy p{
-	color:#536169;
-	font-size:0.85em;
-	text-decoration:none;
-	text-transform:uppercase;
-}
-.copy p a{
-	color:#fff;
-}
-.container {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-right: auto;
-  margin-left: auto;
-  
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
 }

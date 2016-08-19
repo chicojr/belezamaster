@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
     <!-- Bootstrap Core CSS -->
@@ -27,6 +27,8 @@
     <!-- Plugin CSS -->
     <link href="view/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
 
+	    <link href="view/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	
     <!-- Theme CSS -->
     <link href="view/css/creative.css" rel="stylesheet">
 
@@ -70,7 +72,34 @@
                         <a class="page-scroll" href="#contato">Contato</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="exibirLogin">Login</a>
+                    
+                       <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								<h2>Login</h2>
+                           		 <form class="form" role="form" method="post" action="efetuarLogin" accept-charset="UTF-8" id="login-nav">
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">E-mail</label>
+											 <input type="email" name="email" class="form-control" id="exampleInputEmail2" value="${usuario.email}" placeholder="E-mail" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Senha</label>
+											 <input type="password" name="senha" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                             <div class="help-block text-right"><a href="">Esqueceu sua senha ?</a></div>
+										</div>
+										<div class="form-group">
+											 <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+										</div>
+										 </form>
+										</div>
+										<div class="bottom text-center">
+								Não é Cadastrado ? <a href="exibirIncluirUsuario"><b>Cadastre-se</b></a>
+							</div>
+							<Br>
+							</div>
                     </li>
                 </ul>
             </div>
@@ -80,6 +109,7 @@
     </nav>
 
     <header id="home">
+   <center><div><span style="font-size: 20px;">${msg}</span></div></center>
         <div class="header-content">
             <div class="header-content-inner">
                 <h1 id="homeHeading">Beleza Master Especializada em Designer de Cortes</h1>
@@ -88,6 +118,7 @@
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Saiba Mais</a>
             </div>
         </div>
+        
     </header>
 
     <section class="bg-primary" id="sobre">
@@ -101,7 +132,9 @@
                     Nam eget augue dignissim, tristique lorem eget, hendrerit nunc. 
                     Maecenas sed quam a arcu consectetur commodo id sit amet mi.</p>
                     <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Começar!</a>
+                 
                 </div>
+                
             </div>
         </div>
     </section>

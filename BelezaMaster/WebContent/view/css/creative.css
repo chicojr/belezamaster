@@ -68,6 +68,7 @@ aside {
   padding: 0;
 }
 .navbar-default {
+	padding-right: 10px;
   background-color: white;
   border-color: rgba(34, 34, 34, 0.05);
   font-family: 'caviar_dreamsregular' 'Open Sans', 'Helvetica Neue', Arial, sans-serif;;
@@ -312,6 +313,9 @@ header .header-content .header-content-inner p {
   color: #222222;
   background-color: #f2f2f2;
   border-color: #ededed;
+}
+.dropdown-toggle{
+	overflow-y: hidden;
 }
 .btn-default:active,
 .btn-default.active,

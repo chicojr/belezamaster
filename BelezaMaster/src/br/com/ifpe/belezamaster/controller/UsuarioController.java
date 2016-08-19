@@ -131,5 +131,12 @@ public class UsuarioController {
 		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
 		return "index";
 	}
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "index";
+		
+	}
+	
 
 }
