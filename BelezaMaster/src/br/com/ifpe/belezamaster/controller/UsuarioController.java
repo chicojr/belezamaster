@@ -24,13 +24,6 @@ public class UsuarioController {
 		
 	}
 	
-	// Exibir Login
-	@RequestMapping("/exibirLogin")
-	public String exibirLogin() {
-		return "login";
-
-	}
-
 	// Exibir Incluir Usuario
 	@RequestMapping("/exibirIncluirUsuario")
 	public String exibirIncluirUsuario(Usuario usuario) {
