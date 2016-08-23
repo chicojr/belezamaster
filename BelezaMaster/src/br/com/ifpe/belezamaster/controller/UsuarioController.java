@@ -83,7 +83,7 @@ public class UsuarioController {
 
 	
 	
-	// pesquiar Usuario
+	// pesquisar Usuario
 	@RequestMapping("/exibirListarUsuario")
 	public String exibirListaUsuario() {
 		return "usuario/listarUsuario";

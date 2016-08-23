@@ -3172,26 +3172,26 @@ fieldset[disabled] .btn-primary.focus {
 }
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c;
+  background-color: #7B68EE;
+  border-color: #7B68EE;
 }
 .btn-success:focus,
 .btn-success.focus {
   color: #fff;
-  background-color: #449d44;
-  border-color: #255625;
+  background-color: #444444;
+  border-color: #444444;
 }
 .btn-success:hover {
   color: #fff;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: #444444;
+  border-color: #444444;
 }
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   color: #fff;
-  background-color: #449d44;
-  border-color: #398439;
+  background-color: #7B68EE;
+  border-color: #7B68EE;
 }
 .btn-success:active:hover,
 .btn-success.active:hover,
@@ -3203,8 +3203,8 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
   color: #fff;
-  background-color: #398439;
-  border-color: #255625;
+  background-color: #7B68EE;
+  border-color: #7B68EE;
 }
 .btn-success:active,
 .btn-success.active,
@@ -5449,11 +5449,10 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid transparent;
+  background-color: #ddd;
+  border: ;
   border-radius: 4px;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+  
 }
 .panel-body {
   padding: 15px;
@@ -5737,22 +5736,21 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #d6e9c6;
 }
 .panel-info {
-  border-color: #bce8f1;
+
 }
 .panel-info > .panel-heading {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #fff;
+  background-color: #7B68EE;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #bce8f1;
+
 }
 .panel-info > .panel-heading .badge {
-  color: #d9edf7;
-  background-color: #31708f;
+  
+
 }
 .panel-info > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #bce8f1;
+
 }
 .panel-warning {
   border-color: #faebcc;

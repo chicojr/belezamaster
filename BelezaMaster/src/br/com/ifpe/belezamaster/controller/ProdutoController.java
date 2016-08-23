@@ -60,7 +60,7 @@ public class ProdutoController {
 
 	}
 
-	// Remover servico
+	// Remover produto
 	@RequestMapping("/removerProduto")
 	public String removerProduto(int codigo, Model model) {
 		ProdutoDao dao = new ProdutoDao();
