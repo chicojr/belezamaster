@@ -102,7 +102,7 @@ public class ServicoDao {
 	}
 
 	
-
+// buscar por nome
 	public List<Servico> buscar(String nome) {
 		try {
 			List<Servico> listarServico = new ArrayList<Servico>();
@@ -123,6 +123,31 @@ public class ServicoDao {
 			throw new RuntimeException(e);
 		}
 	}
+
+	
+	//Listar usuario
+			public List<Servico> listar() {
+
+				try {
+					List<Servico> listarServico = new ArrayList<Servico>();
+					PreparedStatement stmt = (PreparedStatement) this.connection
+							.prepareStatement("SELECT * FROM SERVICO ORDER BY nome");
+
+					ResultSet rs = stmt.executeQuery();
+
+					while (rs.next()) {
+						listarServico.add(montarObjeto(rs));
+					}
+
+					rs.close();
+					stmt.close();
+					connection.close();
+
+					return listarServico;
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
 
 	private Servico montarObjeto(ResultSet rs) throws SQLException {
 

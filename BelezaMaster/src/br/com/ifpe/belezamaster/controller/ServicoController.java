@@ -44,21 +44,24 @@ public class ServicoController {
 		return "servico/incluirServico";
 	}
 
-	// pesquiar Servico
-	@RequestMapping("/exibirListarServico")
-	public String exibirListaServico() {
-		return "servico/pesquisarServico";
-	}
+	// listar servico
 
-	// pesquiar servico
-	@RequestMapping("pesquisarServico")
-	public String PesquisarServico(Model model, String nome) {
-		ServicoDao dao = new ServicoDao();
-		List<Servico> listaServico = dao.buscar(nome);
-		model.addAttribute("listaServico", listaServico);
-		return "servico/pesquisarServico";
-	}
+				@RequestMapping("/exibirListarServico") 
+				public String listarServico(Model  model) {
+				  ServicoDao dao = new ServicoDao(); List<Servico> listaServico = dao.listar();
+				  model.addAttribute("listaServico", listaServico);
+				  return "servico/pesquisarServico";
+				 
+				}
 
+			// pesquiar servico
+			@RequestMapping("pesquisarServico")
+			public String PesquisarServico(Model model, String nome) {
+				ServicoDao dao = new ServicoDao();
+				List<Servico> listaServico = dao.buscar(nome);
+				model.addAttribute("listaServico", listaServico);
+				return "servico/pesquisarServico";
+			}
 	// alterar Servico
 	@RequestMapping("/exibirAlterarServico")
 	public String exibirServico( Model model ,Servico servico) {
