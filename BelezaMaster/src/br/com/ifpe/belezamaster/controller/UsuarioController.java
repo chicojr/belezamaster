@@ -83,21 +83,25 @@ public class UsuarioController {
 
 	
 	
-	// pesquisar Usuario
-	@RequestMapping("/exibirListarUsuario")
-	public String exibirListaUsuario() {
-		return "usuario/listarUsuario";
-	}
+	// exibir listar Usuario
+			@RequestMapping("/exibirListarUsuario")
+			public String listarUsuario(Model model) {
+				UsuarioDao dao = new UsuarioDao();
+				List<Usuario> listarUsuario = dao.listar();
+				model.addAttribute("listarUsuario", listarUsuario);
 
-	
-	// pesquiar usuario
-	@RequestMapping("listarUsuario")
-	public String PesquisarUsuario(Model model, String email) {
-		UsuarioDao dao = new UsuarioDao();
-		List<Usuario> listarUsuario = dao.buscar(email);
-		model.addAttribute("listarUsuario", listarUsuario);
-		return "usuario/listarUsuario";
-	}
+				return "usuario/listarUsuario";
+
+			}
+
+			// pesquiar usuario
+				@RequestMapping("buscarUsuario")
+				public String PesquisarUsuario(Model model, String email) {
+					UsuarioDao dao = new UsuarioDao();
+					List<Usuario> listarUsuario = dao.buscar(email);
+					model.addAttribute("listarUsuario", listarUsuario);
+					return "usuario/listarUsuario";
+				}
 
 	// Remover Usuario
 	@RequestMapping("/removerUsuario")

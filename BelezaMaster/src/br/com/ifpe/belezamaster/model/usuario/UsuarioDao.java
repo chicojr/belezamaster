@@ -145,7 +145,31 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	// lISTAR
+	public List<Usuario> listar() {
 
+		try {
+			List<Usuario> listarUsuario = new ArrayList<Usuario>();
+			PreparedStatement stmt = (PreparedStatement) this.connection
+					.prepareStatement("SELECT * FROM USUARIO ORDER BY nome");
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				listarUsuario.add(montarObjeto(rs));
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return listarUsuario;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	private Usuario montarObjeto(ResultSet rs) throws SQLException {
 
 		Usuario usuario = new Usuario();

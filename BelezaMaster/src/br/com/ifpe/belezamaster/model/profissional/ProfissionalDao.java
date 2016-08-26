@@ -129,8 +129,32 @@ public class ProfissionalDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	// Listar profissional
+			public List<Profissional> listar() {
 
+				try {
+					List<Profissional> listarProfissional = new ArrayList<Profissional>();
+					PreparedStatement stmt = (PreparedStatement) this.connection
+							.prepareStatement("SELECT * FROM PROFISSIONAL ORDER BY nome");
 
+					ResultSet rs = stmt.executeQuery();
+
+					while (rs.next()) {
+						listarProfissional.add(montarObjeto(rs));
+					}
+
+					rs.close();
+					stmt.close();
+					connection.close();
+
+					return listarProfissional;
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+
+	
 	// Montar o Objeto
 
 	private Profissional montarObjeto(ResultSet rs) throws SQLException {

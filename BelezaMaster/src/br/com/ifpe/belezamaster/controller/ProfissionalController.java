@@ -31,21 +31,26 @@ public class ProfissionalController {
 
 	}
 
-	// PESQUISAR PROFISSIONAIS
+	// listar servico
 
-	@RequestMapping("/exibirListaProfissional")
-	public String exibirListaProfissional() {
-		return "profissional/pesquisarProfissional";
-	}
+			@RequestMapping("/exibirListarProfissional")
+			public String listarProfissional(Model model) {
+				ProfissionalDao dao = new ProfissionalDao();
+				List<Profissional> listarProfissional = dao.listar();
+				model.addAttribute("listarProfissional", listarProfissional);
+				return "profissional/pesquisarProfissional";
 
-	//pesquiar profissional
-	@RequestMapping("pesquisarProfissional")
-	public String PesquisarProfissional(Model model, String nome) {
-		ProfissionalDao dao = new ProfissionalDao();
-		List<Profissional> listarProfissional = dao.buscar(nome);
-		model.addAttribute("listarProfissional", listarProfissional);
-		return "profissional/pesquisarProfissional";
-	}
+			}
+
+			// pesquiar profissional
+			@RequestMapping("pesquisarProfissional")
+			public String PesquisarProfissional(Model model, String nome) {
+				ProfissionalDao dao = new ProfissionalDao();
+				List<Profissional> listarProfissional = dao.buscar(nome);
+				model.addAttribute("listarProfissional", listarProfissional);
+				return "profissional/pesquisarProfissional";
+			}
+			
 
 	//Alterar profissional
 	@RequestMapping("/exibirAlterarProfissional")
