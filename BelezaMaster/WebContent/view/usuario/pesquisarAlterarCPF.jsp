@@ -16,8 +16,7 @@
 	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,16 +43,23 @@
 <script type="text/javascript"
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
-<body>
-
+<body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
 
 
-	<div class="contact">
-		<h3 class="m_3">Pesquisar Alterar Usuário</h3>
-		<div class="m_4">
-			<span class="bottom_line"></span>
-		</div>
+<br><br><br><br><br><br><br><br><br>
+	<div id="loginbox" style="margin-top: 50px;"
+		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Pesquisar</div>
+				
+			</div>
+
+			<div style="padding-top: 30px" class="panel-body">
+
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
 
 		<form action="exibirAlterarUsuario" method="post">
 
@@ -62,35 +68,51 @@
 
 			<div class="form-group">
 				<label class="span" for="inputNome">CPF:</label><br /> <input
-					type="text" class="form-control author" id="cpf" name="cpf"
-					style="width: 500px;" required="required" value="${usuario.cpf}">
-				<br> <br /> <input type="submit" class="submit" value="Buscar">
+					type="text" class="form-control" id="cpf" name="cpf"
+					 required="required" value="${usuario.cpf}">
+				<br> <br /> <input type="submit" class="btn btn-primary" value="Buscar">
 			</div>
 			<br />
 		</form>
 	</div>
-	<div class="footer-bottom">
-		<div class="container">
-			<ul class="footer-nav">
-				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-				<li><a href="exibirListaProfissional">Pesquisar
-						Profissional</a></li>|
-				<li><a href="exibirIncluirProfissional">Cadastrar
-						Profissional</a></li>|
-				<li><a href="exibirLogin">Home</a></li>
-			</ul>
-			<div class="copy">
-				<p>
-					© 2014 Template by <a href="#" target="_blank"
-						class="link-password-02">ALM e Suplementos</a>
-				</p>
-			</div>
-			<div class="clear"></div>
-
-		</div>
 	</div>
+	</div>
+	
+<!-- 	<div class="footer-bottom"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<ul class="footer-nav"> -->
+<!-- 				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>| -->
+<!-- 				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>| -->
+<!-- 				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>| -->
+<!-- 				<li><a href="exibirListaProfissional">Pesquisar -->
+<!-- 						Profissional</a></li>| -->
+<!-- 				<li><a href="exibirIncluirProfissional">Cadastrar -->
+<!-- 						Profissional</a></li>| -->
+<!-- 				<li><a href="exibirLogin">Home</a></li> -->
+<!-- 			</ul> -->
+<!-- 			<div class="copy"> -->
+<!-- 				<p> -->
+<!-- 					© 2014 Template by <a href="#" target="_blank" -->
+<!-- 						class="link-password-02">ALM e Suplementos</a> -->
+<!-- 				</p> -->
+<!-- 			</div> -->
+<!-- 			<div class="clear"></div> -->
+
+<!-- 		</div> -->
+<!-- 	</div> -->
+ <!-- jQuery -->
+    <script src="view/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="view/vendor/easing/easing.min.js"></script>
+    <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="view/js/creative.min.js"></script>
 	<script type="text/javascript">
 		jQuery.noConflict();
 		jQuery(function($) {

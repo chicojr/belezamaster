@@ -48,31 +48,35 @@
 </head>
 
 
-
+<body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
+<Br><Br><Br><Br><Br><Br><Br><Br>
+	<div class="msg">${msg}</div>
+	<div id="loginbox" style="margin-top: 50px;"
+		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Cadastrar Serviço</div>
+				
+			</div>
 
+			<div style="padding-top: 30px" class="panel-body">
 
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
 
-
-
-<div class="contact">
-	<h3 class="m_3">Pesquisar Servico</h3>
-	<div class="m_4">
-		<span class="bottom_line"></span>
-	</div>
-</div>
-
-<form action="pesquisarServico" align="center" method="post">
-	<br /> <label class="span">Nome:</label><br /> <input class="author"
-		type="text" name="nome" /> <br /> <br /> <input class="submit"
+<form action="pesquisarServico" method="post">
+	<br /> <label class="span">Nome:</label><br /> <input class="form-control"
+		type="text" name="nome" /> <br /> <br /> <input class="btn btn-primary"
 		type="submit" value="BUSCAR" />
 </form>
-
-
+</div>
+</div>
+</div>
 <br>
 <br>
 <br>
-<table border='1' style='width: 100%;'>
+<table border='1' width="100%">
 	<tr style='background-color: #383838; font-weight: bold;'>
 		<td class="span">Nome do Produto</td>
 		<td class="span">Descrição</td>
@@ -99,27 +103,21 @@
 <br />
 <br />
 
-<div class="footer-bottom">
-	<div class="container">
-		<ul class="footer-nav">
-			<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-			<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-			<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-			<li><a href="exibirListaProfissional">Pesquisar Profissional</a></li>|
-			<li><a href="exibirIncluirProfissional">Cadastrar
-					Profissional</a></li>|
-			<li><a href="exibirLogin">Home</a></li>
-		</ul>
-		<div class="copy">
-			<p>
-				© 2014 Template by <a href="#" target="_blank"
-					class="link-password-02">ALM e Suplementos</a>
-			</p>
-		</div>
-		<div class="clear"></div>
-	</div>
-</div>
 
 
+	<!-- jQuery -->
+    <script src="view/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="view/vendor/easing/easing.min.js"></script>
+    <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="view/js/creative.min.js"></script>
+			
 </body>
 </html>

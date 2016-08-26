@@ -16,8 +16,6 @@
 	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,15 +42,22 @@
 <script type="text/javascript"
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
-<body>
+<body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
-
+<Br><Br><Br><Br><Br><Br><Br><Br>
 	<div class="msg">${msg}</div>
-	<div class="contact">
-		<h3 class="m_3">Alterar Produto</h3>
-		<div class="m_4">
-			<span class="bottom_line"> </span>
-		</div>
+	<div id="loginbox" style="margin-top: 50px;"
+		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Alterar Produto</div>
+				
+			</div>
+
+			<div style="padding-top: 30px" class="panel-body">
+
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
 
 
 
@@ -60,56 +65,53 @@
 		<form action="alterarProduto" method="post">
 
 			<label class="span">Nome do Produto :</label><br /> <input
-				type="text" class="author" name="nomeProduto" required="required"
+				type="text" class="form-control" name="nomeProduto" required="required"
 				maxlength="50" value="${produto.nomeProduto}"
 				onkeypress='return soLetras(event)' required="required" />
 			<p />
 
 
-			<br> <br> <label class="span">Descrição:</label><br /> <input
-				type="text" class="author" name="descricao" maxlength="50"
-				value="${produto.descricao}" required="required" /> <br> <br>
+			<br>  <label class="span">Descrição:</label><br /> <input
+				type="text" class="form-control" name="descricao" maxlength="50"
+				value="${produto.descricao}" required="required" /> <br> 
+			
+			
+			
 			<label class="span">Quantidade:</label><br /> <input type="text"
-				class="author" name="quantidade" maxlength="11"
+				class="form-control" name="quantidade" maxlength="11"
 				value="${produto.quantidade}" required="required"> <br>
-			<br> <label class="span">Valor:</label><br /> <input
-				type="text" class="author" name="valor" maxlength="10"
-				value="${produto.valor}" required="required"> <br> <br>
+		 
+			
+			
+			<label class="span">Valor:</label><br /> <input
+				type="text" class="form-control" name="valor" maxlength="10"
+				value="${produto.valor}" required="required"> <br> 
 
 			<!-- CÓDIGO -->
 			<label class="span"></label><br /> <input type="hidden"
-				class="author" name="codigo" maxlength="30"
+				class="form-control" name="codigo" maxlength="30"
 				value="${produto.codigo}">
 
 			<p>
-				<input class="submit" type="submit" value="Alterar">
+				<input class="btn-primary btn" type="submit" value="Alterar">
 			</p>
 		</form>
+</div>
+</div>
+</div>
+ <!-- jQuery -->
+    <script src="view/vendor/jquery/jquery.min.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-	</div>
-	<div class="footer-bottom">
-		<div class="container">
-			<ul class="footer-nav">
-				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-				<li><a href="exibirAlterarUsuario">Alterar Produto</a></li>|
-				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-				<li><a href="exibirListaProfissional">Pesquisar
-						Profissional</a></li>|
-				<li><a href="exibirIncluirProfissional">Cadastrar
-						Profissional</a></li>|
-				<li><a href="exibirLogin">Home</a></li>
-			</ul>
-			<div class="copy">
-				<p>
-					© 2014 Template by <a href="#" target="_blank"
-						class="link-password-02">ALM e Suplementos / Project Evolution</a>
-				</p>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
+    <!-- Plugin JavaScript -->
+    <script src="view/vendor/easing/easing.min.js"></script>
+    <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="view/js/creative.min.js"></script>
 
 </body>
 </html>

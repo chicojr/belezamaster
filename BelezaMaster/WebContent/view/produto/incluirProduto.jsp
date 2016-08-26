@@ -16,9 +16,7 @@
 	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+   
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -44,64 +42,66 @@
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
 
-<body>
+<body class="bg-dark-2">
 		<c:import url="../menu/menu.jsp"></c:import>
-
+<br><br><br><br><br><br>
 
 	<div class="msg">${mensagem}</div>
-	<div class="contact">
-		<h3 class="m_3">Cadastrar Produto</h3>
-		<div class="m_4">
-			<span class="bottom_line"></span>
-		</div>
+	<div id="loginbox" style="margin-top: 50px;"
+		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Cadastrar Produto</div>
+				
+			</div>
+
+			<div style="padding-top: 30px" class="panel-body">
+
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
+
+
 
 
 
 		<form name="form1" action="incluirProduto" method="post">
 
 			<label class="span">Nome do produto:</label><br /> <input
-				type="text" class="author" name="nomeProduto" required="required"
+				type="text" class="form-control" name="nomeProduto" required="required"
 				maxlength="50"> <br>
 			<br> <label class="span">Descrição:</label><br /> <input
-				type="text" class="author" name="descricao" maxlength="30"
+				type="text" class="form-control" name="descricao" maxlength="30"
 				required="required"> <br>
 			<br> <label class="span">Quantidade:</label><br /> <input
-				type="text" class="author" name="quantidade" maxlength="10"
+				type="text" class="form-control" name="quantidade" maxlength="10"
 				required="required"> <br>
 			<br> <label class="span">Valor:</label><br /> <input
-				type="text" class="author" name="valor" maxlength="10"
+				type="text" class="form-control" name="valor" maxlength="10"
 				required="required"> <br>
 			<br>
 
 
 			<p>
-				<input class="submit" type="submit" value="Enviar">
+				<input class="btn btn-primary" type="submit" value="Enviar">
 			</p>
 		</form>
-	</div>
-	<div class="footer-bottom">
-		<div class="container">
-			<ul class="footer-nav">
-				<li><a href="exibirIncluirProduto">Cadastrar Produto</a></li>
-				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-				<li><a href="exibirListaProfissional">Pesquisar
-						Profissional</a></li>|
-				<li><a href="exibirIncluirProfissional">Cadastrar
-						Profissional</a></li>|
-				<li><a href="exibirLogin">Home</a></li>
-			</ul>
-			<div class="copy">
-				<p>
-					© 2014 Template by <a href="#" target="_blank"
-						class="link-password-02">ALM e Suplementos</a>
-				</p>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
+		<!-- jQuery -->
+    <script src="view/vendor/jquery/jquery.min.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="view/vendor/easing/easing.min.js"></script>
+    <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="view/js/creative.min.js"></script>
+
+</div>
+</div>
+</div>
 
 </body>
 </html>

@@ -27,7 +27,7 @@ public class ProfissionalController {
 		ProfissionalDao dao = new ProfissionalDao();
 		dao.salvar(profissional);
 		model.addAttribute("mensagem", "Profissional Adicionado com Sucesso!");
-		return "forward:exibirListaProfissional";
+		return "forward:exibirListarProfissional";
 
 	}
 

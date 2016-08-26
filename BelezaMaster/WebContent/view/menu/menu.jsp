@@ -51,7 +51,7 @@
 					<li> 						
 						<a href="exibirAlterarProfissional">Alterar Profissional</a>
 						<a href="exibirIncluirProfissional">Cadastrar Profissional</a>
-						<a href="exibirListaProfissional">Pesquisar Profissional</a>
+						<a href="exibirListarProfissional">Pesquisar Profissional</a>
 					</li>
 				</ul>
 			</li>

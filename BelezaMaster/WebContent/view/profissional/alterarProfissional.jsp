@@ -16,8 +16,7 @@
 	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,69 +43,87 @@
 <script type="text/javascript"
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
-<body>
+<body class="bg-dark-2">
+	<c:import url="../menu/menu.jsp"></c:import>
+<Br><Br><Br><Br><Br><Br><Br><Br>
+	<div class="msg">${msg}</div>
+	<div id="loginbox" style="margin-top: 50px;"
+		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Alterar Profissional</div>
+				
+			</div>
 
+			<div style="padding-top: 30px" class="panel-body">
 
-
-		<c:import url="../menu/menu.jsp"></c:import>
-
-	<div class="msg">${mensagem}</div>
-
-	<div class="contact">
-		<h3 class="m_3">Alterar Profissional</h3>
-		<div class="m_4">
-			<span class="bottom_line"> </span>
-		</div>
-
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
 
 
 
 		<form name="form1" action="alterarProfissional" method="post">
 			<label class="span">Nome do Profissional: <br /></label> <input
-				type="text" class="author" name="nome" maxlength="50"
+				type="text" class="form-control" name="nome" maxlength="50"
 				value="${profissional.nome}" onkeypress='return soLetras(event)'
 				required="required" />
 			<p />
 			<br> <label class="span">Profissão: <br /></label> <input
-				type="text" class="author" name="profissao" maxlength="20"
+				type="text" class="form-control" name="profissao" maxlength="20"
 				value="${profissional.profissao}"
 				onkeypress='return soLetras(event)' required="required" />
-			<p />
+			
 
 			<br> <label class="span">E-mail: <br /></label> <input
-				type="email" class="author" name="email"
+				type="email" class="form-control" name="email"
 				value="${profissional.email}" maxlength="50" required="required" />
-			<p />
+			
 			<br> <label class="span">Endereço: <br /></label> <input
-				type="text" class="author" name="endereco"
+				type="text" class="form-control" name="endereco"
 				value="${profissional.endereco}" maxlength="50" required="required" />
-			<p />
+			
 			<br> <label class="span">Telefone: <br /></label> <input
-				type="text" class="author" name="telefone"
+				type="text" class="form-control" name="telefone"
 				value="${profissional.telefone}" maxlength="14" id="telefone"
 				required="required" />
-			<p />
+			
 			<br>
-			<p>
+		
 				<label class="span">Celular: <br /></label> <input type="text"
-					class="author" name="celular" value="${profissional.celular}"
+					class="form-control" name="celular" value="${profissional.celular}"
 					maxlength="14" required="required" id="celular" />
-			</p>
+		
 			<!-- id -->
 			<br> <label class="span"> <br /></label> <input type="hidden"
-				class="author" name="id" maxlength="14" value="${profissional.id}"
+				class="form-control" name="id" maxlength="14" value="${profissional.id}"
 				onblur="javascript: validarCPF(this.value);"
 				onkeypress="javascript: mascara(this, cpf_mask);"
 				required="required" />
-			<p />
+			
 			<!-- id fim-->
-			<br> <input type="submit" class="submit" value="Alterar"
+			<input type="submit" class="btn btn-primary" value="Alterar"
 				name="btn-cadastrar" /> &nbsp;&nbsp; <input type="reset"
-				class="submit" value="Limpar" name="btn-limpar" />
+				class="btn btn-warning" value="Limpar" name="btn-limpar" />
 
 			<p />
 
 		</form>
+		</div>
+		</div>
+		
+		<!-- jQuery -->
+    <script src="view/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="view/vendor/easing/easing.min.js"></script>
+    <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="view/js/creative.min.js"></script>
 		<script type="text/javascript">
 			jQuery.noConflict();
 			jQuery(function($) {
@@ -118,27 +135,7 @@
 		</script>
 
 	</div>
-	<div class="footer-bottom">
-		<div class="container">
-			<ul class="footer-nav">
-				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-				<li><a href="exibirListaProfissional">Pesquisar
-						Profissional</a></li>|
-				<li><a href="exibirIncluirProfissional">Cadastrar
-						Profissional</a></li>|
-				<li><a href="exibirLogin">Home</a></li>
-			</ul>
-			<div class="copy">
-				<p>
-					© 2014 Template by <a href="#" target="_blank"
-						class="link-password-02">ALM e Suplementos</a>
-				</p>
-			</div>
-			<div class="clear"></div>
-		</div>
-	</div>
+	
 
 </body>
 </html>
