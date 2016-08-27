@@ -50,15 +50,26 @@ public class ProdutoController {
 	}
 
 	// exibir listar produto
-	@RequestMapping("/exibirListarProduto")
-	public String listarProduto(Model model) {
-		ProdutoDao dao = new ProdutoDao();
-		List<Produto> listarProduto = dao.listar();
-		model.addAttribute("listarProduto", listarProduto);
+		@RequestMapping("/exibirListarProduto")
+		public String listarProduto(Model model) {
+			ProdutoDao dao = new ProdutoDao();
+			List<Produto> listarProduto = dao.listar();
+			model.addAttribute("listarProduto", listarProduto);
 
-		return "produto/listarProduto";
+			return "produto/listarProduto";
 
-	}
+		}
+
+		// pesquisar produto
+		@RequestMapping("/pesquisarProduto")
+		public String PesquisarProduto(Model model, String nomeProduto) {
+			ProdutoDao dao = new ProdutoDao();
+			List<Produto> listarProduto = dao.buscar(nomeProduto);
+			model.addAttribute("listarProduto", listarProduto);
+
+			return "produto/listarProduto";
+
+		}
 
 	// Remover produto
 	@RequestMapping("/removerProduto")
@@ -70,14 +81,5 @@ public class ProdutoController {
 		return "forward:exibirListarProduto";
 	}
 
-	// pesquisar produto
-	@RequestMapping("/pesquisarProduto")
-	public String PesquisarProduto(Model model, String nomeProduto) {
-		ProdutoDao dao = new ProdutoDao();
-		List<Produto> listarProduto = dao.buscar(nomeProduto);
-		model.addAttribute("listarProduto", listarProduto);
-
-		return "produto/listarProduto";
-
-	}
+	
 }

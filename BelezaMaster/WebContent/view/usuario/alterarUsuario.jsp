@@ -19,7 +19,7 @@
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
 
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -48,18 +48,34 @@
 <script type="text/javascript"
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
-<body>
+<body class="bg-dark-2">
 
 		<c:import url="../menu/menu.jsp"></c:import>
 
+ <br>
+         <br>
+         <br>
+         <br>
+         <br>
 
 	<div class="msg">${msg}</div>
-	<div class="contact">
-		<h3 class="m_3">Alterar Usuário</h3>
-		<div class="m_4">
-			<span class="bottom_line"></span>
-		</div>
+	<div id="loginbox" style="margin-top: 50px;"
+		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<div class="panel-title">Alterar Usuário</div>
+				<div
+					style="float: right; font-size: 80%; position: relative; top: -10px">
+					<a href="#">Forgot password?</a>
+				</div>
+			</div>
 
+			<div style="padding-top: 30px" class="panel-body">
+
+				<div style="display: none" id="login-alert"
+					class="alert alert-danger col-sm-12"></div>
+		
+        
 		<form action="alterarUsuario" method="post">
 
 
@@ -68,67 +84,87 @@
 			<div class="form-group">
 				<label class="span" for="inputNome">Nome</label><br /> <input
 					type="text" class="form-control author" name="nome"
-					style="width: 500px;" required="required" value="${usuario.nome}">
+					required="required" value="${usuario.nome}">
 			</div>
 			<br />
 			<div class="form-group">
 				<label class="span" for="inputEmail">E-mail</label><br /> <input
 					type="email" id="inputEmail" class="form-control author"
-					name="email" style="width: 500px;" required="required"
+					name="email"  required="required"
 					value="${usuario.email}" />
 			</div>
 			<br />
 			<div class="form-group">
 				<label class="span" for="inputLogin">Telefone</label><br /> <input
 					type="text" class="form-control author" id="telefone"
-					name="telefone" style="width: 300px;" required="required"
+					name="telefone" required="required"
 					value="${usuario.telefone}">
 			</div>
 			<br />
 			<div class="form-group">
 				<label class="span" for="inputSenha">Celular</label><br /> <input
 					type="text" class="form-control author" id="celular" name="celular"
-					style="width: 300px;" required="required"
+					 required="required"
 					value="${usuario.celular}">
 			</div>
 
 			<div class="form-group">
 				<label class="span" for="inputSenha"></label><br /> <input
 					type="hidden" class="form-control author" id="cpf" name="cpf"
-					style="width: 300px;" value="${usuario.cpf}">
+					 value="${usuario.cpf}">
 			</div>
-			<br /> <a href="incluirUsuario"
+			<br /> <a href="exibirIndex"
 				class="btn btn-danger submit link-password-02">Cancelar</a> &nbsp;
-			<button type="reset" class="btn btn-default submit">&nbsp;
-				Limpar &nbsp;</button>
+			
 			&nbsp;
 			<button type="submit" class="btn btn-warning submit">&nbsp;
 				Alterar &nbsp;</button>
 
 		</form>
+	
 	</div>
-	<div class="footer-bottom">
-		<div class="container">
-			<ul class="footer-nav">
-				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>|
-				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>|
-				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>|
-				<li><a href="exibirListaProfissional">Pesquisar
-						Profissional</a></li>|
-				<li><a href="exibirIncluirProfissional">Cadastrar
-						Profissional</a></li>|
-				<li><a href="exibirLogin">Home</a></li>
-			</ul>
-			<div class="copy">
-				<p>
-					© 2014 Template by <a href="#" target="_blank"
-						class="link-password-02">ALM e Suplementos</a>
-				</p>
-			</div>
+<!-- 	<div class="footer-bottom"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<ul class="footer-nav"> -->
+<!-- 				<li><a href="exibirAlterarUsuario">Alterar Usuário</a></li>| -->
+<!-- 				<li><a href="exibirIncluirServico">Cadastrar Serviço</a></li>| -->
+<!-- 				<li><a href="exibirIncluirUsuario">Cadastrar Usuário</a></li>| -->
+<!-- 				<li><a href="exibirListaProfissional">Pesquisar -->
+<!-- 						Profissional</a></li>| -->
+<!-- 				<li><a href="exibirIncluirProfissional">Cadastrar -->
+<!-- 						Profissional</a></li>| -->
+<!-- 				<li><a href="exibirLogin">Home</a></li> -->
+<!-- 			</ul> -->
+<!-- 			<div class="copy"> -->
+<!-- 				<p> -->
+<!-- 					© 2014 Template by <a href="#" target="_blank" -->
+<!-- 						class="link-password-02">ALM e Suplementos</a> -->
+<!-- 				</p> -->
+<!-- 			</div> -->
 			<div class="clear"></div>
 
 		</div>
 	</div>
+	
+	<!-- jQuery -->
+	<script src="view/vendor/jquery/jquery.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="view/vendor/easing/easing.min.js"></script>
+	<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="view/js/validaCPF.js"></script>
+	<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+	<script type="text/javascript"
+		src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
+	<!-- Theme JavaScript -->
+	<script src="view/js/creative.min.js"></script>
+	
 	<script type="text/javascript">
 		jQuery.noConflict();
 		jQuery(function($) {

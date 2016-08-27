@@ -6,54 +6,68 @@
 <html lang="pt-br">
 
 <head>
-	<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800'
+<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link href="view/css/style.css" rel="stylesheet" type="text/css" />
+<title>Beleza Master - Especialista em Designer de Cortes
+	Femininos e Masculinos</title>
+
+<!-- Bootstrap Core CSS -->
+
+
+<!-- Custom Fonts -->
+<link href="view/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link
+	href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
 	rel='stylesheet' type='text/css'>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
-    <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
+<link
+	href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
+	rel='stylesheet' type='text/css'>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Plugin CSS -->
+<link href="view/vendor/magnific-popup/magnific-popup.css"
+	rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<link href="view/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Plugin CSS -->
-    <link href="view/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+<!-- Theme CSS -->
+<link href="view/css/creative.css" rel="stylesheet">
 
-	    <link href="view/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-	
-    <!-- Theme CSS -->
-    <link href="view/css/creative.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script type="text/javascript" src="view/js/validaCPF.js"></script>
-<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript"
-	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
 <body class="bg-dark-2">
+
 	<c:import url="../menu/menu.jsp"></c:import>
-<Br><Br><Br><Br><Br><Br><Br><Br>
+
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+
+
 	<div class="msg">${msg}</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Pesquisar Profissional</div>
-				
+				<div class="panel-title">Listar Profissional</div>
+				<div
+					style="float: right; font-size: 80%; position: relative; top: -10px">
+				</div>
 			</div>
 
 			<div style="padding-top: 30px" class="panel-body">
@@ -74,34 +88,38 @@
 		</form>
 
 </div>
-</div>
+		</div>
+
 	</div>
-	<br>
+	<p>
 	
-			<table border='1' style='width: 100%;'>
-				<tr style='background-color: #383838; font-weight: bold;'>
-					<td class="span">NOME DO PROFISSIONAL</td>
-					<td class="span">PROFISSÃO</td>
+	
+	<table border='1' class="table table-bordered">
+		<tr style='background-color: #fff; font-weight: bold;'>
+					<td class="span">Nome do Profissional</td>
+					<td class="span">Profissão</td>
 					<td class="span">CPF</td>
-					<td class="span">E-MAIL</td>
-					<td class="span">ENDEREÇO</td>
-					<td class="span">TELEFONE</td>
-					<td class="span">CELULAR</td>
-					<td class="span">OPÇÕES</td>
+					<td class="span">E-mail</td>
+					<td class="span">Endereço</td>
+					<td class="span">Telefone</td>
+					<td class="span">Celular</td>
+					<td class="span">Alterar</td>
+			         <td class="span">Remover</td>
 				</tr>
 				<c:forEach var="profissional" items="${listarProfissional}">
 					<tr>
-						<td class="span">${profissional.nome}</td>
-						<td class="span">${profissional.profissao}</td>
-						<td class="span">${profissional.cpf}</td>
-						<td class="span">${profissional.email}</td>
-						<td class="span">${profissional.endereco}</td>
-						<td class="span">${profissional.telefone}</td>
-						<td class="span">${profissional.celular}</td>
-						<td class="span"><a style="color: white"
-							href="removerProfissional?id=${profissional.id}">Remover</a>
-						<td><a style="color: white"
+						<td class="span-text">${profissional.nome}</td>
+						<td class="span-text">${profissional.profissao}</td>
+						<td class="span-text">${profissional.cpf}</td>
+						<td class="span-text">${profissional.email}</td>
+						<td class="span-text">${profissional.endereco}</td>
+						<td class="span-text">${profissional.telefone}</td>
+						<td class="span-text">${profissional.celular}</td>
+						<td><a class="btn btn-success" 
 							href="exibirAlterarProfissional?id=${profissional.id}">Alterar</a></td>
+						<td ><a class="btn btn-danger" 
+							href="removerProfissional?id=${profissional.id}">Remover</a>
+						
 					</tr>
 				</c:forEach>
 			</table>

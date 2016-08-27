@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
@@ -13,6 +15,13 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link href="view/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript"
+	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
+
+
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
 
@@ -58,13 +67,12 @@
 
 
 
-
-	<div class="msg">${msg}</div>
+<div class="msg">${registrar}</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Listar Usu�rio</div>
+				<div class="panel-title">Listar Registro de Atendimento</div>
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -10px">
 				</div>
@@ -75,9 +83,9 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="buscarUsuario" method="post" class="contact">
-					<br /> <label class="span">Nome:</label><br /> <input
-						class="form-control" type="text" name="email" /> <br /> <br /> <input
+				<form action="registrarAtendimento" method="post" class="contact">
+					<br /> <label class="span">Situação:</label><br /> <input
+						class="form-control" type="text" name="situacao" /> <br /> <br /> <input
 						class="btn btn-primary" type="submit" value="Buscar" />
 
 				</form>
@@ -85,40 +93,52 @@
 		</div>
 
 	</div>
-	<p>
 	
-	
+
+
 	<table border='1' class="table table-bordered">
 		<tr style='background-color: #fff; font-weight: bold;'>
-			<td class="span">Nome Usu�rio</td>
-			<td class="span">E-mail</td>
-			<td class="span">Telefone</td>
-			<td class="span">Celular</td>
+
+			<td class="span">Nome do Usuário</td>
+			<td class="span">Cpf do Usuário</td>
+			<td class="span">Código do Servico</td>
+			<td class="span">Nome do Profissional</td>
+			<td class="span">Código do Atendimento</td>
+			<td class="span">Horário de Atendimento</td>
+			<td class="span">Situação</td>
+			<td class="span">Data do Atendimento</td>
 			<td class="span">Alterar</td>
 			<td class="span">Remover</td>
 
 
-
 		</tr>
 
+		<c:forEach var="atendimento" items="${registrarAtendimento}">
+			<td class="span-text">${atendimento.usuario.nome}</td>
+			<td class="span-text">${atendimento.usuario.cpf}</td>
+           <td class="span-text"> ${atendimento.servico.codigo}</td>
+			<td class="span-text">${atendimento.profissional.nome}</td>
+           <td class="span-text"> ${atendimento.codigoAtendimento}</td>
+			<td class="span-text"> <fmt:formatDate value="${atendimento.horario}" pattern="dd/MM/yyyy"/></td>
+			<td class="span-text">${atendimento.situacao}</td>
+			<td class="span-text">${atendimento.dataAtendimento}</td>
 
-		<c:forEach var="usuario" items="${listarUsuario}">
-			<tr>
-				<td class="span-text"> ${usuario.nome}</td>
-				<td class="span-text"> ${usuario.email}</td>
-				<td class="span-text"> ${usuario.telefone}</td>
-				<td class="span-text"> ${usuario.celular}</td>
-		
-		        <td><a class="btn btn-success" href="exibirAlterarUsuario?cpf=${usuario.cpf}"> Alterar</a></td>
-				<td><a class="btn btn-danger" href="removerUsuario?cpf=${usuario.cpf}"> Remover</a></td>
-		
+
+			<td><a class="btn btn-success"
+				href="alterarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
+			<td><a class="btn btn-danger"
+				href="#?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
 
 
 			</tr>
 		</c:forEach>
 	</table>
+	<br />
+	<br />
+	<br />
+	<br />
 
-	<script src="view/vendor/jquery/jquery.min.js"></script>
+<script src="view/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>

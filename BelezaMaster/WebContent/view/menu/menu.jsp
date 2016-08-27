@@ -21,7 +21,7 @@
 					<li> 						
 						<a href="exibirAlterarProduto">Alterar Produto</a>
 						<a href="exibirIncluirProduto">Cadastrar Produto</a>
-						<a href="pesquisarProduto">Pesquisar Produto</a>
+						<a href="exibirListarProduto">Pesquisar Produto</a>
 					</li>
 				</ul>
 			</li>
@@ -39,19 +39,29 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário<span class="caret"></span></a>
 				<ul id="dropdown-dp" class="dropdown-menu">
 					<li> 						
-						<a href="exibirAlterarUsuario">Alterar Usuário</a>
+						<a href="exibirListarUsuario">Listar Usuário</a>						
 						<a href="exibirIncluirUsuario">Cadastrar Usuário</a>
-						<a href="exibirListarUsuario">Pesquisar Usuário</a>
+						<a href="exibirPesquisarPorCpf">Pesquisar Usuário</a>
 					</li>
 				</ul>
 			</li>
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Produto<span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Profissional<span class="caret"></span></a>
 				<ul id="dropdown-dp" class="dropdown-menu">
 					<li> 						
 						<a href="exibirAlterarProfissional">Alterar Profissional</a>
 						<a href="exibirIncluirProfissional">Cadastrar Profissional</a>
 						<a href="exibirListarProfissional">Pesquisar Profissional</a>
+					</li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Reserva<span class="caret"></span></a>
+				<ul id="dropdown-dp" class="dropdown-menu">
+					<li> 						
+						<a href="exibirIncluirAtendimento">Fazer Reserva</a>
+						<a href="exibirFinalizarAtendimento	">Finalizar Atendimento</a>
+						<a href="exibirListarAtendimento">Registrar Atendimento</a>
 					</li>
 				</ul>
 			</li>

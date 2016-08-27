@@ -1,25 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 
 <head>
-<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
+<href
+	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
+	' rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
 <link href="view/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> <script
+	type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script> <script
+	type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
+
+
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
 
-<!-- Bootstrap Core CSS -->
-
-
-<!-- Custom Fonts -->
+<!-- Bootstrap Core CSS --> <!-- Custom Fonts -->
 <link href="view/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link
@@ -57,14 +64,12 @@
 	<br>
 
 
-
-
-	<div class="msg">${msg}</div>
+	<div class="msg">${mesagem}</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Listar Usu�rio</div>
+				<div class="panel-title">Listar Registro de Atendimento</div>
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -10px">
 				</div>
@@ -75,49 +80,78 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="buscarUsuario" method="post" class="contact">
-					<br /> <label class="span">Nome:</label><br /> <input
-						class="form-control" type="text" name="email" /> <br /> <br /> <input
-						class="btn btn-primary" type="submit" value="Buscar" />
+				<form action="FazerReserva" method="post">
+					<label>Data de Atendimento</label>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="nome"
+							type="date" class="form-control" name="horario"
+							placeholder="Digite Data de Atendimento"
+							onkeypress='return soLetras(event)'
+							value="${atendimento.horario}">
+					</div>
+
+					<label>Situação</label>
+					<div style="margin-bottom: 25px" class="input-group">
+
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="nome"
+							type="text" class="form-control" name="situacao"
+							placeholder="Digite Situação do Atendimento"
+							onkeypress='return soLetras(event)'
+							value="${atendimento.situacao}"">
+					</div>
+
+
+					<p>
+						Profissional:<br> <select name="profissional.id">
+							<option value="">Selecione</option>
+							<c:forEach items="${listaProfissional}" var="obj">
+								<option value="${obj.id}"
+									<c:if test="${obj.id eq p.profissional.id}">selected="selected"</c:if>>
+									${obj.nome}</option>
+							</c:forEach>
+						</select>
+					</p>
+
+
+					<p>
+						Servico:<br> <select name="servico.codigo">
+							<option value="">Selecione</option>
+							<c:forEach items="${listaServico}" var="obj">
+								<option value="${obj.codigo}"
+									<c:if test="${obj.codigo eq p.servico.codigo}">selected="selected"</c:if>>
+									${obj.nome}</option>
+							</c:forEach>
+						</select>
+					</p>
+
+
+
+					<p>
+						Usuario:<br> <select name="usuario.cpf">
+							<option value="">Selecione</option>
+							<c:forEach items="${listaUsuario}" var="obj">
+								<option value="${obj.cpf}"
+									<c:if test="${obj.cpf eq p.usuario.cpf}">selected="selected"</c:if>>
+									${obj.nome}</option>
+							</c:forEach>
+						</select>
+					</p>
+
+					<button type="reset" class="btn btn-default submit">&nbsp;
+				Limpar &nbsp;</button>
+			&nbsp;
+			<button type="submit" class="btn btn-warning submit">&nbsp;
+				Alterar &nbsp;</button>
+
+
 
 				</form>
 			</div>
 		</div>
 
 	</div>
-	<p>
-	
-	
-	<table border='1' class="table table-bordered">
-		<tr style='background-color: #fff; font-weight: bold;'>
-			<td class="span">Nome Usu�rio</td>
-			<td class="span">E-mail</td>
-			<td class="span">Telefone</td>
-			<td class="span">Celular</td>
-			<td class="span">Alterar</td>
-			<td class="span">Remover</td>
-
-
-
-		</tr>
-
-
-		<c:forEach var="usuario" items="${listarUsuario}">
-			<tr>
-				<td class="span-text"> ${usuario.nome}</td>
-				<td class="span-text"> ${usuario.email}</td>
-				<td class="span-text"> ${usuario.telefone}</td>
-				<td class="span-text"> ${usuario.celular}</td>
-		
-		        <td><a class="btn btn-success" href="exibirAlterarUsuario?cpf=${usuario.cpf}"> Alterar</a></td>
-				<td><a class="btn btn-danger" href="removerUsuario?cpf=${usuario.cpf}"> Remover</a></td>
-		
-
-
-			</tr>
-		</c:forEach>
-	</table>
-
 	<script src="view/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->

@@ -16,7 +16,6 @@ import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 
 @Controller
 public class UsuarioController {
-
 	//Exibir Página Inicial
 	@RequestMapping("/exibirIndex")
 	public String exibirIndex() {
@@ -47,6 +46,11 @@ public class UsuarioController {
 		} else {
 
 			UsuarioDao dao = new UsuarioDao();
+
+			if( dao.buscarPorCpf(usuario.getCpf()) != null){
+				model.addAttribute("cpf", " Cpf já cadastrado");
+				return "forward:exibirIncluirUsuario";
+			}
 			dao.salvar(usuario);
 			model.addAttribute("mensagem", " O Usuário foi adicionado com Sucesso!");
 			return "usuario/incluirUsuario";
