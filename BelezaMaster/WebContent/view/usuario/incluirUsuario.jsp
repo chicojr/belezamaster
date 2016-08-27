@@ -81,10 +81,9 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
 							type="text" class="form-control" name="nome"
-							placeholder="Digite seu nome" onkeypress='return soLetras(event)'
-							value="${usuario.nome}" required="required">
-						<form:errors path="usuario.nome"
-							cssStyle="color:red; font-size:10px;" />
+							placeholder="Digite seu nome"  onkeypress="mascara(this,soLetras)"
+							value="${usuario.nome}" maxlength="50" required="required">
+						<form:errors path="usuario.nome" cssStyle="color:red" />
 					</div>
                     &nbsp;<span style="color: red;">${cpf}</span>
 
@@ -94,33 +93,33 @@
 							aria-hidden="true"></i></span> <input id="cpf" type="text"
 							class="form-control" name="cpf" value="${usuario.cpf}"
 							placeholder="Digite seu CPF"
-							onblur="javascript: validarCPF(this.value);" required="required">
+							onblur="javascript: validarCPF(this.value);" maxlength="14"equired="required">
 					</div>
 					
 
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-envelope"></i></span> <input id="email"
-							type="text" class="form-control" name="email"
-							value="${usuario.email}" placeholder="Digite seu E-mail" required="required"/>
+							type="email" class="form-control" name="email"
+							value="${usuario.email}" placeholder="Digite seu E-mail" required="required" maxlength="50"/>
 						<form:errors path="usuario.email"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-
+                     <span style="color: red;" maxlength="20">${confsenha}</span>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="senha"
 							type="password" class="form-control" name="senha"
-							placeholder="Digite sua senha" required="required"><span style="color: red;">${confsenha}</span><br>
+							placeholder="Digite sua senha" required="required"><br>
 						<form:errors path="usuario.senha"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-
+                       <span style="color: red;">${confsenha}</span>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"
 							type="password" class="form-control" name="confSenha"
-							placeholder="Confirme senha" required="required"><span style="color: red;">${confsenha}</span><br>
+							placeholder="Confirme senha" required="required" maxlength="20"><br>
 						<form:errors path="usuario.senha"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
@@ -129,7 +128,7 @@
 						<span class="input-group-addon"><i
 							class="fa fa-phone-square" aria-hidden="true"></i></span> <input
 							id="telefone" type="tel" class="form-control" name="telefone"
-							placeholder="Digite seu telefone" required="required">
+							placeholder="Digite seu telefone" required="required" maxlength="13" value="${usuario.telefone}">
 						<form:errors path="usuario.telefone"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
@@ -139,7 +138,7 @@
 							class="fa fa-mobile fa-2x" aria-hidden="true"></i></span> <input
 							style="height: 42px;" id="celular" type="tel"
 							class="form-control" name="celular"
-							placeholder="Digite seu celular" required="required">
+							placeholder="Digite seu celular" required="required" maxlength="14" value="${usuario.celular}">
 						<form:errors path="usuario.celular"
 							cssStyle="color:red; font-size:10px;" />
 					</div>

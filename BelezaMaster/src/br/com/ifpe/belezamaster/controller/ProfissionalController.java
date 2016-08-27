@@ -78,7 +78,7 @@ public class ProfissionalController {
 	ProfissionalDao dao = new ProfissionalDao();
 	dao.remover(profissional);
 	model.addAttribute("remove", "Profissional Removido com Sucesso");
-	return "profissional/pesquisarProfissional";
+	return"forward:exibirListaProfissional";
 	}
 		
 	

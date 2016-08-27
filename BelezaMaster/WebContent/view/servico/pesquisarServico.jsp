@@ -77,7 +77,7 @@
 
 <form action="pesquisarServico" method="post">
 	<br /> <label class="span">Nome:</label><br /> <input class="form-control"
-		type="text" name="nome" /> <br /> <br /> <input class="btn btn-primary"
+		type="text" name="nome" onkeypress="mascara(this,soLetras)"/> <br /> <br /> <input class="btn btn-primary"
 		type="submit" value="BUSCAR" />
 </form>
 </div>
@@ -128,7 +128,7 @@
     <script src="view/vendor/easing/easing.min.js"></script>
     <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+<script type="text/javascript" src="view/js/validaCPF.js"></script>
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
 			

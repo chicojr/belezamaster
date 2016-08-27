@@ -83,7 +83,7 @@
 		
 		<form action="pesquisarProfissional" method="get">
 			<br /> <label class="span">Nome:</label><br /> <input class="form-control"
-				type="text" name="nome" /> <br />
+				type="text" name="nome" onkeypress="mascara(this,soLetras)" /> <br />
 			<br /> <input class="btn btn-primary" type="submit" value="Buscar" />
 		</form>
 
@@ -136,6 +136,8 @@
 
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
+    <script type="text/javascript" src="view/js/validaCPF.js"></script>
+    
 	
 </body>
 </html>

@@ -67,25 +67,25 @@
 			<label class="span">Nome do Produto :</label><br /> <input
 				type="text" class="form-control" name="nomeProduto" required="required"
 				maxlength="50" value="${produto.nomeProduto}"
-				onkeypress='return soLetras(event)' required="required" />
+				onkeypress="mascara(this,soLetras)" required="required" />
 			<p />
 
 
 			<br>  <label class="span">Descrição:</label><br /> <input
 				type="text" class="form-control" name="descricao" maxlength="50"
-				value="${produto.descricao}" required="required" /> <br> 
+				value="${produto.descricao}" required="required" onkeypress="mascara(this,soLetras)"/> <br> 
 			
 			
 			
 			<label class="span">Quantidade:</label><br /> <input type="text"
 				class="form-control" name="quantidade" maxlength="11"
-				value="${produto.quantidade}" required="required"> <br>
+				value="${produto.quantidade}" required="required" onkeypress="mascara(this,soNumeros)"> <br>
 		 
 			
 			
 			<label class="span">Valor:</label><br /> <input
 				type="text" class="form-control" name="valor" maxlength="10"
-				value="${produto.valor}" required="required"> <br> 
+				value="${produto.valor}" required="required" onkeypress="mascara(this,soNumeros)"> <br> 
 
 			<!-- CÓDIGO -->
 			<label class="span"></label><br /> <input type="hidden"

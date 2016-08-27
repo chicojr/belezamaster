@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
 
 <head>
-<href
-	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
-	'
-	rel='stylesheet' type='text/css'>
+<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800'rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,10 +44,11 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]--> <script type="text/javascript"
-	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript"
-	src="view/js/jquery-1.2.6.pack.js"></script> <script
-	type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+    <![endif]--> 
+    <script type="text/javascript" src="view/js/validaCPF.js"></script>
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript"src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
@@ -79,25 +77,26 @@
 				<form action="alterarServico" method="post">
 
 					<br> <label class="span">Nome do Serviço:</label><br /> <input
-						type="text" class="form-control" name="nome" required="true"
-						maxlength="30" value="${servico.nome}"> <br>
+						type="text" class="form-control" name="nome" required="required"
+						maxlength="30" value="${servico.nome}" onkeypress="mascara(this,soLetras)"> <br>
 					<form:errors path="servico.nome"
 						cssStyle="color:red; font-size:10px;" />
 
 					<br> <label class="span"> Valor: </label><br /> <input
-						type="text" class="form-control" name="valor" required="true"
-						value="${servico.valor}"> <br>
+						type="text" class="form-control" name="valor" required="required"
+						value="${servico.valor}" onkeypress="mascara(this,soNumeros)"> <br>
 					<form:errors path="servico.valor"
 						cssStyle="color:red; font-size:10px;" />
+					
 					<br> <label class="span">Descrição:</label><br /> <input
 						type="text" class="form-control" name="descricao" maxlength="50"
-						required="true" value="${servico.descricao}"> <br>
+						required="required" value="${servico.descricao}" onkeypress="mascara(this,soLetras)"> <br>
 					<form:errors path="servico.descricao" style="width: 300px;"
 						cssStyle="color:red; font-size:10px;" />
 					<br>
 					<!-- codigo servico -->
 					<label class="span"></label><br /> <input type="hidden"
-						class="form-control" name="codigo" maxlength="50" required="true"
+						class="form-control" name="codigo" maxlength="0" required="required"
 						value="${servico.codigo}"></input>
 					<form:errors path="servico.codigo" style="width: 300px;"
 						cssStyle="color:red; font-size:10px;" />

@@ -84,28 +84,28 @@
 			<div class="form-group">
 				<label class="span" for="inputNome">Nome</label><br /> <input
 					type="text" class="form-control author" name="nome"
-					required="required" value="${usuario.nome}">
+					required="required" maxlength="50"value="${usuario.nome}" onkeypress="mascara(this,soLetras)">
 			</div>
 			<br />
 			<div class="form-group">
 				<label class="span" for="inputEmail">E-mail</label><br /> <input
 					type="email" id="inputEmail" class="form-control author"
 					name="email"  required="required"
-					value="${usuario.email}" />
+					value="${usuario.email}" maxlength="50" />
 			</div>
 			<br />
 			<div class="form-group">
 				<label class="span" for="inputLogin">Telefone</label><br /> <input
 					type="text" class="form-control author" id="telefone"
 					name="telefone" required="required"
-					value="${usuario.telefone}">
+					value="${usuario.telefone}" maxlength="13">
 			</div>
 			<br />
 			<div class="form-group">
 				<label class="span" for="inputSenha">Celular</label><br /> <input
 					type="text" class="form-control author" id="celular" name="celular"
 					 required="required"
-					value="${usuario.celular}">
+					value="${usuario.celular}" maxlength="14">
 			</div>
 
 			<div class="form-group">

@@ -37,11 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script type="text/javascript" src="view/js/validaCPF.js"></script>
-<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript"
-	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
 </head>
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
@@ -65,20 +61,19 @@
 		<form name="form1" action="incluirProfissional" method="post">
 			<label class="span">Nome do Profissional: <br /></label> <input
 				type="text" class="form-control" name="nome" maxlength="50"
-				value="${profissional.nome}" onkeypress='return soLetras(event)'
+				value="${profissional.nome}" onkeypress="mascara(this,soLetras)"
 				required="required" />
 			
 			<br />
 			 <label class="span">Profissão: <br /></label> <input type="text"
 				class="form-control" name="profissao" maxlength="20"
 				value="${profissional.profissao}"
-				onkeypress='return soLetras(event)' required="required" />
+					required="required" onkeypress="mascara(this,soLetras)"/>
 			<br />
 			 <label class="span">CPF: <br /></label> <input type="text"
-				class="form-control" name="cpf" maxlength="14" value="${profissional.cpf}"
+				class="form-control" id="cpf" name="cpf" maxlength="14" value="${profissional.cpf}"
 				onblur="javascript: validarCPF(this.value);"
-				onkeypress="javascript: mascara(this, cpf_mask);"
-				required="required" />
+				 required="required" />
 			<br />
 			 <label class="span">E-mail: <br /></label> <input type="text"
 				class="form-control" name="email" value="${profissional.email}"
@@ -89,13 +84,13 @@
 				maxlength="50" required="required" />
 			<br />
 			 <label class="span">Telefone: <br /></label> <input type="text"
-				class="form-control" name="telefone" value="${profissional.telefone}"
-				maxlength="14" id="telefone" required="required" />
+				class="form-control" id="telefone" name="telefone" value="${profissional.telefone}"
+				maxlength="14"  required="required" />
 			<br />
 			
 			 <label class="span">Celular: <br /></label> <input type="text"
-				class="form-control" name="celular" value="${profissional.celular}"
-				maxlength="15" id="celular"required="required" />
+				class="form-control" id="celular" name="celular" value="${profissional.celular}"
+				maxlength="15"  required="required" />
 				<br />
 		
 			 <input type="submit" class="btn btn-primary" value="Cadastrar"
@@ -114,6 +109,11 @@
     <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
+<!-- jQuery validação-->
+<script type="text/javascript" src="view/js/validaCPF.js"></script>
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript"src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
 
@@ -127,6 +127,8 @@
 		jQuery(function($) {
 			$("#telefone").mask("(99)9999-9999");
 			$("#celular").mask("(99)99999-9999");
+			$("#cpf").mask("999.999.999-99");
+
 
 		});
 	</script>

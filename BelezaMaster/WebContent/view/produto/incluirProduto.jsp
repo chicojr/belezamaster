@@ -36,12 +36,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="view/js/validaCPF.js"></script> 
 <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
 <script type="text/javascript"
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 </head>
+<script type="text/javascript">
 
+</script>
 <body class="bg-dark-2">
 		<c:import url="../menu/menu.jsp"></c:import>
 <br><br><br><br><br><br>
@@ -68,16 +71,16 @@
 
 			<label class="span">Nome do produto:</label><br /> <input
 				type="text" class="form-control" name="nomeProduto" required="required"
-				maxlength="50"> <br>
-			<br> <label class="span">Descrição:</label><br /> <input
+				maxlength="50" onkeypress="mascara(this,soLetras)"> <br>
+			<br> <label class="span" >Descrição:</label><br /> <input
 				type="text" class="form-control" name="descricao" maxlength="30"
-				required="required"> <br>
+				required="required" onkeypress="mascara(this,soLetras)"> <br>
 			<br> <label class="span">Quantidade:</label><br /> <input
 				type="text" class="form-control" name="quantidade" maxlength="10"
-				required="required"> <br>
+				required="required" onkeypress="mascara(this,soNumeros)"> <br>
 			<br> <label class="span">Valor:</label><br /> <input
 				type="text" class="form-control" name="valor" maxlength="10"
-				required="required"> <br>
+				required="required" onkeypress="mascara(this,soNumeros)"> <br>
 			<br>
 
 

@@ -37,7 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script type="text/javascript" src="view/js/validaCPF.js"></script>
+
 <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
 <script type="text/javascript"
@@ -65,13 +65,13 @@
 		<form name="form1" action="alterarProfissional" method="post">
 			<label class="span">Nome do Profissional: <br /></label> <input
 				type="text" class="form-control" name="nome" maxlength="50"
-				value="${profissional.nome}" onkeypress='return soLetras(event)'
+				value="${profissional.nome}" onkeypress="mascara(this,soLetras)"
 				required="required" />
 			<p />
 			<br> <label class="span">Profissão: <br /></label> <input
 				type="text" class="form-control" name="profissao" maxlength="20"
 				value="${profissional.profissao}"
-				onkeypress='return soLetras(event)' required="required" />
+				onkeypress="mascara(this,soLetras)" required="required" />
 			
 
 			<br> <label class="span">E-mail: <br /></label> <input
@@ -121,7 +121,7 @@
     <script src="view/vendor/easing/easing.min.js"></script>
     <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+<script type="text/javascript" src="view/js/validaCPF.js"></script>
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
 		<script type="text/javascript">

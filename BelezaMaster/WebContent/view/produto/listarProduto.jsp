@@ -77,7 +77,7 @@
 
 	<form action="pesquisarProduto" method="post">
 		<br /> <label class="span">Nome:</label><br /> <input class="form-control"
-			type="text" name="nomeProduto" /> <br /> <br /> <input
+			type="text" name="nomeProduto" onkeypress='return soLetras(event)'/> <br /> <br /> <input
 			class="btn btn-primary" type="submit" value="BUSCAR" />
 	</form>
 

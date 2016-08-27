@@ -37,11 +37,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-<script type="text/javascript" src="view/js/validaCPF.js"></script>
-<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript"
-	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
 </head>
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
@@ -65,11 +61,11 @@
 
 
 			<input type="hidden" name="id">
-
+ &nbsp;<span style="color: red;">${cpfN}</span>
 			<div class="form-group">
-				<label class="span" for="inputNome">CPF:</label><br /> <input
-					type="text" class="form-control" id="cpf" name="cpf"
-					 required="required" value="${usuario.cpf}">
+				<label class="span" for="inputNome">CPF:</label><br /> <input id="cpf" 
+					type="text" class="form-control"  name="cpf"
+					 required="required" value="${usuario.cpf}" onblur="javascript: validarCPF(this.value);" >
 				<br> <br /> <input type="submit" class="btn btn-primary" value="Buscar">
 			</div>
 			<br />
@@ -110,7 +106,10 @@
     <script src="view/vendor/easing/easing.min.js"></script>
     <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+<script type="text/javascript" src="view/js/validaCPF.js"></script>
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript"src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
 	<script type="text/javascript">

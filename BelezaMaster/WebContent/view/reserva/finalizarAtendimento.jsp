@@ -85,7 +85,7 @@
 
 				<form action="finalizarAtendimento" method="post" class="contact">
 					<br /> <label class="span">Situação:</label><br /> <input
-						class="form-control" type="text" name="situacao" /> <br /> <br /> <input
+						class="form-control" type="text" name="situacao"  onkeypress="mascara(this,soLetras)"/> <br /> <br /> <input
 						class="btn btn-primary" type="submit" value="Buscar" />
 
 				</form>

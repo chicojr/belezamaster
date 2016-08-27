@@ -69,7 +69,7 @@
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Listar Registro de Atendimento</div>
+				<div class="panel-title">Fazer Reserva</div>
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -10px">
 				</div>
@@ -87,7 +87,6 @@
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
 							type="date" class="form-control" name="horario"
 							placeholder="Digite Data de Atendimento"
-							onkeypress='return soLetras(event)'
 							value="${atendimento.horario}">
 					</div>
 
@@ -97,9 +96,8 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
 							type="text" class="form-control" name="situacao"
-							placeholder="Digite Situação do Atendimento"
-							onkeypress='return soLetras(event)'
-							value="${atendimento.situacao}"">
+							placeholder="Digite Situação do Atendimento" maxlength="1"
+							value="${atendimento.situacao}"  onkeypress="mascara(this,soLetras)">
 					</div>
 
 
@@ -164,8 +162,7 @@
 	<script type="text/javascript" src="view/js/validaCPF.js"></script>
 	<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
 	<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-	<script type="text/javascript"
-		src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+	<script type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
