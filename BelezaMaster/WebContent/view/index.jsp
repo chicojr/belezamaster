@@ -16,6 +16,7 @@
 	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
+	
     <!-- Bootstrap Core CSS -->
     <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -31,6 +32,7 @@
 	
     <!-- Theme CSS -->
     <link href="view/css/creative.css" rel="stylesheet">
+    <link href="view/css/style.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,7 +76,38 @@
                     <li>
                     
                        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>
+          
+          
+          <% if(session.getAttribute("usuarioLogado")!= null) { %> 
+          
+          <i class="fa fa-user" aria-hidden="true">&nbsp;</i>
+          Bem vindo, ${usuarioLogado.nome}&nbsp;&nbsp;
+          </b> 
+          <span class="caret"></span>
+          </a>
+			<ul id="id" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+							
+								<a class="nav-tabs-dropdown btn" href="exibirPesquisarPorCpf">Alterar Dados</a>
+								<br />
+								<a class="nav-tabs-dropdown btn" href="exibirIncluirAtendimento">Fazer Reserva</a>
+                           		 		</div>
+										<div class="bottom">
+								<a href="logout" class="btn-new"><b>Sair</b></a>
+							</div>
+							<Br>
+							</div>
+                       		
+                    </li>
+                </ul>
+							
+							
+							
+	<% } else { %>		
+           Login</b> <span class="caret"></span></a>
 			<ul id="login-dp" class="dropdown-menu">
 				<li>
 					 <div class="row">
@@ -98,16 +131,16 @@
 										<div class="bottom text-center">
 								Não é Cadastrado ? <a href="exibirIncluirUsuario"><b>Cadastre-se</b></a>
 							</div>
-							<Br>
+							<br>
 							</div>
                     </li>
-                </ul>
+                </ul> <%} %>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-
+ 
     <header id="home">
    <center><div><span style="font-size: 20px;">${msg}</span></div></center>
         <div class="header-content">
