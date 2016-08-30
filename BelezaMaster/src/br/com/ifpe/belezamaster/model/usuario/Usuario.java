@@ -13,29 +13,28 @@ public class Usuario {
 	}
 
 	@NotEmpty(message = "O nome deve ser preenchido")
-	@Size(max = 50, message = " O nome deve deve ter no m�ximo 50 caracteres")
-
-	private String nome;
+	@Size(max = 50, message = " O nome deve deve ter no máximo 50 caracteres")
+    private String nome;
 
 	@NotEmpty(message = "O codigo deve ser preenchido")
-	@Size(max = 50, message=" O E-mail deve deve ter no m�ximo 50 caracteres")
+	@Size(max = 50, message=" O E-mail deve deve ter no máximo 50 caracteres")
 	private String email;
 
-	@Size(min = 6, max = 20, message="A senha deve ter no min�mo 6 e no maximo 20 caracteres")
+	@Size(min = 6, max = 20, message="A senha deve ter no minímo 6 e no maximo 20 caracteres")
 	private String senha;
 
-	@Size(min = 6, max = 20, message="A senha deve ter no min�mo 6 e no maximo 20 caracteres")
+	@Size(min = 6, max = 20, message="A senha deve ter no minímo 6 e no maximo 20 caracteres")
 	private String confSenha;
 
-	@Size(min = 14, max = 14, message = "O CPF deve ter obrigatoriamente 14 caracteres, seguindo o seguinte padr�o (XXX.XXX.XXX-XX)")
+	@Size(min = 14, max = 14, message = "O CPF deve ter obrigatoriamente 14 caracteres, seguindo o seguinte padrão (XXX.XXX.XXX-XX)")
 	private String cpf;
 
 	@NotEmpty
-	@Size(max = 15, message = " O Telefone deve deve ter no m�ximo 13 caracteres, seguindo o padr�o '(XX)XXXXX-XXXX' ")
+	@Size(max = 15, message = " O Telefone deve deve ter no máximo 13 caracteres, seguindo o padrão '(XX)XXXXX-XXXX' ")
 	private String telefone;
 
 	@NotEmpty
-	@Size(max = 15, message = " O Telefone deve deve ter no m�ximo 13 caracteres, seguindo o padr�o '(XX)XXXXX-XXXX' ")
+	@Size(max = 15, message = " O Telefone deve deve ter no máximo 13 caracteres, seguindo o padrã	o '(XX)XXXXX-XXXX' ")
 	private String celular;
 
 	public String getNome() {

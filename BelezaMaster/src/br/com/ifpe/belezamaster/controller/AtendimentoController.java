@@ -35,20 +35,17 @@ public class AtendimentoController {
 			List<Usuario> listaUsuario = dao3.listar();
 			model.addAttribute("listaUsuario", listaUsuario);
 			
-			return "reserva/FazerReserva";
+			return "reserva/fazerReserva";
 		}
 
 		
 		// INCLUIR RESERVA
-		@RequestMapping("/FazerReserva")
+		@RequestMapping("/fazerReserva")
 		public String IncluirAtendimento(Atendimento atendimento, BindingResult result, Model model) {
 			AtendimentoDao dao = new AtendimentoDao();
 			dao.salvar(atendimento);
 			model.addAttribute("mensagem", "A Reserva foi cadastrado com Sucesso!!");
-			if (result.hasErrors()) {
-				return "forward:ExibirIncluirAtendimento";
-			}
-			return "forward:ExibirIncluirAtendimento";
+			return "forward:exibirIncluirAtendimento";
 		}
 
 
@@ -81,7 +78,7 @@ public class AtendimentoController {
 
 	}
 		// Redireciona para alterar registro
-		@RequestMapping("/alterarAtendimento")
+		@RequestMapping("/alterarSituacao")
 		public String alterarAtendimento(Atendimento atendimento, Model model) {
 			AtendimentoDao dao = new AtendimentoDao();
 			Calendar horario = Calendar.getInstance();
@@ -114,5 +111,14 @@ public class AtendimentoController {
 		return "forward:exibirFinalizarAtendimento";
 
 	}
+	
+	// REMOVER RESERVA
+		@RequestMapping("/removerCancelar")
+		public String cancelarReserva(Atendimento atendimento, Model model) {
+			AtendimentoDao dao = new AtendimentoDao();
+			dao.cancelar(atendimento);
+			model.addAttribute("cancelar", "A Reserva Removido com Sucesso");
+			return "forward:exibirListarAtendimento";
+		}
 
 }

@@ -8,27 +8,25 @@
 <html lang="pt-br">
 
 <head>
-<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
+<href
+	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
+	' rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
 <link href="view/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript"
-	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> <script
+	type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script> <script
+	type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 
 
 
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
 
-<!-- Bootstrap Core CSS -->
-
-
-<!-- Custom Fonts -->
+<!-- Bootstrap Core CSS --> <!-- Custom Fonts -->
 <link href="view/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link
@@ -66,8 +64,9 @@
 	<br>
 
 
+	<div class="msg">${cancelar}</div>
 
-<div class="msg">${registrar}</div>
+	<div class="msg">${registrar}</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -85,7 +84,8 @@
 
 				<form action="registrarAtendimento" method="post" class="contact">
 					<br /> <label class="span">Situação:</label><br /> <input
-						class="form-control" type="text" name="situacao"  onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
+						class="form-control" type="text" name="situacao"
+						onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
 						class="btn btn-primary" type="submit" value="Buscar" />
 
 				</form>
@@ -93,7 +93,7 @@
 		</div>
 
 	</div>
-	
+
 
 
 	<table border='1' class="table table-bordered">
@@ -102,6 +102,7 @@
 			<td class="span">Nome do Usuário</td>
 			<td class="span">Cpf do Usuário</td>
 			<td class="span">Código do Servico</td>
+			<td class="span">Serviço</td>
 			<td class="span">Nome do Profissional</td>
 			<td class="span">Código do Atendimento</td>
 			<td class="span">Horário de Atendimento</td>
@@ -114,23 +115,26 @@
 		</tr>
 
 		<c:forEach var="atendimento" items="${registrarAtendimento}">
-			<td class="span-text">${atendimento.usuario.nome}</td>
-			<td class="span-text">${atendimento.usuario.cpf}</td>
-           <td class="span-text"> ${atendimento.servico.codigo}</td>
-			<td class="span-text">${atendimento.profissional.nome}</td>
-           <td class="span-text"> ${atendimento.codigoAtendimento}</td>
-			<td class="span-text"> <fmt:formatDate value="${atendimento.horario}" pattern="dd/MM/yyyy"/></td>
-			<td class="span-text">${atendimento.situacao}</td>
-			<td class="span-text">${atendimento.dataAtendimento}</td>
+			<tr>
+
+				<td class="span-text">${atendimento.usuario.nome}</td>
+				<td class="span-text">${atendimento.usuario.cpf}</td>
+				<td class="span-text">${atendimento.servico.codigo}</td>
+				<td class="span-text">${atendimento.servico.nome}</td>
+				<td class="span-text">${atendimento.profissional.nome}</td>
+				<td class="span-text">${atendimento.codigoAtendimento}</td>
+				<td class="span-text"><fmt:formatDate value="${atendimento.horario}" pattern="dd/MM/yyyy" /></td>
+				<td class="span-text">${atendimento.situacao}</td>
+				<td class="span-text">${atendimento.dataAtendimento}</td>
 
 
-			<td><a class="btn btn-success"
-				href="alterarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
-			<td><a class="btn btn-danger"
-				href="#?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
-
+				<td><a class="btn btn-success"
+					href="alterarSituacao?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
+				<td><a class="btn btn-danger"
+					href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
 
 			</tr>
+
 		</c:forEach>
 	</table>
 	<br />
@@ -138,7 +142,7 @@
 	<br />
 	<br />
 
-<script src="view/vendor/jquery/jquery.min.js"></script>
+	<script src="view/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>

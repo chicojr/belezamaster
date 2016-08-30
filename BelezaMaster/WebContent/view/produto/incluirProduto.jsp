@@ -81,12 +81,13 @@
 			<br> <label class="span">Valor:</label><br /> <input
 				type="text" class="form-control" name="valor" maxlength="10"
 				required="required" onkeypress="mascara(this,soNumeros)"> <br>
-			<br>
+			<br />
+		
+			 <input type="submit" class="btn btn-primary" value="Cadastrar"
+				name="btn-cadastrar" /> &nbsp;&nbsp; <input type="reset"
+				class="btn btn-danger" value="Limpar" name="btn-limpar" />
 
-
-			<p>
-				<input class="btn btn-primary" type="submit" value="Enviar">
-			</p>
+			<br />
 		</form>
 		<!-- jQuery -->
     <script src="view/vendor/jquery/jquery.min.js"></script>

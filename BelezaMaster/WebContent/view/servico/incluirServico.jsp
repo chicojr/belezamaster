@@ -52,8 +52,8 @@
 
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
-<Br><Br><Br><Br><Br><Br><Br><Br>
-	<div class="msg">${msg}</div>
+<br><br><br>
+
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -85,7 +85,13 @@
 				required="true" value="${servico.descricao}" onkeypress="mascara(this,soLetras)"> <br>
 			<form:errors path="servico.descricao" style="width: 300px;"
 				cssStyle="color:red; font-size:10px;" />
-			<br> <input type="submit" class="btn btn-primary" value="Salvar">
+			<br />
+		
+			 <input type="submit" class="btn btn-primary" value="Cadastrar"
+				name="btn-cadastrar" /> &nbsp;&nbsp; <input type="reset"
+				class="btn btn-danger" value="Limpar" name="btn-limpar" />
+
+			<br />
 		</form>
 	</div>
 	</div>

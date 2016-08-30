@@ -6,7 +6,9 @@
 <html lang="pt-br">
 
 <head>
-<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800' rel='stylesheet' type='text/css'>
+<href
+	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
+	' rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,10 +18,7 @@
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
 
-<!-- Bootstrap Core CSS -->
-
-
-<!-- Custom Fonts -->
+<!-- Bootstrap Core CSS --> <!-- Custom Fonts -->
 <link href="view/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link
@@ -75,62 +74,64 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-<form action="pesquisarServico" method="post">
-	<br /> <label class="span">Nome:</label><br /> <input class="form-control"
-		type="text" name="nome" onkeypress="mascara(this,soLetras)"/> <br /> <br /> <input class="btn btn-primary"
-		type="submit" value="BUSCAR" />
-</form>
-</div>
+				<form action="pesquisarServico" method="post">
+					<br /> <label class="span">Nome:</label><br /> <input
+						class="form-control" type="text" name="nome"
+						onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
+						class="btn btn-primary" type="submit" value="BUSCAR" />
+				</form>
+			</div>
 		</div>
 
 	</div>
 	<p>
-	
-	
 	<table border='1' class="table table-bordered">
 		<tr style='background-color: #fff; font-weight: bold;'>
-		<td class="span">Nome do Produto</td>
-		<td class="span">Descrição</td>
-		<td class="span">Valor</td>
-		<td class="span">Alterar</td>
-		<td class="span">Remover</td>
-		
+			<td class="span">Nome do Servico</td>
+			<td class="span">Descrição</td>
+			<td class="span">Valor</td>
+			<td class="span">Codígo</td>
+			<td class="span">Alterar</td>
+			<td class="span">Remover</td>
 
-	</tr>
-
-	<c:forEach var="servico" items="${listaServico}">
-		<tr>
-			<td class="span-text">${servico.nome}</td>
-			<td class="span-text">${servico.descricao}</td>
-			<td class="span-text">${servico.valor}</td>
-			<td><a class="btn btn-success" style="color: white"
-				href="exibirAlterarServico?codigo=${servico.codigo}">Alterar</a></td>
-<td><a class="btn btn-danger" 
-				href="removerServico?codigo=${servico.codigo}">Remover</a></td>
 
 		</tr>
-	</c:forEach>
-</table>
-<br />
-<br />
-<br />
-<br />
+
+		<c:forEach var="servico" items="${listaServico}">
+			<tr>
+				<td class="span-text">${servico.nome}</td>
+				<td class="span-text">${servico.descricao}</td>
+				<td class="span-text">${servico.valor}</td>
+				<td class="span-text">${servico.codigo}</td>
+
+				<td><a class="btn btn-success" style="color: white"
+					href="exibirAlterarServico?codigo=${servico.codigo}">Alterar</a></td>
+				<td><a class="btn btn-danger"
+					href="removerServico?codigo=${servico.codigo}">Remover</a></td>
+
+			</tr>
+		</c:forEach>
+	</table>
+	<br />
+	<br />
+	<br />
+	<br />
 
 
 
 	<!-- jQuery -->
-    <script src="view/vendor/jquery/jquery.min.js"></script>
+	<script src="view/vendor/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="view/vendor/easing/easing.min.js"></script>
-    <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="view/js/validaCPF.js"></script>
-    <!-- Theme JavaScript -->
-    <script src="view/js/creative.min.js"></script>
-			
+	<!-- Plugin JavaScript -->
+	<script src="view/vendor/easing/easing.min.js"></script>
+	<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+	<script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+	<script type="text/javascript" src="view/js/validaCPF.js"></script>
+	<!-- Theme JavaScript -->
+	<script src="view/js/creative.min.js"></script>
+
 </body>
 </html>

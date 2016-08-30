@@ -68,7 +68,7 @@ public class ProfissionalController {
 		ProfissionalDao dao = new ProfissionalDao();
 		dao.alterar(Profissional);
 		model.addAttribute("msgPr", " O Profissional foi alterado com Sucesso!");
-		return "forward:exibirListaProfissional";
+		return "forward:exibirListarProfissional";
 
 		
 	}
@@ -78,7 +78,7 @@ public class ProfissionalController {
 	ProfissionalDao dao = new ProfissionalDao();
 	dao.remover(profissional);
 	model.addAttribute("remove", "Profissional Removido com Sucesso");
-	return"forward:exibirListaProfissional";
+	return"forward:exibirListarProfissional";
 	}
 		
 	

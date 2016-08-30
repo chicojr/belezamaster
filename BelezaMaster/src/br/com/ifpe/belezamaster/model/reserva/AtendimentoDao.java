@@ -7,11 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
-import br.com.ifpe.belezamaster.model.servico.Servico;
 import br.com.ifpe.belezamaster.model.servico.ServicoDao;
-import br.com.ifpe.belezamaster.model.usuario.Usuario;
 import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 import br.com.ifpe.belezamaster.util.Datas;
@@ -32,14 +29,14 @@ public class AtendimentoDao {
 
 	public void salvar(Atendimento atendimento) {
 		try {
-			String sql = "INSERT INTO ATENDIMENTO (horario, codigo, id_profissional , situacao, codigo_servico , cpf_usuario) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATENDIMENTO (  horario, codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, Datas.criarDataSQL(atendimento.getHorario()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
 			stmt.setInt(3, atendimento.getProfissional().getId());
-			stmt.setString(4, atendimento.getSituacao());
-			stmt.setInt(5, atendimento.getServico().getCodigo());
-			stmt.setString(6, atendimento.getUsuario().getCpf());
+			stmt.setInt(4, atendimento.getServico().getCodigo());
+			stmt.setString(5, atendimento.getUsuario().getCpf());
+			stmt.setString(6, atendimento.getSituacao());
 
 			stmt.execute();
 			connection.close();
@@ -48,6 +45,20 @@ public class AtendimentoDao {
 		}
 	}
 
+	//Cancelar reserva
+	public void cancelar(Atendimento atendimento) {
+
+		try {
+			PreparedStatement stmt = connection.prepareStatement("DELETE FROM ATENDIMENTO WHERE codigo = ?");
+			stmt.setInt(1, atendimento.getCodigoAtendimento());
+			stmt.execute();
+			stmt.close();
+			connection.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	
+	}
 	// Alterar registra atendimento
 
 	public void alterarRegistrar(Atendimento atendimento) {
@@ -67,7 +78,7 @@ public class AtendimentoDao {
 	}
 
 	public void alterarFinalizar(Atendimento atendimento) {
-		String sql = "UPDATE ATENDIMENTO SET situacao = 'A'  WHERE codigo = ?";
+		String sql = "UPDATE ATENDIMENTO SET situacao = 'P'  WHERE codigo = ?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

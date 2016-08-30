@@ -80,27 +80,27 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="FazerReserva" method="post">
+				<form action="fazerReserva" method="post">
 					<label>Data de Atendimento</label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="date" class="form-control" name="horario"
+							type="text" class="form-control" name="horario"
 							placeholder="Digite Data de Atendimento"
-							value="${atendimento.horario}">
+							>
 					</div>
 
 					<label>Situação</label>
 					<div style="margin-bottom: 25px" class="input-group">
-
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="text" class="form-control" name="situacao"
-							placeholder="Digite Situação do Atendimento" maxlength="1"
-							value="${atendimento.situacao}"  onkeypress="mascara(this,soLetras)">
+							type="text" class="form-control" name="Situacao"
+							placeholder="Situação"
+							>
 					</div>
-
-
+				
+				
+				
 					<p>
 						Profissional:<br> <select name="profissional.id">
 							<option value="">Selecione</option>
@@ -137,11 +137,14 @@
 						</select>
 					</p>
 
-					<button type="reset" class="btn btn-default submit">&nbsp;
-				Limpar &nbsp;</button>
+					
+					<button type="submit" class="btn btn-success submit">&nbsp;
+				Reservar &nbsp;</button>
+				
+					<button type="reset" class="btn btn-danger submit">&nbsp;
+				Cancelar &nbsp;</button>
 			&nbsp;
-			<button type="submit" class="btn btn-warning submit">&nbsp;
-				Alterar &nbsp;</button>
+			
 
 
 

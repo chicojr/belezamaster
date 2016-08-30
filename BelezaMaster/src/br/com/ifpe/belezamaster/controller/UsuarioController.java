@@ -10,19 +10,18 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import br.com.ifpe.belezamaster.model.usuario.Usuario;
 import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 
 @Controller
 public class UsuarioController {
-	//Exibir Página Inicial
+	// Exibir Página Inicial
 	@RequestMapping("/exibirIndex")
 	public String exibirIndex() {
 		return "index";
-		
+
 	}
-	
+
 	// Exibir Incluir Usuario
 	@RequestMapping("/exibirIncluirUsuario")
 	public String exibirIncluirUsuario(Usuario usuario) {
@@ -31,6 +30,7 @@ public class UsuarioController {
 
 	}
 
+
 	// incluir usuario
 	@RequestMapping("/incluirUsuario")
 	public String incluirUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
@@ -38,43 +38,46 @@ public class UsuarioController {
 		if (result.hasErrors()) {
 			return "forward:exibirIncluirUsuario";
 		}
-
+		
+		
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
 			model.addAttribute("confsenha", "As senhas estão diferentes!");
 			return "forward:exibirIncluirUsuario";
 
-		} else {
+		}
 
 			UsuarioDao dao = new UsuarioDao();
-
+			
 			if( dao.buscarPorCpf(usuario.getCpf()) != null){
 				model.addAttribute("cpf", " Cpf já cadastrado");
 				return "forward:exibirIncluirUsuario";
-			}
-			dao.salvar(usuario);
+
+				
+			} else {	
+			UsuarioDao dao1 = new UsuarioDao();
+
+			dao1.salvar(usuario);
 			model.addAttribute("mensagem", " O Usuário foi adicionado com Sucesso!");
 			return "usuario/incluirUsuario";
 		}
-
+	
 	}
-
 	// Exibir Pesquisar por CPF
-	@RequestMapping("/exibirPesquisarPorCpf")
-	public String exibirPesquisarPorCpf() {
+		@RequestMapping("/exibirPesquisarPorCpf")
+		public String exibirPesquisarPorCpf() {
 
-		return "usuario/pesquisarAlterarCPF";
-	}
+			return "usuario/pesquisarAlterarCPF";
+		}
 
-	// Exibir alterar usuario
-	@RequestMapping("/exibirAlterarUsuario")
-	public String exibirAlterarUsuario(Model model, Usuario usuario) {
-		UsuarioDao dao = new UsuarioDao();
-		Usuario usuarioCPF = dao.buscarPorCpf(usuario.getCpf());
-		model.addAttribute("usuario", usuarioCPF);
-		return "usuario/alterarUsuario";
+		// Exibir alterar usuario
+		@RequestMapping("/exibirAlterarUsuario")
+		public String exibirAlterarUsuario(Model model, Usuario usuario) {
+			UsuarioDao dao = new UsuarioDao();
+			Usuario usuarioCPF = dao.buscarPorCpf(usuario.getCpf());
+			model.addAttribute("usuario", usuarioCPF);
+			return "usuario/alterarUsuario";
 
-	}
-
+		}
 	// Redireciona para alterar usuario
 	@RequestMapping("/alterarUsuario")
 	public String alterarUsuario(Usuario usuario, Model model) {
@@ -85,27 +88,25 @@ public class UsuarioController {
 
 	}
 
-	
-	
 	// exibir listar Usuario
-			@RequestMapping("/exibirListarUsuario")
-			public String listarUsuario(Model model) {
-				UsuarioDao dao = new UsuarioDao();
-				List<Usuario> listarUsuario = dao.listar();
-				model.addAttribute("listarUsuario", listarUsuario);
+	@RequestMapping("/exibirListarUsuario")
+	public String listarUsuario(Model model) {
+		UsuarioDao dao = new UsuarioDao();
+		List<Usuario> listarUsuario = dao.listar();
+		model.addAttribute("listarUsuario", listarUsuario);
 
-				return "usuario/listarUsuario";
+		return "usuario/listarUsuario";
 
-			}
+	}
 
-			// pesquiar usuario
-				@RequestMapping("buscarUsuario")
-				public String PesquisarUsuario(Model model, String email) {
-					UsuarioDao dao = new UsuarioDao();
-					List<Usuario> listarUsuario = dao.buscar(email);
-					model.addAttribute("listarUsuario", listarUsuario);
-					return "usuario/listarUsuario";
-				}
+	// pesquiar usuario
+	@RequestMapping("buscarUsuario")
+	public String PesquisarUsuario(Model model, String email) {
+		UsuarioDao dao = new UsuarioDao();
+		List<Usuario> listarUsuario = dao.buscar(email);
+		model.addAttribute("listarUsuario", listarUsuario);
+		return "usuario/listarUsuario";
+	}
 
 	// Remover Usuario
 	@RequestMapping("/removerUsuario")
@@ -116,8 +117,6 @@ public class UsuarioController {
 		model.addAttribute("mensagem", "Produto Removido com Sucesso");
 		return "forward:exibirListarUsuario";
 	}
-
-	
 
 	// login usuario
 
@@ -132,12 +131,12 @@ public class UsuarioController {
 		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
 		return "index";
 	}
+
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "index";
-		
+
 	}
-	
 
 }

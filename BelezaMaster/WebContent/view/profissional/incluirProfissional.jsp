@@ -95,7 +95,7 @@
 		
 			 <input type="submit" class="btn btn-primary" value="Cadastrar"
 				name="btn-cadastrar" /> &nbsp;&nbsp; <input type="reset"
-				class="btn btn-default" value="Limpar" name="btn-limpar" />
+				class="btn btn-danger" value="Limpar" name="btn-limpar" />
 
 			<br />
 				<!-- jQuery -->

@@ -146,12 +146,13 @@
 					<div style="margin-top: 10px" class="form-group">
 						<!-- Button -->
 
-						<div class="col-sm-12 controls" align="center"">
-							
-								<br> <input class="col-sm-12 controls"type="submit" class="submit" value="Salvar">
+					<br />
+		
+			&nbsp; <input type="submit" class="btn btn-primary" value="Cadastrar"
+				name="btn-cadastrar" /> &nbsp;&nbsp; <input type="reset"
+				class="btn btn-danger" value="Limpar" name="btn-limpar" />
 
-
-						</div>
+			<br />
 					</div>
 
 

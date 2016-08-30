@@ -96,17 +96,17 @@
 	
 	<table border='1' class="table table-bordered">
 		<tr style='background-color: #fff; font-weight: bold;'>
-					<td class="span">Nome do Profissional</td>
-					<td class="span">Profissão</td>
-					<td class="span">CPF</td>
-					<td class="span">E-mail</td>
-					<td class="span">Endereço</td>
-					<td class="span">Telefone</td>
-					<td class="span">Celular</td>
-					<td class="span">Alterar</td>
-			         <td class="span">Remover</td>
-				</tr>
-				<c:forEach var="profissional" items="${listarProfissional}">
+			<td class="span">Nome do Profissional</td>
+			<td class="span">Profissão</td>
+			<td class="span">CPF</td>
+			<td class="span">E-mail</td>
+			<td class="span">Endereço</td>
+			<td class="span">Telefone</td>
+			<td class="span">Celular</td>
+			<td class="span">Alterar</td>
+			<td class="span">Remover</td>
+		</tr>
+		<c:forEach var="profissional" items="${listarProfissional}">
 					<tr>
 						<td class="span-text">${profissional.nome}</td>
 						<td class="span-text">${profissional.profissao}</td>
