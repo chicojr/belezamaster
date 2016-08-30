@@ -49,7 +49,6 @@
 		<c:import url="../menu/menu.jsp"></c:import>
 <br><br><br><br><br><br>
 
-	<div class="msg">${mensagem}</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -66,6 +65,7 @@
 
 
 
+	<div class="msg">${mensagem}</div>
 
 		<form name="form1" action="incluirProduto" method="post">
 

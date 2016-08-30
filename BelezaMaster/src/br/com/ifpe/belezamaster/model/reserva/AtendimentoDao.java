@@ -29,14 +29,14 @@ public class AtendimentoDao {
 
 	public void salvar(Atendimento atendimento) {
 		try {
-			String sql = "INSERT INTO ATENDIMENTO (  horario, codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATENDIMENTO (  horario, codigo, id_profissional, codigo_servico , cpf_usuario ) VALUES(?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, Datas.criarDataSQL(atendimento.getHorario()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
 			stmt.setInt(3, atendimento.getProfissional().getId());
 			stmt.setInt(4, atendimento.getServico().getCodigo());
 			stmt.setString(5, atendimento.getUsuario().getCpf());
-			stmt.setString(6, atendimento.getSituacao());
+
 
 			stmt.execute();
 			connection.close();

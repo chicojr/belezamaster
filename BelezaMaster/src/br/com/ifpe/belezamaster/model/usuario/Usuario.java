@@ -4,6 +4,8 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.ifpe.belezamaster.model.login.Perfil;
+
 public class Usuario {
 
 	@Override
@@ -14,16 +16,16 @@ public class Usuario {
 
 	@NotEmpty(message = "O nome deve ser preenchido")
 	@Size(max = 50, message = " O nome deve deve ter no máximo 50 caracteres")
-    private String nome;
+	private String nome;
 
 	@NotEmpty(message = "O codigo deve ser preenchido")
-	@Size(max = 50, message=" O E-mail deve deve ter no máximo 50 caracteres")
+	@Size(max = 50, message = " O E-mail deve deve ter no máximo 50 caracteres")
 	private String email;
 
-	@Size(min = 6, max = 20, message="A senha deve ter no minímo 6 e no maximo 20 caracteres")
+	@Size(min = 6, max = 20, message = "A senha deve ter no minímo 6 e no maximo 20 caracteres")
 	private String senha;
 
-	@Size(min = 6, max = 20, message="A senha deve ter no minímo 6 e no maximo 20 caracteres")
+	@Size(min = 6, max = 20, message = "A senha deve ter no minímo 6 e no maximo 20 caracteres")
 	private String confSenha;
 
 	@Size(min = 14, max = 14, message = "O CPF deve ter obrigatoriamente 14 caracteres, seguindo o seguinte padrão (XXX.XXX.XXX-XX)")
@@ -36,6 +38,16 @@ public class Usuario {
 	@NotEmpty
 	@Size(max = 15, message = " O Telefone deve deve ter no máximo 13 caracteres, seguindo o padrã	o '(XX)XXXXX-XXXX' ")
 	private String celular;
+
+	private Perfil perfil;
+
+	public Perfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
+	}
 
 	public String getNome() {
 		return nome;

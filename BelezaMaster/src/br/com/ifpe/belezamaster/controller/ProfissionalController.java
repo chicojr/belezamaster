@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
+import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 
 
 @Controller
@@ -25,10 +26,20 @@ public class ProfissionalController {
 	@RequestMapping("/incluirProfissional")
 	public String incluirProfissional(Profissional profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
-		dao.salvar(profissional);
-		model.addAttribute("mensagem", "Profissional Adicionado com Sucesso!");
-		return "forward:exibirListarProfissional";
+		
+		if( dao.buscarPorCpf(profissional.getCpf()) != null){
+			model.addAttribute("cpf", " Cpf já cadastrado");
+			return "forward:exibirIncluirProfissional";
 
+			
+		} else {
+			ProfissionalDao dao1 = new ProfissionalDao();	
+		
+		dao1.salvar(profissional);
+			model.addAttribute("mensagem", "Profissional Adicionado com Sucesso!");
+			return "forward:exibirListarProfissional";
+
+		}	
 	}
 
 	// listar servico
@@ -50,6 +61,7 @@ public class ProfissionalController {
 				model.addAttribute("listarProfissional", listarProfissional);
 				return "profissional/pesquisarProfissional";
 			}
+			
 			
 
 	//Alterar profissional

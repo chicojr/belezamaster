@@ -25,7 +25,7 @@ public class UsuarioDao {
 	// Salvar Usuario
 	public void salvar(Usuario usuario) {
 
-		String sql = "INSERT INTO USUARIO (cpf, nome, email, senha, telefone, celular) VALUES (?,?,?,?,?,?)";
+		String sql = "INSERT INTO USUARIO (cpf, nome, email, senha, telefone, celular, codigo_perfil) VALUES (?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -36,6 +36,8 @@ public class UsuarioDao {
 			stmt.setString(4, usuario.getSenha());
 			stmt.setString(5, usuario.getTelefone());
 			stmt.setString(6, usuario.getCelular());
+			stmt.setInt(7, usuario.getPerfil().getCodigo());
+
 
 			stmt.execute();
 			connection.close();

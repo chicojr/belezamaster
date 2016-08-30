@@ -66,6 +66,7 @@
 
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
+				<div class="msg">${mensagem}</div>
 
 		<form action="incluirServico" method="post">
 

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ifpe.belezamaster.model.usuario.Usuario;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ProfissionalDao {
@@ -154,6 +155,28 @@ public class ProfissionalDao {
 				}
 			}
 
+			// Buscar usuario Por CPF
+			public Profissional buscarPorCpf(String cpf) {
+
+				try {
+					PreparedStatement stmt = connection.prepareStatement("SELECT * FROM PROFISSIONAL WHERE cpf = ?");
+					stmt.setString(1, cpf);
+					ResultSet rs = stmt.executeQuery();
+
+					Profissional profissional = null;
+					if (rs.next()) {
+						profissional = montarObjeto(rs);
+					}
+
+					rs.close();
+					stmt.close();
+					connection.close();
+					return profissional;
+
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
 	
 	// Montar o Objeto
 
