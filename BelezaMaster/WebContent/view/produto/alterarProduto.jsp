@@ -54,6 +54,7 @@
 				<div class="panel-title">Alterar Produto</div>
 				
 			</div>
+					<span style="color: red;">${nomeProduto}</span>
 
 			<div style="padding-top: 30px" class="panel-body">
 

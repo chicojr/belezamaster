@@ -141,9 +141,11 @@
         <!-- /.container-fluid -->
     </nav>
  
-    <header id="home">
-   <center><div><span style="font-size: 20px;">${msg}</span></div></center>
+    <header id="home"><br><br><br>
+               <center><div><span style="font-size: 20px;">${msg}</span></div></center>
+    
         <div class="header-content">
+        
             <div class="header-content-inner">
                 <h1 id="homeHeading">Beleza Master Especializada em Designer de Cortes</h1>
                 <hr>

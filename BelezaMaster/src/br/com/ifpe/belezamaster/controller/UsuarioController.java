@@ -34,18 +34,20 @@ public class UsuarioController {
 	// incluir usuario
 	@RequestMapping("/incluirUsuario")
 	public String incluirUsuario( @Valid Usuario usuario, BindingResult result, Model model) {
+	     
 
-		if (result.hasErrors()) {
-			return "forward:exibirIncluirUsuario";
-		}
 		
+	     if (result.hasErrors()) {
+				model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 20 caracteres ");
+				return "forward:exibirIncluirUsuario";
+			}
 		
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
 			model.addAttribute("confsenha", "As senhas estão diferentes!");
 			return "forward:exibirIncluirUsuario";
 
 		}
-
+		
 			UsuarioDao dao = new UsuarioDao();
 			
 			if( dao.buscarPorCpf(usuario.getCpf()) != null){

@@ -6,7 +6,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<href='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800'rel='stylesheet' type='text/css'>
+<href
+	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
+	'rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -46,10 +48,16 @@
 
 	<c:import url="../menu/menu.jsp"></c:import>
 
-<br><br><br><br><br>
-	<center>
-	  <div class="msg">${mensagem}</div>
-	</center>
+
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+
 
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
@@ -63,6 +71,7 @@
 			</div>
 
 			<div style="padding-top: 30px" class="panel-body">
+				<div class="msg">${mensagem}</div>
 
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
@@ -74,54 +83,58 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
 							type="text" class="form-control" name="nome"
-							placeholder="Digite seu nome"  onkeypress="mascara(this,soLetras)"
+							placeholder="Digite seu nome" onkeypress="mascara(this,soLetras)"
 							value="${usuario.nome}" maxlength="50" required="required">
 						<form:errors path="usuario.nome" cssStyle="color:red" />
 					</div>
-                    &nbsp;<span style="color: red;">${cpf}</span>
+					&nbsp;<span style="color: red;">${cpf}</span>
 
 					<div style="margin-bottom: 25px" class="input-group">
-					
+
 						<span class="input-group-addon"><i class="fa fa-cc"
 							aria-hidden="true"></i></span> <input id="cpf" type="text"
 							class="form-control" name="cpf" value="${usuario.cpf}"
 							placeholder="Digite seu CPF"
-							onblur="javascript: validarCPF(this.value);" maxlength="14"equired="required">
+							onblur="javascript: validarCPF(this.value);" maxlength="14"
+							equired="required">
 					</div>
-					
+
 
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-envelope"></i></span> <input id="email"
 							type="email" class="form-control" name="email"
-							value="${usuario.email}" placeholder="Digite seu E-mail" required="required" maxlength="50"/>
+							value="${usuario.email}" placeholder="Digite seu E-mail"
+							required="required" maxlength="50" />
 						<form:errors path="usuario.email"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-                     <span style="color: red;" maxlength="20">${confsenha}</span>
+					<span style="color: red; font-size: 10px;">${senha}</span> <span
+						style="color: red;" maxlength="20">${confsenha}</span>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="senha"
 							type="password" class="form-control" name="senha"
 							placeholder="Digite sua senha" required="required"><br>
-						<form:errors path="usuario.senha"
-							cssStyle="color:red; font-size:10px;" />
+
 					</div>
-                       <span style="color: red;">${confsenha}</span>
+					<span style="color: red; font-size: 10px;">${senha}</span> 
+					<span style="color: red;">${confsenha}</span>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"
 							type="password" class="form-control" name="confSenha"
 							placeholder="Confirme senha" required="required" maxlength="20"><br>
-						<form:errors path="usuario.senha"
-							cssStyle="color:red; font-size:10px;" />
+
+
 					</div>
 
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="fa fa-phone-square" aria-hidden="true"></i></span> <input
 							id="telefone" type="tel" class="form-control" name="telefone"
-							placeholder="Digite seu telefone" required="required" maxlength="13" value="${usuario.telefone}">
+							placeholder="Digite seu telefone" required="required"
+							maxlength="13" value="${usuario.telefone}">
 						<form:errors path="usuario.telefone"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
@@ -131,21 +144,23 @@
 							class="fa fa-mobile fa-2x" aria-hidden="true"></i></span> <input
 							style="height: 42px;" id="celular" type="tel"
 							class="form-control" name="celular"
-							placeholder="Digite seu celular" required="required" maxlength="14" value="${usuario.celular}">
+							placeholder="Digite seu celular" required="required"
+							maxlength="14" value="${usuario.celular}">
 						<form:errors path="usuario.celular"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
 
+					<input name="perfil.codigo" type="radio" value="1" /><label>Administrador</label>
+					<input name="perfil.codigo" type="radio" value="2" /><label>Profissional</label>
+					<input name="perfil.codigo" type="radio" value="3" /> <label>Usuario</label>
+
 					<div style="margin-top: 10px" class="form-group">
 						<!-- Button -->
 
-					<br />
-		
-			&nbsp; <input type="submit" class="btn btn-primary" value="Cadastrar"
-				name="btn-cadastrar" /> &nbsp;&nbsp; <input type="reset"
-				class="btn btn-danger" value="Limpar" name="btn-limpar" />
-
-			<br />
+						<br /> &nbsp; <input type="submit" class="btn btn-primary"
+							value="Cadastrar" name="btn-cadastrar" /> &nbsp;&nbsp; <input
+							type="reset" class="btn btn-danger" value="Limpar"
+							name="btn-limpar" /> <br />
 					</div>
 
 
@@ -171,7 +186,7 @@
 	</div>
 
 
-    <!-- jQuery -->
+	<!-- jQuery -->
 	<script src="view/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->

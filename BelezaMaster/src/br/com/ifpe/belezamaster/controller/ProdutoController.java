@@ -23,7 +23,13 @@ public class ProdutoController {
 
 	// incluir produto
 	@RequestMapping("/incluirProduto")
-	public String CadastroProduto(Produto produto, Model model) {
+	public String CadastroProduto(@Valid Produto produto, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("nomeProduto", "* Uso de caracteres e espaços em branco proibido.");
+			return "forward:exibirIncluirProduto";
+		}
+
 		ProdutoDao dao = new ProdutoDao();
 		dao.salvar(produto);
 		model.addAttribute("mensagem", "Produto inserido com Sucesso!");
@@ -44,16 +50,15 @@ public class ProdutoController {
 
 	// Redireciona para alterar Produto
 	@RequestMapping("/alterarProduto")
-	public String alterarProduto(@Valid Produto Produto, BindingResult result, Model model) {
+	public String alterarProduto(@Valid Produto produto, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("nomeProduto", "* Proibido uso de caracteres e espaços em branco. ");
+			model.addAttribute("nomeProduto", "* Uso de caracteres e espaços em branco proibido. ");
 			return "forward:exibirAlterarProduto";
 		}
 
-		
 		ProdutoDao dao = new ProdutoDao();
-		dao.alterar(Produto);
+		dao.alterar(produto);
 		model.addAttribute("msg", " O produto foi alterado com Sucesso!");
 		return "forward:exibirListarProduto";
 
