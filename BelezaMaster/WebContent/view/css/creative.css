@@ -3,7 +3,24 @@
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
- 
+ .btn-new{
+ 	text-decoration: none;
+ 	min-width: 400px;
+ 	background-color: #708090;
+ 	color: #fff;
+ 	padding: 7px;
+ 	border-radius: 3px;
+ }
+ .btn-new:hover{
+ 	color: #fff;
+ 	background-color:#778899;
+ }
+ #id{
+	min-width: 232px;
+    padding: 20px 30px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
  @font-face {
       font-family: 'caviar_dreamsregular';
       src: url(../fonts/CaviarDreams-webfont.ttf) format('truetype');

@@ -49,17 +49,15 @@
 
 	<c:import url="../menu/menu.jsp"></c:import>
 
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
-
-
-
-	<div class="msg">${msg}</div>
+<br><br><br><br><br>
+<div class="container">
+	<center>
+	  <div class="msg alert alert-success fade in"><strong>${msg}</strong> 
+	  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  </div>
+	  
+	</center>
+</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -118,6 +116,7 @@
 	<br />
 	<br />
 	<br />
+	
 <!-- jQuery -->
     <script src="view/vendor/jquery/jquery.min.js"></script>
 

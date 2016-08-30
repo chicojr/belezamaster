@@ -52,8 +52,10 @@
 
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
-<br><br><br>
-
+<br><br><br><br><br>
+	<center>
+	  <div class="msg">${mensagem}</div>
+	</center>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -66,7 +68,6 @@
 
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
-				<div class="msg">${mensagem}</div>
 
 		<form action="incluirServico" method="post">
 

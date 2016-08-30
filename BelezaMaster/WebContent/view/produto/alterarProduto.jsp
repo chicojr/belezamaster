@@ -44,8 +44,9 @@
 </head>
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
-<Br><Br><Br><Br><Br><Br><Br><Br>
-	<div class="msg">${msg}</div>
+<br><br><br><br><br>
+	
+	
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -53,7 +54,6 @@
 				<div class="panel-title">Alterar Produto</div>
 				
 			</div>
-&nbsp;<span style="color: red; font-size:10px;"> <strong> ${nomeProduto} </strong></span><br>
 
 			<div style="padding-top: 30px" class="panel-body">
 
@@ -62,23 +62,19 @@
 
 
 
-		<form action="alterarProduto" method="post">
 
-				
+		<form action="alterarProduto" method="post">
 
 			<label class="span">Nome do Produto :</label><br /> <input
 				type="text" class="form-control" name="nomeProduto" required="required"
 				maxlength="50" value="${produto.nomeProduto}"
 				onkeypress="mascara(this,soLetras)" required="required" />
-		
+			<p />
 
 
 			<br>  <label class="span">Descrição:</label><br /> <input
 				type="text" class="form-control" name="descricao" maxlength="50"
-				value="${produto.descricao}" required="required" onkeypress="mascara(this,soLetras)"/>
- 
-							
-				
+				value="${produto.descricao}" required="required" onkeypress="mascara(this,soLetras)"/> <br> 
 			
 			
 			

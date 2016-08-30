@@ -57,14 +57,11 @@
 	<c:import url="../menu/menu.jsp"></c:import>
 
 
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	<br><br><br><br><br>
+	<center>
+	  <div class="msg">${mensagem}</div>
+	</center>
 
-
-	<div class="msg">${mesagem}</div>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -90,6 +87,15 @@
 							>
 					</div>
 
+					<label>Situação</label>
+					<div style="margin-bottom: 25px" class="input-group">
+						<span class="input-group-addon"><i
+							class="glyphicon glyphicon-user"></i></span> <input id="nome"
+							type="text" class="form-control" name="Situacao"
+							placeholder="Situação"
+							>
+					</div>
+				
 				
 				
 					<p>
