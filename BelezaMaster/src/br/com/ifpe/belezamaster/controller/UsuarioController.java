@@ -24,7 +24,7 @@ public class UsuarioController {
 
 	// Exibir Incluir Usuario
 	@RequestMapping("/exibirIncluirUsuario")
-	public String exibirIncluirUsuario(Usuario usuario) {
+	public String exibirIncluirUsuario(@Valid Usuario usuario) {
 
 		return "usuario/incluirUsuario";
 
@@ -33,7 +33,7 @@ public class UsuarioController {
 
 	// incluir usuario
 	@RequestMapping("/incluirUsuario")
-	public String incluirUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
+	public String incluirUsuario(Usuario usuario, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
 			return "forward:exibirIncluirUsuario";

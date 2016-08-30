@@ -2,13 +2,15 @@ package br.com.ifpe.belezamaster.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ifpe.belezamaster.model.produto.Produto;
 import br.com.ifpe.belezamaster.model.produto.ProdutoDao;
-
 
 @Controller
 public class ProdutoController {
@@ -31,7 +33,8 @@ public class ProdutoController {
 
 	// Alterar Produto
 	@RequestMapping("/exibirAlterarProduto")
-	public String exibirAlterarProduto(Model model, Produto produto) {
+	public String exibirAlterarProduto(Produto produto, Model model) {
+
 		ProdutoDao dao = new ProdutoDao();
 		Produto produtos = dao.buscarPorCodigo(produto.getCodigo());
 		model.addAttribute("produto", produtos);
@@ -41,7 +44,14 @@ public class ProdutoController {
 
 	// Redireciona para alterar Produto
 	@RequestMapping("/alterarProduto")
-	public String alterarProduto(Produto Produto, Model model) {
+	public String alterarProduto(@Valid Produto Produto, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			model.addAttribute("nomeProduto", "* Proibido uso de caracteres e espaços em branco. ");
+			return "forward:exibirAlterarProduto";
+		}
+
+		
 		ProdutoDao dao = new ProdutoDao();
 		dao.alterar(Produto);
 		model.addAttribute("msg", " O produto foi alterado com Sucesso!");
@@ -50,26 +60,26 @@ public class ProdutoController {
 	}
 
 	// exibir listar produto
-		@RequestMapping("/exibirListarProduto")
-		public String listarProduto(Model model) {
-			ProdutoDao dao = new ProdutoDao();
-			List<Produto> listarProduto = dao.listar();
-			model.addAttribute("listarProduto", listarProduto);
+	@RequestMapping("/exibirListarProduto")
+	public String listarProduto(Model model) {
+		ProdutoDao dao = new ProdutoDao();
+		List<Produto> listarProduto = dao.listar();
+		model.addAttribute("listarProduto", listarProduto);
 
-			return "produto/listarProduto";
+		return "produto/listarProduto";
 
-		}
+	}
 
-		// pesquisar produto
-		@RequestMapping("/pesquisarProduto")
-		public String PesquisarProduto(Model model, String nomeProduto) {
-			ProdutoDao dao = new ProdutoDao();
-			List<Produto> listarProduto = dao.buscar(nomeProduto);
-			model.addAttribute("listarProduto", listarProduto);
+	// pesquisar produto
+	@RequestMapping("/pesquisarProduto")
+	public String PesquisarProduto(Model model, String nomeProduto) {
+		ProdutoDao dao = new ProdutoDao();
+		List<Produto> listarProduto = dao.buscar(nomeProduto);
+		model.addAttribute("listarProduto", listarProduto);
 
-			return "produto/listarProduto";
+		return "produto/listarProduto";
 
-		}
+	}
 
 	// Remover produto
 	@RequestMapping("/removerProduto")
@@ -81,5 +91,4 @@ public class ProdutoController {
 		return "forward:exibirListarProduto";
 	}
 
-	
 }

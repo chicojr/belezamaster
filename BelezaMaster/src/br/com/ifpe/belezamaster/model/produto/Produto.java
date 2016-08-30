@@ -1,11 +1,22 @@
 package br.com.ifpe.belezamaster.model.produto;
 
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Produto {
+	
+	
+	@NotEmpty(message = "Não é permitido caracteres e espaço.")
+	@Pattern(regexp = "\\w*") 
 	private String nomeProduto;
+	@NotEmpty(message = "Não é permitido caracteres e espaço.")
+	@Pattern(regexp = "\\w*") 
 	private String descricao;
 	private int codigo;
 	private int quantidade;
 	private double valor;
+	
 	
 	public String getNomeProduto() {
 		return nomeProduto;
