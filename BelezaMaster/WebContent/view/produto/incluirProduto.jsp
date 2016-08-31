@@ -69,7 +69,14 @@
 				<div class="panel-title">Cadastrar Produto</div>
 
 			</div>
-			<div class="msg">${mensagem}</div>
+			<center>
+				<div class="container">
+					<div class="msg alert alert-success fade in">${mensagem}
+						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					</div>
+				</div>
+			</center>
+
 			<span style="color: red;">${nomeProduto}</span>
 
 

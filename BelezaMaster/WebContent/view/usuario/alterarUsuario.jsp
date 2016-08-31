@@ -66,8 +66,16 @@
 				
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -20px">
-										<div class="msg">${msg}</div>
-					
+					<center>
+						<div class="container">
+							<div class="msg alert alert-success fade in">${mensagem}
+								<a href="#" class="close" data-dismiss="alert"
+									aria-label="close">&times;</a>
+							</div>
+						</div>
+					</center>
+
+
 				</div>
 			</div>
 
