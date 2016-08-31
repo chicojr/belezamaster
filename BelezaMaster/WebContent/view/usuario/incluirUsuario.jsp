@@ -56,7 +56,13 @@
 	<br>
 	<br>
 
-
+	<center>
+		<div class="container">
+			<div class="msg alert alert-success fade in">${mensagem}
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			</div>
+		</div>
+	</center>
 
 
 	<div id="loginbox" style="margin-top: 50px;"
@@ -71,13 +77,7 @@
 			</div>
 
 			<div style="padding-top: 30px" class="panel-body">
-			<center>
-				<div class="container">
-					<div class="msg alert alert-success fade in">${mensagem}
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					</div>
-				</div>
-				</center>
+			
 
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>

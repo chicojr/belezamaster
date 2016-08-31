@@ -58,8 +58,13 @@
 
 
 	<br><br><br><br><br>
+	
 	<center>
-	  <div class="msg">${mensagem}</div>
+		<div class="container">
+			<div class="msg alert alert-success fade in">${mensagem}
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			</div>
+		</div>
 	</center>
 
 	<div id="loginbox" style="margin-top: 50px;"
@@ -82,7 +87,7 @@
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="text" class="form-control" name="horario"
+							type="date" class="form-control" name="horario"
 							placeholder="Digite Data de Atendimento"
 							>
 					</div>

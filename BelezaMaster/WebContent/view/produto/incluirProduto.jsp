@@ -61,7 +61,13 @@
 	<br>
 	<br>
 	<br>
-
+	<center>
+		<div class="container">
+			<div class="msg alert alert-success fade in">${mensagem}
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			</div>
+		</div>
+	</center>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
@@ -69,13 +75,7 @@
 				<div class="panel-title">Cadastrar Produto</div>
 
 			</div>
-			<center>
-				<div class="container">
-					<div class="msg alert alert-success fade in">${mensagem}
-						<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-					</div>
-				</div>
-			</center>
+			
 
 			<span style="color: red;">${nomeProduto}</span>
 

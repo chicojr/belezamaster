@@ -85,7 +85,7 @@ public class UsuarioController {
 	public String alterarUsuario(Usuario usuario, Model model) {
 		UsuarioDao dao = new UsuarioDao();
 		dao.alterar(usuario);
-		model.addAttribute("msg", " O Usuário foi alterado com Sucesso!");
+		model.addAttribute("mensagem", " O Usuário foi alterado com Sucesso!");
 		return "usuario/alterarUsuario";
 
 	}
@@ -130,7 +130,7 @@ public class UsuarioController {
 			session.setAttribute("usuarioLogado", usuarioLogado);
 			return "home";
 		}
-		model.addAttribute("msg", "Não foi encontrado um usuário com o login e senha informados.");
+		model.addAttribute("mensagem", "Não foi encontrado um usuário com o login e senha informados.");
 		return "index";
 	}
 
