@@ -73,28 +73,36 @@
                     </li>
                     <li>
                        <li class="dropdown">
-          <a href="#" style="font-size: 16px;" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <b>
-          <i class="fa fa-user" aria-hidden="true">&nbsp;</i>
+         <i class="fa fa-user" aria-hidden="true">&nbsp;</i>
           Bem vindo, ${usuarioLogado.nome}&nbsp;&nbsp;
           </b> 
           <span class="caret"></span>
           </a>
-			<ul id="login-dp" class="dropdown-menu">
+			<ul id="id" class="dropdown-menu">
 				<li>
 					 <div class="row">
 							<div class="col-md-12">
-								<h2><a href="exibirPesquisarPorCpf">Alterar Dados</a></h2>
+							
+								<a class="nav-tabs-dropdown btn-01" href="exibirPesquisarPorCpf"><strong>Alterar Dados</strong></a>
+								<div class="espaco-negro">
+							    </div>
+								<a class="nav-tabs-dropdown btn-01" href="exibirIncluirAtendimento"><strong>Fazer Reserva</strong></a>
+							<p />
                            		 		</div>
-										<div class="bottom text-center">
-								<a href="logout"><b>Sair</b></a>
+                           		 		
+										<div class="bottom">
+								
+								<a href="logout" class="btn-new"><strong>Sair</strong></a>
 							</div>
 							<Br>
-							</div></a>
+							</div>
                        		
                     </li>
                 </ul>
-            </div>
+			
+             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->

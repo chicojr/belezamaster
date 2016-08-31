@@ -16,9 +16,6 @@
 	<link href="view/css/style.css" rel="stylesheet" type="text/css" /> 
     <title>Beleza Master - Especialista em Designer de Cortes Femininos e Masculinos</title>
 
-	
-    <!-- Bootstrap Core CSS -->
-    <link href="view/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -91,12 +88,16 @@
 					 <div class="row">
 							<div class="col-md-12">
 							
-								<a class="nav-tabs-dropdown btn" href="exibirPesquisarPorCpf">Alterar Dados</a>
-								<br />
-								<a class="nav-tabs-dropdown btn" href="exibirIncluirAtendimento">Fazer Reserva</a>
+								<a class="nav-tabs-dropdown btn-01" href="exibirPesquisarPorCpf"><strong>Alterar Dados</strong></a>
+								<div class="espaco-negro">
+							    </div>
+								<a class="nav-tabs-dropdown btn-01" href="exibirIncluirAtendimento"><strong>Fazer Reserva</strong></a>
+							<p />
                            		 		</div>
+                           		 		
 										<div class="bottom">
-								<a href="logout" class="btn-new"><b>Sair</b></a>
+								
+								<a href="logout" class="btn-new"><strong>Sair</strong></a>
 							</div>
 							<Br>
 							</div>
