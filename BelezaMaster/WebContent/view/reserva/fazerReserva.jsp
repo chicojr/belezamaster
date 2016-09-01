@@ -90,19 +90,7 @@
 							type="date" class="form-control" name="horario"
 							placeholder="Digite Data de Atendimento"
 							>
-					</div>
-
-					<label>Situação</label>
-					<div style="margin-bottom: 25px" class="input-group">
-						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="text" class="form-control" name="Situacao"
-							placeholder="Situação"
-							>
-					</div>
-				
-				
-				
+					</div>			
 					<p>
 						Profissional:<br> <select name="profissional.id">
 							<option value="">Selecione</option>

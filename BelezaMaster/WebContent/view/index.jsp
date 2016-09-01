@@ -143,7 +143,7 @@
     </nav>
  
     <header id="home"><br><br><br>
-               <center><div><span style="font-size: 20px;">${msg}</span></div></center>
+               <center><div><span style="font-size: 20px;">${mensagem}</span></div></center>
     
         <div class="header-content">
         
