@@ -117,7 +117,7 @@ public class AtendimentoController {
 		public String cancelarReserva(Atendimento atendimento, Model model) {
 			AtendimentoDao dao = new AtendimentoDao();
 			dao.cancelar(atendimento);
-			model.addAttribute("cancelar", "A Reserva Removido com Sucesso");
+			model.addAttribute("cancelar", "Reserva Cancelada com Sucesso");
 			return "forward:exibirListarAtendimento";
 		}
 

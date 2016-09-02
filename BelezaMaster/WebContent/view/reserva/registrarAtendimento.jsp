@@ -44,6 +44,7 @@
 
 <!-- Theme CSS -->
 <link href="view/css/creative.css" rel="stylesheet">
+		<script type="text/javascript" src="view/js/validaCPF.js"></script>
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,104 +63,104 @@
 	<br>
 	<br>
 	<br>
+<center>
+	<div class="container">
+		<div class="msg alert alert-success fade in">${cancelar} ${registrar}
 
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+		</div>
+		</div>
+		</center>
+		<div id="loginbox" style="margin-top: 50px;"
+			class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Listar Registro de Atendimento</div>
+					<div
+						style="float: right; font-size: 80%; position: relative; top: -10px">
+					</div>
+				</div>
 
-	<div class="msg">${cancelar}</div>
+				<div style="padding-top: 30px" class="panel-body">
 
-	<div class="msg">${registrar}</div>
-	<div id="loginbox" style="margin-top: 50px;"
-		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<div class="panel-title">Listar Registro de Atendimento</div>
-				<div
-					style="float: right; font-size: 80%; position: relative; top: -10px">
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+
+					<form action="registrarAtendimento" method="post" class="contact">
+						<br /> <label class="span">Situação:</label><br /> <input
+							class="form-control" type="text" name="situacao"
+							onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
+							class="btn btn-primary" type="submit" value="Buscar" />
+
+					</form>
 				</div>
 			</div>
 
-			<div style="padding-top: 30px" class="panel-body">
-
-				<div style="display: none" id="login-alert"
-					class="alert alert-danger col-sm-12"></div>
-
-				<form action="registrarAtendimento" method="post" class="contact">
-					<br /> <label class="span">Situação:</label><br /> <input
-						class="form-control" type="text" name="situacao"
-						onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
-						class="btn btn-primary" type="submit" value="Buscar" />
-
-				</form>
-			</div>
 		</div>
 
-	</div>
 
 
+		<table border='1' class="table table-bordered">
+			<tr style='background-color: #fff; font-weight: bold;'>
 
-	<table border='1' class="table table-bordered">
-		<tr style='background-color: #fff; font-weight: bold;'>
+				<td class="span">Nome do Usuário</td>
+				<td class="span">Cpf do Usuário</td>
+				<td class="span">Código do Servico</td>
+				<td class="span">Serviço</td>
+				<td class="span">Nome do Profissional</td>
+				<td class="span">Código do Atendimento</td>
+				<td class="span">Horário de Atendimento</td>
+				<td class="span">Situação</td>
+				<td class="span">Data do Atendimento</td>
+				<td class="span">Alterar</td>
+				<td class="span">Remover</td>
 
-			<td class="span">Nome do Usuário</td>
-			<td class="span">Cpf do Usuário</td>
-			<td class="span">Código do Servico</td>
-			<td class="span">Serviço</td>
-			<td class="span">Nome do Profissional</td>
-			<td class="span">Código do Atendimento</td>
-			<td class="span">Horário de Atendimento</td>
-			<td class="span">Situação</td>
-			<td class="span">Data do Atendimento</td>
-			<td class="span">Alterar</td>
-			<td class="span">Remover</td>
-
-
-		</tr>
-
-		<c:forEach var="atendimento" items="${registrarAtendimento}">
-			<tr>
-
-				<td class="span-text">${atendimento.usuario.nome}</td>
-				<td class="span-text">${atendimento.usuario.cpf}</td>
-				<td class="span-text">${atendimento.servico.codigo}</td>
-				<td class="span-text">${atendimento.servico.nome}</td>
-				<td class="span-text">${atendimento.profissional.nome}</td>
-				<td class="span-text">${atendimento.codigoAtendimento}</td>
-				<td class="span-text"><fmt:formatDate value="${atendimento.horario}" pattern="dd/MM/yyyy" /></td>
-				<td class="span-text">${atendimento.situacao}</td>
-				<td class="span-text">${atendimento.dataAtendimento}</td>
-
-
-				<td><a class="btn btn-success"
-					href="alterarSituacao?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
-				<td><a class="btn btn-danger"
-					href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
 
 			</tr>
 
-		</c:forEach>
-	</table>
-	<br />
-	<br />
-	<br />
-	<br />
+			<c:forEach var="atendimento" items="${registrarAtendimento}">
+				<tr>
 
-	<script src="view/vendor/jquery/jquery.min.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-	<!-- Plugin JavaScript -->
-	<script src="view/vendor/easing/easing.min.js"></script>
-	<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
-	<script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="view/js/validaCPF.js"></script>
-	<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-	<script type="text/javascript"
-		src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
-
-	<!-- Theme JavaScript -->
-	<script src="view/js/creative.min.js"></script>
+					<td class="span-text">${atendimento.usuario.nome}</td>
+					<td class="span-text">${atendimento.usuario.cpf}</td>
+					<td class="span-text">${atendimento.servico.codigo}</td>
+					<td class="span-text">${atendimento.servico.nome}</td>
+					<td class="span-text">${atendimento.profissional.nome}</td>
+					<td class="span-text">${atendimento.codigoAtendimento}</td>
+					<td class="span-text"><fmt:formatDate
+							value="${atendimento.horario}" pattern="dd/MM/yyyy" /></td>
+					<td class="span-text">${atendimento.situacao}</td>
+					<td class="span-text">${atendimento.dataAtendimento}</td>
 
 
+					<td><a class="btn btn-success"
+						href="alterarSituacao?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
+					<td><a  class="btn btn-danger"
+						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
+
+				</tr>
+
+			</c:forEach>
+		</table>
+		<br /> <br /> <br /> <br />
+<script type="text/javascript">
+
+</script>
+		<script src="view/vendor/jquery/jquery.min.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="view/vendor/easing/easing.min.js"></script>
+		<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+		<script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+		<script type="text/javascript"
+			src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
+		<!-- Theme JavaScript -->
+		<script src="view/js/creative.min.js"></script>
 </body>
 </html>

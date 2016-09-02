@@ -490,3 +490,13 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #222222;
 }
+.span-text{
+	
+	color:#fff;
+}
+.error{
+	font-size:1em;
+	font-weight:bold;
+	color:red;   
+	
+}

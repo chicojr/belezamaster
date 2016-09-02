@@ -52,7 +52,7 @@
 <br><br><br><br><br>
 <div class="container">
 	<center>
-	  <div class="msg alert alert-success fade in"><strong>${msg}</strong> 
+	  <div class="msg alert alert-success fade in"><strong>${mensagem}</strong> 
 	  	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 	  </div>
 	  

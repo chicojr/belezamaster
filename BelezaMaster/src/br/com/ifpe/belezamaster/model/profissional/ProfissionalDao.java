@@ -64,7 +64,28 @@ public class ProfissionalDao {
 			throw new RuntimeException(e);
 		}
 	}
+	//Buscar por E-mail
+		public Profissional buscarPorEmail(String email) {
 
+			try {
+				PreparedStatement stmt = connection.prepareStatement("SELECT * FROM PROFISSIONAL WHERE email = ?");
+				stmt.setString(1, email);
+				ResultSet rs = stmt.executeQuery();
+
+				Profissional profissional = null;
+				if (rs.next()) {
+					profissional = montarObjeto(rs);
+				}
+
+				rs.close();
+				stmt.close();
+				connection.close();
+				return profissional;
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
 	// Alterar
 
 	public void alterar(Profissional profissional) {
@@ -129,6 +150,8 @@ public class ProfissionalDao {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	
 	
 	// Listar profissional
 			public List<Profissional> listar() {

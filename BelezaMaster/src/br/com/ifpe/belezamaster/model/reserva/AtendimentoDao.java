@@ -79,7 +79,7 @@ public class AtendimentoDao {
 	}
 
 	public void alterarFinalizar(Atendimento atendimento) {
-		String sql = "UPDATE ATENDIMENTO SET situacao = 'P'  WHERE codigo = ?";
+		String sql = "UPDATE ATENDIMENTO SET situacao = 'F'  WHERE codigo = ?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

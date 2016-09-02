@@ -47,7 +47,6 @@
 </head>
 
 
-<body>
 
 
 <body class="bg-dark-2">

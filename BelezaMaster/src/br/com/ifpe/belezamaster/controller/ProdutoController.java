@@ -59,7 +59,7 @@ public class ProdutoController {
 
 		ProdutoDao dao = new ProdutoDao();
 		dao.alterar(produto);
-		model.addAttribute("msg", " O produto foi alterado com Sucesso!");
+		model.addAttribute("mensagem", " O produto foi alterado com Sucesso!");
 		return "forward:exibirListarProduto";
 
 	}

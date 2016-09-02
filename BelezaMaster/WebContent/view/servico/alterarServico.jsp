@@ -52,14 +52,12 @@
 </head>
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
-	<Br>
-	<Br>
-	<Br>
-	<Br>
-	<Br>
-	<Br>
-	<Br>
-	<Br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<center>
 	<div class="container">
 	  <div class="msg alert alert-success fade in">${mensagem}   

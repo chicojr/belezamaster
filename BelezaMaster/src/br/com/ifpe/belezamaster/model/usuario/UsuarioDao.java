@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class UsuarioDao {
@@ -69,7 +70,7 @@ public class UsuarioDao {
 		}
 	}
 
-	// buscar usuario por email
+	// Listar usuario por email
 	public List<Usuario> buscar(String email) {
 		try {
 			List<Usuario> listarUsuario = new ArrayList<Usuario>();
@@ -126,7 +127,28 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	}
+	//Buscar por E-mail
+			public Usuario buscarPorEmail(String email) {
 
+				try {
+					PreparedStatement stmt = connection.prepareStatement("SELECT * FROM USUARIO WHERE email = ?");
+					stmt.setString(1, email);
+					ResultSet rs = stmt.executeQuery();
+
+					Usuario usuario = null;
+					if (rs.next()) {
+						usuario = montarObjeto(rs);
+					}
+
+					rs.close();
+					stmt.close();
+					connection.close();
+					return usuario;
+
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
 	// Buscar Usuario Login
 
 	public Usuario buscarUsuario(Usuario usuario) {

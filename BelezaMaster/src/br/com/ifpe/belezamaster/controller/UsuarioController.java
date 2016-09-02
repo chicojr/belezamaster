@@ -15,6 +15,12 @@ import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 
 @Controller
 public class UsuarioController {
+	private static int Adm = 1;
+	private static int prof = 1;
+	private static int user = 3;
+	
+	
+	
 	// Exibir Página Inicial
 	@RequestMapping("/exibirIndex")
 	public String exibirIndex() {
@@ -34,8 +40,12 @@ public class UsuarioController {
 	// incluir usuario
 	@RequestMapping("/incluirUsuario")
 	public String incluirUsuario( @Valid Usuario usuario, BindingResult result, Model model) {
-	     
+		UsuarioDao dao = new UsuarioDao();
 
+		if (dao.buscarPorEmail(usuario.getEmail()) != null) {
+			model.addAttribute("email", " E-mail já cadastrado");
+			return "forward:exibirIncluirUsuario";
+		}
 		
 	     if (result.hasErrors()) {
 				model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 20 caracteres ");
@@ -48,17 +58,17 @@ public class UsuarioController {
 
 		}
 		
-			UsuarioDao dao = new UsuarioDao();
+			UsuarioDao dao1 = new UsuarioDao();
 			
-			if( dao.buscarPorCpf(usuario.getCpf()) != null){
+			if( dao1.buscarPorCpf(usuario.getCpf()) != null){
 				model.addAttribute("cpf", " Cpf já cadastrado");
 				return "forward:exibirIncluirUsuario";
 
 				
 			} else {	
-			UsuarioDao dao1 = new UsuarioDao();
+			UsuarioDao dao2 = new UsuarioDao();
 
-			dao1.salvar(usuario);
+			dao2.salvar(usuario);
 			model.addAttribute("mensagem", " O Usuário foi adicionado com Sucesso!");
 			return "usuario/incluirUsuario";
 		}
@@ -74,11 +84,20 @@ public class UsuarioController {
 		// Exibir alterar usuario
 		@RequestMapping("/exibirAlterarUsuario")
 		public String exibirAlterarUsuario(Model model, Usuario usuario) {
-			UsuarioDao dao = new UsuarioDao();
-			Usuario usuarioCPF = dao.buscarPorCpf(usuario.getCpf());
+              UsuarioDao dao = new UsuarioDao();
+			
+			if( dao.buscarPorCpf(usuario.getCpf()) == null){
+				model.addAttribute("cpf", " Cpf não cadastrado");
+				return "forward:exibirPesquisarPorCpf";
+
+				
+			}else{
+			
+			UsuarioDao dao1 = new UsuarioDao();
+            Usuario usuarioCPF = dao1.buscarPorCpf(usuario.getCpf());
 			model.addAttribute("usuario", usuarioCPF);
 			return "usuario/alterarUsuario";
-
+			}
 		}
 	// Redireciona para alterar usuario
 	@RequestMapping("/alterarUsuario")

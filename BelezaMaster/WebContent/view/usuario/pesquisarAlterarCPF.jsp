@@ -44,11 +44,15 @@
 
 
 <br><br><br><br><br><br><br><br><br>
+		
+		
+	
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
 				<div class="panel-title">Pesquisar</div>
+						
 				
 			</div>
 
@@ -61,11 +65,12 @@
 
 
 			<input type="hidden" name="id">
- &nbsp;<span style="color: red;">${cpfN}</span>
 			<div class="form-group">
+			
 				<label class="span" for="inputNome">CPF:</label><br /> <input id="cpf" 
 					type="text" class="form-control"  name="cpf"
 					 required="required" value="${usuario.cpf}" onblur="javascript: validarCPF(this.value);" >
+					&nbsp;<span class="error">${cpf}</span> 
 				<br> <br /> <input type="submit" class="btn btn-primary" value="Buscar">
 			</div>
 			<br />

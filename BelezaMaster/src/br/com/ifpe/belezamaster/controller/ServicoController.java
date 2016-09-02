@@ -76,7 +76,7 @@ public class ServicoController {
 	public String alterarServico(Servico servico, Model model) {
 		ServicoDao dao = new ServicoDao();
 		dao.alterar(servico);
-		model.addAttribute("msg", " O Servico foi alterado com Sucesso!");
+		model.addAttribute("mensagem", " O Servico foi alterado com Sucesso!");
 		return "servico/alterarServico";
 
 	}

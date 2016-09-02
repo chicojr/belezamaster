@@ -87,9 +87,9 @@
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="date" class="form-control" name="horario"
+							type="text" class="form-control" name="horario"
 							placeholder="Digite Data de Atendimento"
-							>
+							required="required">
 					</div>			
 					<p>
 						Profissional:<br> <select name="profissional.id">

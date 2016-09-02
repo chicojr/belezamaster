@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
 
-
 @Controller
 public class ProfissionalController {
 
@@ -25,45 +24,48 @@ public class ProfissionalController {
 	@RequestMapping("/incluirProfissional")
 	public String incluirProfissional(Profissional profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
-		
-		if( dao.buscarPorCpf(profissional.getCpf()) != null){
+
+		if (dao.buscarPorEmail(profissional.getEmail()) != null) {
+			model.addAttribute("email", " E-mail já cadastrado");
+			return "exibirIncluirProfissional";
+		}
+		ProfissionalDao dao1 = new ProfissionalDao();
+
+		if (dao1.buscarPorCpf(profissional.getCpf()) != null) {
 			model.addAttribute("cpf", " Cpf já cadastrado");
 			return "forward:exibirIncluirProfissional";
 
-			
 		} else {
-			ProfissionalDao dao1 = new ProfissionalDao();	
-		
-		dao1.salvar(profissional);
+			ProfissionalDao dao2 = new ProfissionalDao();
+
+			dao2.salvar(profissional);
 			model.addAttribute("mensagem", "Profissional Adicionado com Sucesso!");
 			return "forward:exibirListarProfissional";
 
-		}	
+		}
 	}
 
 	// listar servico
 
-			@RequestMapping("/exibirListarProfissional")
-			public String listarProfissional(Model model) {
-				ProfissionalDao dao = new ProfissionalDao();
-				List<Profissional> listarProfissional = dao.listar();
-				model.addAttribute("listarProfissional", listarProfissional);
-				return "profissional/pesquisarProfissional";
+	@RequestMapping("/exibirListarProfissional")
+	public String listarProfissional(Model model) {
+		ProfissionalDao dao = new ProfissionalDao();
+		List<Profissional> listarProfissional = dao.listar();
+		model.addAttribute("listarProfissional", listarProfissional);
+		return "profissional/pesquisarProfissional";
 
-			}
+	}
 
-			// pesquiar profissional
-			@RequestMapping("pesquisarProfissional")
-			public String PesquisarProfissional(Model model, String nome) {
-				ProfissionalDao dao = new ProfissionalDao();
-				List<Profissional> listarProfissional = dao.buscar(nome);
-				model.addAttribute("listarProfissional", listarProfissional);
-				return "profissional/pesquisarProfissional";
-			}
-			
-			
+	// pesquiar profissional
+	@RequestMapping("pesquisarProfissional")
+	public String PesquisarProfissional(Model model, String nome) {
+		ProfissionalDao dao = new ProfissionalDao();
+		List<Profissional> listarProfissional = dao.buscar(nome);
+		model.addAttribute("listarProfissional", listarProfissional);
+		return "profissional/pesquisarProfissional";
+	}
 
-	//Alterar profissional
+	// Alterar profissional
 	@RequestMapping("/exibirAlterarProfissional")
 	public String exibirAlterarProfissional(Model model, Profissional profissional) {
 		ProfissionalDao dao = new ProfissionalDao();
@@ -78,19 +80,18 @@ public class ProfissionalController {
 	public String alterarProfissional(Profissional Profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		dao.alterar(Profissional);
-		model.addAttribute("msgPr", " O Profissional foi alterado com Sucesso!");
+		model.addAttribute("mensagem", " O Profissional foi alterado com Sucesso!");
 		return "forward:exibirListarProfissional";
 
-		
 	}
-	//remover profissional
+
+	// remover profissional
 	@RequestMapping("/removerProfissional")
 	public String removeProfissional(Profissional profissional, Model model) {
-	ProfissionalDao dao = new ProfissionalDao();
-	dao.remover(profissional);
-	model.addAttribute("remove", "Profissional Removido com Sucesso");
-	return"forward:exibirListarProfissional";
+		ProfissionalDao dao = new ProfissionalDao();
+		dao.remover(profissional);
+		model.addAttribute("mensagem", "Profissional Removido com Sucesso");
+		return "forward:exibirListarProfissional";
 	}
-		
-	
+
 }
