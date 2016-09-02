@@ -75,10 +75,10 @@ public class UsuarioController {
 	
 	}
 	// Exibir Pesquisar por CPF
-		@RequestMapping("/exibirPesquisarPorCpf")
-		public String exibirPesquisarPorCpf() {
+		@RequestMapping("/exibirAlterarDadosUsuario")
+		public String exibirAlterarDadosUsuario() {
 
-			return "usuario/pesquisarAlterarCPF";
+			return "usuario/alterarUsuario";
 		}
 
 		// Exibir alterar usuario
@@ -146,6 +146,7 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuarioLogado = dao.buscarUsuario(usuario);
 		if (usuarioLogado != null) {
+			session.setAttribute("usuario", usuarioLogado);
 			session.setAttribute("usuarioLogado", usuarioLogado);
 			return "home";
 		}

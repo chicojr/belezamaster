@@ -76,10 +76,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>
           
           
-          <% if(session.getAttribute("usuarioLogado")!= null) { %> 
+          <% if(session.getAttribute("usuario")!= null) { %> 
           
           <i class="fa fa-user" aria-hidden="true">&nbsp;</i>
-          Bem vindo, ${usuarioLogado.nome}&nbsp;&nbsp;
+          Bem vindo, ${usuario.nome}&nbsp;&nbsp;
           </b> 
           <span class="caret"></span>
           </a>
@@ -88,7 +88,7 @@
 					 <div class="row">
 							<div class="col-md-12">
 							
-								<a class="nav-tabs-dropdown btn-01" href="exibirPesquisarPorCpf"><strong>Alterar Dados</strong></a>
+								<a class="nav-tabs-dropdown btn-01" href="exibirAlterarDadosUsuario"><strong>Alterar Dados</strong></a>
 								<div class="espaco-negro">
 							    </div>
 								<a class="nav-tabs-dropdown btn-01" href="exibirIncluirAtendimento"><strong>Fazer Reserva</strong></a>

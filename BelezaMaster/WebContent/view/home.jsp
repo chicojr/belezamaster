@@ -57,7 +57,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a class="page-scroll" href="#home">Home</a>
+                        <a class="page-scroll" href="exibirIndex">Home</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#sobre">Sobre</a>
@@ -85,7 +85,7 @@
 					 <div class="row">
 							<div class="col-md-12">
 							
-								<a class="nav-tabs-dropdown btn-01" href="exibirPesquisarPorCpf"><strong>Alterar Dados</strong></a>
+								<a class="nav-tabs-dropdown btn-01" href="exibirAlterarDadosUsuario"><strong>Alterar Dados</strong></a>
 								<div class="espaco-negro">
 							    </div>
 								<a class="nav-tabs-dropdown btn-01" href="exibirIncluirAtendimento"><strong>Fazer Reserva</strong></a>

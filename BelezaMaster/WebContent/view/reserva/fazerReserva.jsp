@@ -10,7 +10,7 @@
 <head>
 <href
 	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
-	' rel='stylesheet' type='text/css'>
+	' rel='stylesheet' type='text/css'/>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,7 +61,7 @@
 	
 	<center>
 		<div class="container">
-			<div class="msg alert alert-success fade in">${mensagem}
+			<div class="msg fade in">${mensagem}
 				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			</div>
 		</div>
@@ -86,7 +86,9 @@
 					<label>Data de Atendimento</label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span> <input id="nome"
+							class="glyphicon glyphicon-user"></i></span> 
+							
+							<input id="nome"
 							type="text" class="form-control" name="horario"
 							placeholder="Digite Data de Atendimento"
 							required="required">
