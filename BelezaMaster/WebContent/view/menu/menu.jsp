@@ -39,7 +39,6 @@
 					<li> 						
 						<a href="exibirListarUsuario">Listar Usuário</a>						
 						<a href="exibirIncluirUsuario">Cadastrar Usuário</a>
-						<a href="exibirPesquisarPorCpf">Pesquisar Usuário</a>
 					</li>
 				</ul>
 			</li>
