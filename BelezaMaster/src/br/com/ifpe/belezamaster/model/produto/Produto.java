@@ -8,10 +8,10 @@ public class Produto {
 	
 	
 	@NotEmpty(message = "Não é permitido caracteres e espaço.")
-	@Pattern(regexp = "\\w*") 
+	@Pattern(regexp = "^[A-Za-z0-9 ]*$")
 	private String nomeProduto;
-	@NotEmpty(message = "Não é permitido caracteres e espaço.")
-	@Pattern(regexp = "\\w*") 
+	@NotEmpty()
+	@Pattern(regexp = "^[A-Za-z0-9 ]*$" , message = "Não é permitido caracteres e espaço.") 
 	private String descricao;
 	private int codigo;
 	private int quantidade;
@@ -22,13 +22,13 @@ public class Produto {
 		return nomeProduto;
 	}
 	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
+		this.nomeProduto = nomeProduto.trim();
 	}
 	public String getDescricao() {
 		return descricao;
 	}
 	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+		this.descricao = descricao.trim();
 	}
 	public int getCodigo() {
 		return codigo;

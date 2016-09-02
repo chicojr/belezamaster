@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="pt-br">
@@ -93,11 +94,12 @@
 
 					<label class="span">Nome do produto:</label><br /> <input
 						type="text" class="form-control" name="nomeProduto"
-						required="required" maxlength="50"
+						required="required" maxlength="30"
 						onkeypress="mascara(this,soLetras)"> <br> <br> <label
 						class="span">Descrição:</label><br /> <input type="text"
-						class="form-control" name="descricao" maxlength="30"
-						required="required" onkeypress="mascara(this,soLetras)"> <br>
+						class="form-control" name="descricao" maxlength="50"
+						required="required" >
+					 <br>
 					<br> <label class="span">Quantidade:</label><br /> <input
 						type="text" class="form-control" name="quantidade" maxlength="10"
 						required="required" onkeypress="mascara(this,soNumeros)">

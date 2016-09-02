@@ -29,7 +29,7 @@ public class ProdutoDao {
 		try {
 			stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, produto.getNomeProduto());
+			stmt.setString(1, produto.getNomeProduto().trim());
 			stmt.setString(2, produto.getDescricao());
 			stmt.setInt(3, produto.getQuantidade());
 			stmt.setDouble(4, produto.getValor());

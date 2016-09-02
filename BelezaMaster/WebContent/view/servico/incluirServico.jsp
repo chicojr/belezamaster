@@ -63,9 +63,14 @@
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
+			
+			
+			
 				<div class="panel-title">Cadastrar Serviço</div>
 				
 			</div>
+			
+			<span style="color: red;">${nome}</span>
 
 			<div style="padding-top: 30px" class="panel-body">
 
@@ -88,8 +93,7 @@
 			<br> <label class="span">Descrição:</label><br /> <input
 				type="text" class="form-control" name="descricao" maxlength="50"
 				required="true" value="${servico.descricao}" onkeypress="mascara(this,soLetras)"> <br>
-			<form:errors path="servico.descricao" style="width: 300px;"
-				cssStyle="color:red; font-size:10px;" />
+			
 			<br />
 		
 			 <input type="submit" class="btn btn-primary" value="Cadastrar"

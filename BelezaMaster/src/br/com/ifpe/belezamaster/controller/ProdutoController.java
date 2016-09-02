@@ -26,7 +26,7 @@ public class ProdutoController {
 	public String CadastroProduto(@Valid Produto produto, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("nomeProduto", "* Uso de caracteres e espaços em branco proibido.");
+			model.addAttribute("nomeProduto", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
 			return "forward:exibirIncluirProduto";
 		}
 
@@ -53,7 +53,7 @@ public class ProdutoController {
 	public String alterarProduto(@Valid Produto produto, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("nomeProduto", "* Uso de caracteres e espaços em branco proibido. ");
+			model.addAttribute("nomeProduto", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
 			return "forward:exibirAlterarProduto";
 		}
 
