@@ -161,7 +161,14 @@
 
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
+<script type="text/javascript">
+		jQuery.noConflict();
+		jQuery(function($) {
+			$("#nome").mask("99/99/9999");
+		
 
+		});
+	</script>
 
 </body>
 </html>

@@ -130,9 +130,9 @@
 				<td class="span-text">${atendimento.dataAtendimento}</td>
 
 				<td><a class="btn btn-success"
-					href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
+					href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>
 				<td><a class="btn btn-danger"
-					href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
+					href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
 
 			</tr>
 

@@ -134,9 +134,9 @@
 
 
 					<td><a class="btn btn-success"
-						href="alterarSituacao?codigoAtendimento=${atendimento.codigoAtendimento}">Alterar</a></td>
+						href="alterarSituacao?codigoAtendimento=${atendimento.codigoAtendimento}">Registrar</a></td>
 					<td><a  class="btn btn-danger"
-						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Remover</a></td>
+						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
 
 				</tr>
 
