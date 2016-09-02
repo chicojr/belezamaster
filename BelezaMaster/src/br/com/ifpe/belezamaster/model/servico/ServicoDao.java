@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ServicoDao {
@@ -101,14 +100,41 @@ public class ServicoDao {
 		}
 	}
 
-	
-// buscar por nome
+	// buscar por nome
 	public List<Servico> buscar(String nome) {
 		try {
-			List<Servico> listarServico = new ArrayList<Servico>();
+			List<Servico> listaServico = new ArrayList<Servico>();
 			PreparedStatement stmt = null;
-			stmt = connection.prepareStatement("SELECT * FROM SERVICO WHERE nome like ?");
-			stmt.setString(1, "%" + nome + "%");
+			if (!nome.equals("")) {
+				stmt = this.connection.prepareStatement("SELECT * FROM SERVICO WHERE nome LIKE ? ORDER BY nome");
+				stmt.setString(1, "%" + nome + "%");
+			} else if (nome.equals("")) {
+				stmt = this.connection.prepareStatement("SELECT * FROM SERVICO ORDER BY nome");
+			}
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				listaServico.add(montarObjeto(rs));
+			}
+			rs.close();
+			stmt.close();
+			connection.close();
+			return listaServico;
+
+		} catch (SQLException e) {
+
+			throw new RuntimeException(e);
+		}
+
+	}
+
+	// Listar usuario
+	public List<Servico> listar() {
+
+		try {
+			List<Servico> listarServico = new ArrayList<Servico>();
+			PreparedStatement stmt = (PreparedStatement) this.connection
+					.prepareStatement("SELECT * FROM SERVICO ORDER BY nome");
+
 			ResultSet rs = stmt.executeQuery();
 
 			while (rs.next()) {
@@ -117,37 +143,13 @@ public class ServicoDao {
 
 			rs.close();
 			stmt.close();
+			connection.close();
 
 			return listarServico;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
-
-	
-	//Listar usuario
-			public List<Servico> listar() {
-
-				try {
-					List<Servico> listarServico = new ArrayList<Servico>();
-					PreparedStatement stmt = (PreparedStatement) this.connection
-							.prepareStatement("SELECT * FROM SERVICO ORDER BY nome");
-
-					ResultSet rs = stmt.executeQuery();
-
-					while (rs.next()) {
-						listarServico.add(montarObjeto(rs));
-					}
-
-					rs.close();
-					stmt.close();
-					connection.close();
-
-					return listarServico;
-				} catch (SQLException e) {
-					throw new RuntimeException(e);
-				}
-			}
 
 	private Servico montarObjeto(ResultSet rs) throws SQLException {
 

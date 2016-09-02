@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ifpe.belezamaster.model.servico.Servico;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ProfissionalDao {
@@ -129,28 +130,28 @@ public class ProfissionalDao {
 
 	// BuscarPorNome
 
-	public List<Profissional> buscar(String nome) {
-
-		try {
-			List<Profissional> listaProfissional = new ArrayList<Profissional>();
-			java.sql.PreparedStatement stmt = connection
-					.prepareStatement("SELECT * FROM PROFISSIONAL WHERE nome like ?");
-			stmt.setString(1, "%" + nome + "%");
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				listaProfissional.add(montarObjeto(rs));
-			}
-
-			rs.close();
-			stmt.close();
-
-			return listaProfissional;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
 	
+	//Buscar profissional por nome
+		public List<Profissional> buscar(String nome) {
+			try {
+				List<Profissional> listarProfissional = new ArrayList<Profissional>();
+				PreparedStatement stmt = null;
+				stmt = connection.prepareStatement("SELECT * FROM PROFISSIONAL WHERE nome like ?");
+				stmt.setString(1, "%" + nome + "%");
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					listarProfissional.add(montarObjeto(rs));
+				}
+
+				rs.close();
+				stmt.close();
+
+				return listarProfissional;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
 	
 	
 	// Listar profissional

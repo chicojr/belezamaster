@@ -43,6 +43,20 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <script type="text/javascript"src="view/js/jquery-2.1.4.js">
+    
+    </script> <script type="text/javascript">
+		$(document).ready(function() {
+			$("#nome").keyup(function() {
+				var texto = $('#nome').val();
+				$.post("pesquisarProfissional", {'nome' : texto}, function(dados) {
+					$('#tabelaListaProfissional').html(dados);
+				});
+			});
+
+		});
+	</script>
 </head>
 <body class="bg-dark-2">
 
@@ -80,20 +94,17 @@
 
 
 
-				<form action="pesquisarProfissional" method="get">
 					<br /> <label class="span">Nome:</label><br /> <input
-						class="form-control" type="text" name="nome"
-						onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
-						class="btn btn-primary" type="submit" value="Buscar" />
-				</form>
+						class="form-control" type="text" id="nome" name="nome"
+						onkeypress="mascara(this,soLetras)" /> <br /> <br /> 
 
 			</div>
 		</div>
 
 	</div>
 	<p>
-	<table border='1' class="table table-bordered">
-		<tr style='background-color: #fff; font-weight: bold;'>
+	<table id="tabelaListaProfissional" border='1' class="table table-bordered">
+		<tr style="background-color: #fff; font-weight: bold;">
 			<td class="span">Nome do Profissional</td>
 			<td class="span">Profissão</td>
 			<td class="span">CPF</td>

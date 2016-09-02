@@ -2,12 +2,15 @@ package br.com.ifpe.belezamaster.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.belezamaster.model.servico.Servico;
 import br.com.ifpe.belezamaster.model.servico.ServicoDao;
@@ -55,12 +58,34 @@ public class ServicoController {
 	}
 
 	// pesquiar servico
-	@RequestMapping("pesquisarServico")
-	public String PesquisarServico(Model model, String nome) {
-		ServicoDao dao = new ServicoDao();
-		List<Servico> listaServico = dao.buscar(nome);
-		model.addAttribute("listaServico", listaServico);
-		return "servico/pesquisarServico";
+	@RequestMapping("/pesquisarServico")
+	public @ResponseBody String pesquisarServico(@RequestParam String nome, HttpServletResponse response) {
+	ServicoDao dao = new ServicoDao();
+	List<Servico> listaServico = dao.buscar(nome);
+	StringBuilder st = new StringBuilder();
+	st.append("<tr  style='background-color: #fff; font-weight:bold'>");
+	st.append("<td class='span'>Nome do Servico</td>");
+	st.append("<td class='span'>Descrição</td>");
+	st.append("<td class='span'>Valor</td>");
+	st.append("<td class='span'>Codígo</td>");
+	st.append("<td class='span'>Alterar</td>");
+	st.append("<td class='span'>Remover</td>");
+	
+
+	st.append("</tr>");
+	for (Servico servico : listaServico) {
+	st.append("<tr>");
+	st.append("<td class='span-text'> " + servico.getNome() + " </td>");
+	st.append("<td class='span-text'> " + servico.getDescricao() + " </td>");
+	st.append("<td class='span-text' > " + servico.getValor() + " </td>");
+	st.append("<td class='span-text' > " + servico.getCodigo() + " </td>");
+	st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarServico?codigo=" + servico.getCodigo() + "'>Editar</a> &nbsp;</td>");
+	st.append("<td><a  class='btn btn-danger' href='removerServico?codigo=" + servico.getCodigo() + "'>Remover</a></td>");
+	st.append("</td>");
+	st.append("</tr>");
+	}
+	response.setStatus(200);
+	return st.toString();
 	}
 
 	// alterar Servico

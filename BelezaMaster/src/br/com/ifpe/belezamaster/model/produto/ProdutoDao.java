@@ -29,7 +29,7 @@ public class ProdutoDao {
 		try {
 			stmt = connection.prepareStatement(sql);
 
-			stmt.setString(1, produto.getNomeProduto().trim());
+			stmt.setString(1, produto.getNomeProduto());
 			stmt.setString(2, produto.getDescricao());
 			stmt.setInt(3, produto.getQuantidade());
 			stmt.setDouble(4, produto.getValor());
@@ -65,27 +65,32 @@ public class ProdutoDao {
 		}
 	}
 
-	public List<Produto> buscar(String nomeProduto) {
+	// buscar por nome
+			public List<Produto> buscar(String nome) {
+				try {
+					List<Produto> listarProduto = new ArrayList<Produto>();
+					PreparedStatement stmt = null;
+					if (!nome.equals("")) {
+						stmt = this.connection.prepareStatement("SELECT * FROM PRODUTO WHERE nome_produto LIKE ? ORDER BY nome_produto");
+						stmt.setString(1, "%" + nome + "%");
+					} else if (nome.equals("")) {
+						stmt = this.connection.prepareStatement("SELECT * FROM PRODUTO ORDER BY nome_produto");
+					}
+					ResultSet rs = stmt.executeQuery();
+					while (rs.next()) {
+						listarProduto.add(montarObjeto(rs));
+					}
+					rs.close();
+					stmt.close();
+					connection.close();
+					return listarProduto;
 
-		try {
-			List<Produto> listarProduto = new ArrayList<Produto>();
-			java.sql.PreparedStatement stmt = connection
-					.prepareStatement("SELECT * FROM PRODUTO WHERE nome_produto like ? ");
-			stmt.setString(1, "%" + nomeProduto + "%");
-			ResultSet rs = stmt.executeQuery();
+				} catch (SQLException e) {
 
-			while (rs.next()) {
-				listarProduto.add(montarObjeto(rs));
+					throw new RuntimeException(e);
+				}
+
 			}
-
-			rs.close();
-			stmt.close();
-
-			return listarProduto;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
 
 	// Remover
 

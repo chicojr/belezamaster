@@ -42,7 +42,20 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif]--> <script type="text/javascript"
+	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript">
+		$(document).ready(function() {
+			$("#nome").keyup(function() {
+				var texto = $('#nome').val();
+				$.post("pesquisarServico", {
+					'nome' : texto
+				}, function(dados) {
+					$('#tabelaListaServico').html(dados);
+				});
+			});
+
+		});
+	</script>
 </head>
 <body class="bg-dark-2">
 
@@ -79,19 +92,19 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="pesquisarServico" method="post">
-					<br /> <label class="span">Nome:</label><br /> <input
-						class="form-control" type="text" name="nome"
-						onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
-						class="btn btn-primary" type="submit" value="BUSCAR" />
-				</form>
+
+				<br /> <label class="span">Nome:</label><br /> <input
+					class="form-control" type="text" id="nome" name="nome" /> <br />
+				<br />
+
 			</div>
 		</div>
 
 	</div>
 	<p>
-	<table border='1' class="table table-bordered">
-		<tr style='background-color: #fff; font-weight: bold;'>
+
+		<table id="tabelaListaServico" border="1" class="table table-bordered">
+		<tr style="background-color: #fff; font-weight: bold">
 			<td class="span">Nome do Servico</td>
 			<td class="span">Descrição</td>
 			<td class="span">Valor</td>
