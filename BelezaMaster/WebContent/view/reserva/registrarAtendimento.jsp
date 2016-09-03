@@ -51,7 +51,20 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif]--> <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> 
+    <script type="text/javascript">
+		$(document).ready(function() {
+			$("#situacao").keyup(function() {
+				var texto = $('#situacao').val();
+				$.post("PesquisarRegistrarAtendimento", {
+					'situacao' : texto
+				}, function(dados) {
+					$('#tabelaListaRegistrarAtendimento').html(dados);
+				});
+			});
+
+		});
+	</script>
 </head>
 <body class="bg-dark-2">
 
@@ -86,11 +99,9 @@
 					<div style="display: none" id="login-alert"
 						class="alert alert-danger col-sm-12"></div>
 
-					<form action="registrarAtendimento" method="post" class="contact">
 						<br /> <label class="span">Situação:</label><br /> <input
 							class="form-control" type="text" name="situacao"
-							onkeypress="mascara(this,soLetras)" /> <br /> <br /> <input
-							class="btn btn-primary" type="submit" value="Buscar" />
+							onkeypress="mascara(this,soLetras)" id="situacao"/> <br /> <br />
 
 					</form>
 				</div>
@@ -100,7 +111,7 @@
 
 
 
-		<table border='1' class="table table-bordered">
+		<table id="tabelaListaRegistrarAtendimento" border='1' class="table table-bordered">
 			<tr style='background-color: #fff; font-weight: bold;'>
 
 				<td class="span">Nome do Usuário</td>
@@ -134,9 +145,8 @@
 
 
 					<td><a class="btn btn-success"
-						href="alterarSituacao?codigoAtendimento=${atendimento.codigoAtendimento}">Registrar</a></td>
-					<td><a  class="btn btn-danger"
-						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
+						href="alterarRegistro?codigoAtendimento=${atendimento.codigoAtendimento}">Registrar</a></td>
+					<td><a  class="btn btn-danger" href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
 
 				</tr>
 

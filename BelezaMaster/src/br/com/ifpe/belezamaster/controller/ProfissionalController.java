@@ -63,40 +63,41 @@ public class ProfissionalController {
 	// pesquiar profissional
 	@RequestMapping("/pesquisarProfissional")
 	public @ResponseBody String PesquisarProfissional(@RequestParam String nome, HttpServletResponse response) {
-	ProfissionalDao dao = new ProfissionalDao();
-	List<Profissional> listarProfissional = dao.buscar(nome);
-	StringBuilder st = new StringBuilder();
-	st.append("<tr  style='background-color: #fff; font-weight:bold'>");
-	st.append("<td class='span'>Nome do Profissional</td>");
-	st.append("<td class='span'>Profissão</td>");
-	st.append("<td class='span'>CPF</td>");
-	st.append("<td class='span'>E-mail</td>");
-	st.append("<td class='span'>Endereço</td>");
-	st.append("<td class='span'>Telefone</td>");
-	st.append("	<td class='span'>Celular</td>");
-	st.append("<td class='span'>Alterar</td>");
-	st.append("<td class='span'>Remover</td>");
-	
+		ProfissionalDao dao = new ProfissionalDao();
+		List<Profissional> listarProfissional = dao.buscar(nome);
+		StringBuilder st = new StringBuilder();
+		st.append("<tr  style='background-color: #fff; font-weight:bold'>");
+		st.append("<td class='span'>Nome do Profissional</td>");
+		st.append("<td class='span'>Profissão</td>");
+		st.append("<td class='span'>CPF</td>");
+		st.append("<td class='span'>E-mail</td>");
+		st.append("<td class='span'>Endereço</td>");
+		st.append("<td class='span'>Telefone</td>");
+		st.append("	<td class='span'>Celular</td>");
+		st.append("<td class='span'>Alterar</td>");
+		st.append("<td class='span'>Remover</td>");
 
-	st.append("</tr>");
-	for (Profissional profissional : listarProfissional) {
-	st.append("<tr>");
-	st.append("<td class='span-text' > " + profissional.getNome() + " </td>");
-    st.append("<td class='span-text' > " + profissional.getProfissao() + " </td>");
-	st.append("<td class='span-text'> " + profissional.getCpf() + " </td>");
-	st.append("<td class='span-text'> " + profissional.getEmail() + " </td>");
-	st.append("<td class='span-text' > " + profissional.getEndereco() + " </td>");
-	st.append("<td class='span-text' > " + profissional.getTelefone() + " </td>");
-	st.append("<td class='span-text' > " + profissional.getCelular() + " </td>");
-	st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarProfissional?id=" + profissional.getId() + "'>Alterar</a> &nbsp;</td>");
-	st.append("<td><a  class='btn btn-danger' href='removerProfissional?id=" + profissional.getId() + "'>Remover</a></td>");
-	st.append("</td>");
-	st.append("</tr>");
+		st.append("</tr>");
+		for (Profissional profissional : listarProfissional) {
+			st.append("<tr>");
+			st.append("<td class='span-text' > " + profissional.getNome() + " </td>");
+			st.append("<td class='span-text' > " + profissional.getProfissao() + " </td>");
+			st.append("<td class='span-text'> " + profissional.getCpf() + " </td>");
+			st.append("<td class='span-text'> " + profissional.getEmail() + " </td>");
+			st.append("<td class='span-text' > " + profissional.getEndereco() + " </td>");
+			st.append("<td class='span-text' > " + profissional.getTelefone() + " </td>");
+			st.append("<td class='span-text' > " + profissional.getCelular() + " </td>");
+			st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarProfissional?id="
+					+ profissional.getId() + "'>Alterar</a> &nbsp;</td>");
+			st.append("<td><a  class='btn btn-danger' href='removerProfissional?id=" + profissional.getId()
+					+ "'>Remover</a></td>");
+			st.append("</td>");
+			st.append("</tr>");
+		}
+		response.setStatus(200);
+		return st.toString();
 	}
-	response.setStatus(200);
-	return st.toString();
-	}
-	
+
 	// Alterar profissional
 	@RequestMapping("/exibirAlterarProfissional")
 	public String exibirAlterarProfissional(Model model, Profissional profissional) {

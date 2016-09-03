@@ -94,30 +94,34 @@ public class AtendimentoDao {
 		}
 	}
 
-	// BuscarPorNome
-
+	// buscar por nome
 	public List<Atendimento> buscar(String situacao) {
-
 		try {
-			List<Atendimento> BuscaAtendimento = new ArrayList<Atendimento>();
-			java.sql.PreparedStatement stmt = connection
-					.prepareStatement("SELECT * FROM ATENDIMENTO WHERE situacao like ?");
-			stmt.setString(1, "%" + situacao + "%");
-			ResultSet rs = stmt.executeQuery();
-
-			while (rs.next()) {
-				BuscaAtendimento.add(montarObjeto(rs));
+			List<Atendimento> listarAtendimento = new ArrayList<Atendimento>();
+			PreparedStatement stmt = null;
+			if (!situacao.equals("")) {
+				stmt = this.connection.prepareStatement("SELECT * FROM ATENDIMENTO WHERE situacao LIKE ? ORDER BY situacao");
+				stmt.setString(1, "%" + situacao + "%");
+			} else if (situacao.equals("")) {
+				stmt = this.connection.prepareStatement("SELECT * FROM ATENDIMENTO ORDER BY situacao");
 			}
-
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				listarAtendimento.add(montarObjeto(rs));
+			}
 			rs.close();
 			stmt.close();
+			connection.close();
+			return listarAtendimento;
 
-			return BuscaAtendimento;
 		} catch (SQLException e) {
+
 			throw new RuntimeException(e);
 		}
+
 	}
 
+	
 	// Listar profissional
 	public List<Atendimento> listar() {
 
