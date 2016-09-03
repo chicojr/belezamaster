@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class UsuarioDao {
@@ -33,7 +35,7 @@ public class UsuarioDao {
 			stmt.setString(1, usuario.getCpf());
 			stmt.setString(2, usuario.getNome());
 			stmt.setString(3, usuario.getEmail());
-			stmt.setString(4, usuario.getSenha());
+			stmt.setString(4, DigestUtils.md5Hex(usuario.getSenha()));
 			stmt.setString(5, usuario.getTelefone());
 			stmt.setString(6, usuario.getCelular());
 			stmt.setInt(7, usuario.getPerfil().getCodigo());
@@ -161,7 +163,7 @@ public class UsuarioDao {
 			PreparedStatement stmt = this.connection
 					.prepareStatement("select * from USUARIO where email = ? and senha = ?");
 			stmt.setString(1, usuario.getEmail());
-			stmt.setString(2, usuario.getSenha());
+			stmt.setString(2, DigestUtils.md5Hex(usuario.getSenha()));
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
 				usuarioConsultado = montarObjeto(rs);
