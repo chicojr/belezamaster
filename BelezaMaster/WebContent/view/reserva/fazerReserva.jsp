@@ -71,7 +71,7 @@
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Fzer Reserva</div>
+				<div class="panel-title">Fazer Reserva</div>
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -10px">
 				</div>
@@ -94,7 +94,7 @@
 							required="required">
 					</div>			
 					<p>
-						Profissional:<br> <select required="required" dname="profissional.id">
+						Profissional:<br> <select required="required" name="profissional.id">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaProfissional}" var="obj">
 								<option value="${obj.id}"
