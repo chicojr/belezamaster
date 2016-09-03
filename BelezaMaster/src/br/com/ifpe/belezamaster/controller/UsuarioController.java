@@ -135,7 +135,7 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 		dao.remover(usuario);
 
-		model.addAttribute("mensagem", "Produto Removido com Sucesso");
+		model.addAttribute("mensagem", "Usuario Removido com Sucesso");
 		return "forward:exibirListarUsuario";
 	}
 

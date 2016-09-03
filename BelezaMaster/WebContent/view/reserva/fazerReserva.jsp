@@ -71,7 +71,7 @@
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Fazer Reserva</div>
+				<div class="panel-title">Fzer Reserva</div>
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -10px">
 				</div>
@@ -94,7 +94,7 @@
 							required="required">
 					</div>			
 					<p>
-						Profissional:<br> <select name="profissional.id">
+						Profissional:<br> <select required="required" dname="profissional.id">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaProfissional}" var="obj">
 								<option value="${obj.id}"
@@ -106,7 +106,7 @@
 
 
 					<p>
-						Servico:<br> <select name="servico.codigo">
+						Servico:<br> <select required="required"name="servico.codigo">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaServico}" var="obj">
 								<option value="${obj.codigo}"
