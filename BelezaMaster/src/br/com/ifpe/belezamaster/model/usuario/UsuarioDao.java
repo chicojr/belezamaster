@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.ifpe.belezamaster.model.produto.Produto;
 import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
@@ -70,27 +71,32 @@ public class UsuarioDao {
 		}
 	}
 
-	// Listar usuario por email
-	public List<Usuario> buscar(String email) {
-		try {
-			List<Usuario> listarUsuario = new ArrayList<Usuario>();
-			PreparedStatement stmt = null;
-			stmt = connection.prepareStatement("SELECT * FROM USUARIO WHERE email like ?");
-			stmt.setString(1, "%" + email + "%");
-			ResultSet rs = stmt.executeQuery();
+	// buscar por nome
+				public List<Usuario> buscar(String email) {
+					try {
+						List<Usuario> listarUsuario = new ArrayList<Usuario>();
+						PreparedStatement stmt = null;
+						if (!email.equals("")) {
+							stmt = this.connection.prepareStatement("SELECT * FROM USUARIO WHERE email LIKE ? ORDER BY nome");
+							stmt.setString(1, "%" + email + "%");
+						} else if (email.equals("")) {
+							stmt = this.connection.prepareStatement("SELECT * FROM USUARIO ORDER BY nome");
+						}
+						ResultSet rs = stmt.executeQuery();
+						while (rs.next()) {
+							listarUsuario.add(montarObjeto(rs));
+						}
+						rs.close();
+						stmt.close();
+						connection.close();
+						return listarUsuario;
 
-			while (rs.next()) {
-				listarUsuario.add(montarObjeto(rs));
-			}
+					} catch (SQLException e) {
 
-			rs.close();
-			stmt.close();
+						throw new RuntimeException(e);
+					}
 
-			return listarUsuario;
-		} catch (SQLException e) {
-			throw new RuntimeException(e);
-		}
-	}
+				}
 
 	// Alterar Usuario
 	public void alterar(Usuario usuario) {

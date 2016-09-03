@@ -2,6 +2,7 @@ package br.com.ifpe.belezamaster.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.belezamaster.model.usuario.Usuario;
 import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
@@ -120,14 +123,39 @@ public class UsuarioController {
 
 	}
 
-	// pesquiar usuario
-	@RequestMapping("buscarUsuario")
-	public String PesquisarUsuario(Model model, String email) {
+	// pesquisar usuario
+
+	@RequestMapping("/pesquisarUsuario")
+	public @ResponseBody String pesquisarUsuario(@RequestParam String email, HttpServletResponse response) {
 		UsuarioDao dao = new UsuarioDao();
 		List<Usuario> listarUsuario = dao.buscar(email);
-		model.addAttribute("listarUsuario", listarUsuario);
-		return "usuario/listarUsuario";
+		StringBuilder st = new StringBuilder();
+		st.append("<tr  style='background-color: #fff; font-weight:bold'>");
+		st.append("<td class='span'>Nome Usuário</td>");
+		st.append("<td class='span'>E-mail</td>");
+		st.append("<td class='span'>Telefone</td>");
+		st.append("<td class='span'>Celular</td>");
+		st.append("<td class='span'>Alterar</td>");
+		st.append("<td class='span'>Remover</td>");
+
+		st.append("</tr>");
+		for (Usuario usuario : listarUsuario) {
+			st.append("<tr>");
+			st.append("<td class='span-text' > " + usuario.getNome() + " </td>");
+			st.append("<td class='span-text'> " + usuario.getEmail() + " </td>");
+			st.append("<td class='span-text'> " + usuario.getTelefone() + " </td>");
+			st.append("<td class='span-text' > " + usuario.getCelular() + " </td>");
+			st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarUsuario?codigo="
+			+ usuario.getCpf() + "'>Alterar</a> &nbsp;</td>");
+			st.append("<td><a  class='btn btn-danger' href='removerUsuairio?cpf=" + usuario.getCpf()
+					+ "'>Remover</a></td>");
+			st.append("</td>");
+			st.append("</tr>");
+		}
+		response.setStatus(200);
+		return st.toString();
 	}
+
 
 	// Remover Usuario
 	@RequestMapping("/removerUsuario")

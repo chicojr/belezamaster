@@ -62,7 +62,6 @@
 	<center>
 		<div class="container">
 			<div class="msg fade in">${mensagem}
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 			</div>
 		</div>
 	</center>

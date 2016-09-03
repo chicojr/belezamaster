@@ -44,6 +44,19 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript"src="view/js/jquery-2.1.4.js">
+    
+    </script> <script type="text/javascript">
+		$(document).ready(function() {
+			$("#email").keyup(function() {
+				var texto = $('#email').val();
+				$.post("pesquisarUsuario", {'email' : texto}, function(dados) {
+					$('#tabelaListaUsuario').html(dados);
+				});
+			});
+
+		});
+	</script>
 </head>
 <body class="bg-dark-2">
 
@@ -75,12 +88,9 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="buscarUsuario" method="post" class="contact">
-					<br /> <label class="span">Nome:</label><br /> <input
-						class="form-control" type="text" name="email" /> <br /> <br /> <input
-						class="btn btn-primary" type="submit" value="Buscar" />
-
-				</form>
+			
+					<br /> <label class="span">E-mail:</label><br /> <input
+						class="form-control" type="text" name="email" id="email" /> <br /> <br /> 
 			</div>
 		</div>
 
@@ -88,8 +98,8 @@
 	<p>
 	
 	
-	<table border='1' class="table table-bordered">
-		<tr style='background-color: #fff; font-weight: bold;'>
+	<table id="tabelaListaUsuario" border="1" class="table table-bordered">
+		<tr style="background-color: #fff; font-weight: bold;">
 			<td class="span">Nome Usuário</td>
 			<td class="span">E-mail</td>
 			<td class="span">Telefone</td>
