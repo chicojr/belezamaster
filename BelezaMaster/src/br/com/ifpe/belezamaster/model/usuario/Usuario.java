@@ -22,10 +22,10 @@ public class Usuario {
 	@Size(max = 50, message = " O E-mail deve deve ter no máximo 50 caracteres")
 	private String email;
 
-	@Size(min = 6, max = 20, message = "A senha deve ter no minímo 6 e no maximo 20 caracteres")
+	@Size(min = 6, max = 32, message = "A senha deve ter no minímo 6 e no maximo 70 caracteres")
 	private String senha;
 
-	@Size(min = 6, max = 20, message = "A senha deve ter no minímo 6 e no maximo 20 caracteres")
+	@Size(min = 6, max = 32, message = "A senha deve ter no minímo 6 e no maximo 70 caracteres")
 	private String confSenha;
 
 	@Size(min = 14, max = 14, message = "O CPF deve ter obrigatoriamente 14 caracteres, seguindo o seguinte padrão (XXX.XXX.XXX-XX)")

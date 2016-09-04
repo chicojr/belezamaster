@@ -122,13 +122,21 @@
 										<div class="form-group">
 											 <label class="sr-only" for="exampleInputPassword2">Senha</label>
 											 <input type="password" name="senha" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">Esqueceu sua senha ?</a></div>
 										</div>
+										
 										<div class="form-group">
 											 <button type="submit" class="btn btn-primary btn-block">Entrar</button>
 										</div>
+									
 										 </form>
 										</div>
+										<form action="recuperarPorEmail">
+									  <div class="help-block text-right"><a href="#" id="aparecer">Esqueceu sua senha ?</a></div>					  
+                                             <input type="text" name="email" class="form-control" id="show" style="font-weight:700;" placeholder="informe Seu E-mail para recuperar Senha" ><br>
+									          	 <button type="submit" id="shows" class="btn btn-danger"><i class="fa fa-sign-in" aria-hidden="true"></i></button>
+									     
+										</form>
+										<br>
 										<div class="bottom text-center">
 								Não é Cadastrado ? <a href="exibirIncluirUsuario"><b>Cadastre-se</b></a>
 							</div>
@@ -349,7 +357,20 @@
 
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
+<script>
 
+$(document).ready(function(){
+$("#shows").hide();
+$("#show").hide();
+$("#aparecer").click(function(){
+$("#shows").show(500);
+$("#show").show(500);
+
+});
+});
+
+
+</script>
 </body>
 
 </html>

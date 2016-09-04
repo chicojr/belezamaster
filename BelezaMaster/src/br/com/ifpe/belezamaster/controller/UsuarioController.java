@@ -21,9 +21,7 @@ public class UsuarioController {
 	private static int Adm = 1;
 	private static int prof = 1;
 	private static int user = 3;
-	
-	
-	
+
 	// Exibir Página Inicial
 	@RequestMapping("/exibirIndex")
 	public String exibirIndex() {
@@ -33,75 +31,74 @@ public class UsuarioController {
 
 	// Exibir Incluir Usuario
 	@RequestMapping("/exibirIncluirUsuario")
-	public String exibirIncluirUsuario( Usuario usuario) {
+	public String exibirIncluirUsuario(Usuario usuario) {
 
 		return "usuario/incluirUsuario";
 
 	}
 
-
 	// incluir usuario
 	@RequestMapping("/incluirUsuario")
-	public String incluirUsuario( @Valid Usuario usuario, BindingResult result, Model model) {
+	public String incluirUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
 		UsuarioDao dao = new UsuarioDao();
 
 		if (dao.buscarPorEmail(usuario.getEmail()) != null) {
 			model.addAttribute("email", " E-mail já cadastrado");
 			return "forward:exibirIncluirUsuario";
 		}
-		
-	     if (result.hasErrors()) {
-				model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 20 caracteres ");
-				return "forward:exibirIncluirUsuario";
-			}
-		
+
+		if (result.hasErrors()) {
+			model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 20 caracteres ");
+			return "forward:exibirIncluirUsuario";
+		}
+
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
 			model.addAttribute("confsenha", "As senhas estão diferentes!");
 			return "forward:exibirIncluirUsuario";
 
 		}
-		
-			UsuarioDao dao1 = new UsuarioDao();
-			
-			if( dao1.buscarPorCpf(usuario.getCpf()) != null){
-				model.addAttribute("cpf", " Cpf já cadastrado");
-				return "forward:exibirIncluirUsuario";
 
-				
-			} else {	
+		UsuarioDao dao1 = new UsuarioDao();
+
+		if (dao1.buscarPorCpf(usuario.getCpf()) != null) {
+			model.addAttribute("cpf", " Cpf já cadastrado");
+			return "forward:exibirIncluirUsuario";
+
+		} else {
 			UsuarioDao dao2 = new UsuarioDao();
 
 			dao2.salvar(usuario);
 			model.addAttribute("mensagem", " O Usuário foi adicionado com Sucesso!");
 			return "usuario/incluirUsuario";
 		}
-	
+
 	}
+
 	// Exibir Pesquisar por CPF
-		@RequestMapping("/exibirAlterarDadosUsuario")
-		public String exibirAlterarDadosUsuario() {
+	@RequestMapping("/exibirAlterarDadosUsuario")
+	public String exibirAlterarDadosUsuario() {
 
-			return "usuario/alterarUsuario";
-		}
+		return "usuario/alterarUsuario";
+	}
 
-		// Exibir alterar usuario
-		@RequestMapping("/exibirAlterarUsuario")
-		public String exibirAlterarUsuario(Model model, Usuario usuario) {
-              UsuarioDao dao = new UsuarioDao();
-			
-			if( dao.buscarPorCpf(usuario.getCpf()) == null){
-				model.addAttribute("cpf", " Cpf não cadastrado");
-				return "forward:exibirPesquisarPorCpf";
+	// Exibir alterar usuario
+	@RequestMapping("/exibirAlterarUsuario")
+	public String exibirAlterarUsuario(Model model, Usuario usuario) {
+		UsuarioDao dao = new UsuarioDao();
 
-				
-			}else{
-			
+		if (dao.buscarPorCpf(usuario.getCpf()) == null) {
+			model.addAttribute("cpf", " Cpf não cadastrado");
+			return "forward:exibirPesquisarPorCpf";
+
+		} else {
+
 			UsuarioDao dao1 = new UsuarioDao();
-            Usuario usuarioCPF = dao1.buscarPorCpf(usuario.getCpf());
+			Usuario usuarioCPF = dao1.buscarPorCpf(usuario.getCpf());
 			model.addAttribute("usuario", usuarioCPF);
 			return "usuario/alterarUsuario";
-			}
 		}
+	}
+
 	// Redireciona para alterar usuario
 	@RequestMapping("/alterarUsuario")
 	public String alterarUsuario(Usuario usuario, Model model) {
@@ -146,7 +143,7 @@ public class UsuarioController {
 			st.append("<td class='span-text'> " + usuario.getTelefone() + " </td>");
 			st.append("<td class='span-text' > " + usuario.getCelular() + " </td>");
 			st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarUsuario?codigo="
-			+ usuario.getCpf() + "'>Alterar</a> &nbsp;</td>");
+					+ usuario.getCpf() + "'>Alterar</a> &nbsp;</td>");
 			st.append("<td><a  class='btn btn-danger' href='removerUsuairio?cpf=" + usuario.getCpf()
 					+ "'>Remover</a></td>");
 			st.append("</td>");
@@ -155,7 +152,6 @@ public class UsuarioController {
 		response.setStatus(200);
 		return st.toString();
 	}
-
 
 	// Remover Usuario
 	@RequestMapping("/removerUsuario")
@@ -167,6 +163,58 @@ public class UsuarioController {
 		return "forward:exibirListarUsuario";
 	}
 
+	// recuperar Por Email
+	@RequestMapping("/recuperarPorEmail")
+	public String recuperarPorEmail(Usuario usuario, Model model) {
+		UsuarioDao dao = new UsuarioDao();
+
+		if (dao.buscarPorEmail(usuario.getEmail()) != null) {
+			return "forward:esqueciMinhaSenha";
+		}
+		model.addAttribute("mensagem", " E-mail Inexistente");
+
+		return "index";
+	}
+
+	// Exibir Esqueci minha senha
+	@RequestMapping("/esqueciMinhaSenha")
+	public String esqueciSenha() {
+		return "usuario/esqueciMinhaSenha";
+
+	}
+
+	// Alterar Senha
+	@RequestMapping("/AlterarSenha")
+	public String AlterarSenha(@Valid Usuario usuario, BindingResult result, Model model) {
+
+		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
+			model.addAttribute("confsenha", "As senhas estão diferentes!");
+			return "forward:esqueciMinhaSenha";
+
+		}
+		
+
+	
+		    UsuarioDao dao = new UsuarioDao();
+
+		if (dao.buscarPorCpf(usuario.getCpf()) != null) {
+			UsuarioDao dao1 = new UsuarioDao();
+
+			dao1.alterarSenha(usuario);
+			model.addAttribute("mensagem", " A Senha foi alterada com Sucesso!");
+			return "index";
+		}
+			
+
+			model.addAttribute("mensagem", "CPF inexistente");
+			return "forward:esqueciMinhaSenha";
+
+		
+
+		} 
+
+
+	
 	// login usuario
 
 	@RequestMapping("efetuarLogin")

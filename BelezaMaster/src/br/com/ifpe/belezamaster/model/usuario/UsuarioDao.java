@@ -119,6 +119,26 @@ public class UsuarioDao {
 			throw new RuntimeException(e);
 		}
 	}
+	// Alterar Senha
+		public void alterarSenha(Usuario usuario) {
+
+			String sql = "UPDATE USUARIO SET senha = ?  WHERE cpf = ?";
+
+			try {
+				PreparedStatement stmt = connection.prepareStatement(sql);
+				
+				stmt.setString(1, DigestUtils.md5Hex(usuario.getSenha()));
+				stmt.setString(2, usuario.getCpf());
+
+				stmt.execute();
+				stmt.close();
+				connection.close();
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+	
 
 	// remover
 	public void remover(Usuario usuario) {
