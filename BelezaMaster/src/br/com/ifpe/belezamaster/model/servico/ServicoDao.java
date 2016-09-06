@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
+import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ServicoDao {
@@ -42,7 +45,7 @@ public class ServicoDao {
 	}
 
 	// remover
-	public void remover(Servico servico) {
+	public void remover(Servico servico) throws ViolacaoIntegridadeException {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM SERVICO WHERE codigo = ?");
@@ -50,6 +53,8 @@ public class ServicoDao {
 			stmt.execute();
 			stmt.close();
 			connection.close();
+		} catch (MySQLIntegrityConstraintViolationException e) {
+			throw new ViolacaoIntegridadeException();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

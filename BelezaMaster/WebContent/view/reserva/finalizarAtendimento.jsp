@@ -107,21 +107,21 @@
 
 	</div>
 
+<div class="table table-responsive " >
 
-
-	<table id="tabelaListaRegistrarAtendimento" border="1" class="table table-bordered ">
-		<tr style="background-color: #fff; font-weight: bold;">
-			<td class="span">Nome do Usuário</td>
-			<td class="span">Cpf do Usuário</td>
-			<td class="span">Código do Servico</td>
-			<td class="span">Serviço</td>
-          	<td class="span">Nome do Profissional</td>
-			<td class="span">Código do Atendimento</td>
-			<td class="span">Horário de Atendimento</td>
-			<td class="span">Situação</td>
-			<td class="span">Data do Atendimento</td>
-		    <td class="span">Alterar</td>
-			<td class="span">Remover</td>
+	<table id="tabelaListaRegistrarAtendimento" border="1" class="table table-striped table-condensed">
+		<tr class='info'>
+			<th >Nome do Usuário</th>
+			<th>Cpf do Usuário</th>
+			<th >Código do Servico</th>
+			<th >Serviço</th>
+          	<th >Nome do Profissional</th>
+			<th >Código do Atendimento</th>
+			<th >Horário de Atendimento</th>
+			<th >Situação</th>
+			<th >Data do Atendimento</th>
+		    <th >Alterar</th>
+			<th >Remover</th>
 
 
 		</tr>
@@ -129,16 +129,16 @@
 		<c:forEach var="atendimento" items="${registrarAtendimento}">
 			<tr >
 
-				<td class="span-text ">${atendimento.usuario.nome}</td>
-				<td class="span-text">${atendimento.usuario.cpf}</td>
-				<td class="span-text">${atendimento.servico.codigo}</td>
-				<td class="span-text">${atendimento.servico.nome}</td>
-				<td class="span-text">${atendimento.profissional.nome}</td>
-				<td class="span-text">${atendimento.codigoAtendimento}</td>
-				<td class="span-text"><fmt:formatDate
+				<td >${atendimento.usuario.nome}</td>
+				<td>${atendimento.usuario.cpf}</td>
+				<td >${atendimento.servico.codigo}</td>
+				<td >${atendimento.servico.nome}</td>
+				<td >${atendimento.profissional.nome}</td>
+				<td >${atendimento.codigoAtendimento}</td>
+				<td ><fmt:formatDate
 						value="${atendimento.horario}" pattern="dd/MM/yyyy" /></td>
-				<td class="span-text">${atendimento.situacao}</td>
-				<td class="span-text">${atendimento.dataAtendimento}</td>
+				<td >${atendimento.situacao}</td>
+				<td >${atendimento.dataAtendimento}</td>
 
 				<td><a class="btn btn-success"
 					href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>
@@ -149,6 +149,7 @@
 
 		</c:forEach>
 	</table>
+	</div>
 	<br />
 	<br />
 	<br />

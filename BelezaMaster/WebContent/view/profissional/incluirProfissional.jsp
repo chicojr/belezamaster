@@ -53,7 +53,7 @@
 	<br>
 	<br>
 	<br>
-	
+
 
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
@@ -83,19 +83,15 @@
 						class="form-control" id="cpf" name="cpf" maxlength="14"
 						value="${profissional.cpf}"
 						onblur="javascript: validarCPF(this.value);" required="required" />
-					&nbsp;<span style="color: red;">${cpf}</span> 
-                   <br>
-					<br /> <label class="span">E-mail: <br /></label> <input
-						type="text" class="form-control" name="email"
-						value="${profissional.email}" maxlength="50" required="required" />
-					<br /> <label class="span">Endereço: <br /></label> <input
-						type="text" class="form-control" name="endereco"
-						value="${profissional.endereco}" maxlength="50"
-						required="required" /> &nbsp;<span style="color: red;">${email}</span> 
-						<br /> 
-						
-						<label class="span">Telefone:
+					&nbsp;<span style="color: red;">${cpf}</span> <br> <br /> <label
+						class="span">E-mail: <br /></label> <input type="text"
+						class="form-control" name="email" value="${profissional.email}"
+						maxlength="50" required="required" /> <br /> <label class="span">Endereço:
 						<br />
+					</label> <input type="text" class="form-control" name="endereco"
+						value="${profissional.endereco}" maxlength="50"
+						required="required" /> &nbsp;<span style="color: red;">${email}</span>
+					<br /> <label class="span">Telefone: <br />
 					</label> <input type="text" class="form-control" id="telefone"
 						name="telefone" value="${profissional.telefone}" maxlength="14"
 						required="required" /> <br /> <label class="span">Celular:
@@ -132,14 +128,15 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
-		jQuery.noConflict();
-		jQuery(function($) {
-			$("#telefone").mask("(99)9999-9999");
-			$("#celular").mask("(99)99999-9999");
-			$("#cpf").mask("999.999.999-99");
+	<script type="text/javascript"> 
+ 		jQuery.noConflict();
+ 		jQuery(function($) {
+ 			$("#telefone").mask("(99)9999-9999");
+ 			$("#celular").mask("(99)99999-9999");
+ 			$("#cpf").mask("999.999.999-99");
 
-		});
-	</script>
+	});
+ 		</script>
+	
 </body>
 </html>

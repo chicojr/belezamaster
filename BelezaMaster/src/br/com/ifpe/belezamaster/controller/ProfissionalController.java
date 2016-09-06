@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
+import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 
 @Controller
 public class ProfissionalController {
@@ -122,7 +123,12 @@ public class ProfissionalController {
 	@RequestMapping("/removerProfissional")
 	public String removeProfissional(Profissional profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
-		dao.remover(profissional);
+		try {
+			dao.remover(profissional);
+		} catch (ViolacaoIntegridadeException e) {
+			model.addAttribute("mensagem", "Profissional Não pode ser Removido");
+			return "forward:exibirListarProfissional";
+		}
 		model.addAttribute("mensagem", "Profissional Removido com Sucesso");
 		return "forward:exibirListarProfissional";
 	}

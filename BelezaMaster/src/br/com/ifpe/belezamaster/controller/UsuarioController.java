@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import br.com.ifpe.belezamaster.model.usuario.Usuario;
 import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
+import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 
 @Controller
 public class UsuarioController {
@@ -48,7 +49,7 @@ public class UsuarioController {
 		}
 
 		if (result.hasErrors()) {
-			model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 20 caracteres ");
+			model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 64 caracteres ");
 			return "forward:exibirIncluirUsuario";
 		}
 
@@ -127,27 +128,28 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 		List<Usuario> listarUsuario = dao.buscar(email);
 		StringBuilder st = new StringBuilder();
-		st.append("<tr  style='background-color: #fff; font-weight:bold'>");
-		st.append("<td class='span'>Nome Usuário</td>");
-		st.append("<td class='span'>E-mail</td>");
-		st.append("<td class='span'>Telefone</td>");
-		st.append("<td class='span'>Celular</td>");
-		st.append("<td class='span'>Alterar</td>");
-		st.append("<td class='span'>Remover</td>");
-
+		st.append("<tr>");
+		st.append("<th>Nome Usuário</th>");
+		st.append("<th>E-mail</th>");
+		st.append("<th>Telefone</th>");
+		st.append("<th>Celular</th>");
+		st.append("<th>Alterar</th>");
+		st.append("<th>Remover</th>");
 		st.append("</tr>");
+
 		for (Usuario usuario : listarUsuario) {
 			st.append("<tr>");
-			st.append("<td class='span-text' > " + usuario.getNome() + " </td>");
-			st.append("<td class='span-text'> " + usuario.getEmail() + " </td>");
-			st.append("<td class='span-text'> " + usuario.getTelefone() + " </td>");
-			st.append("<td class='span-text' > " + usuario.getCelular() + " </td>");
+			st.append("<td> " + usuario.getNome() + " </td>");
+			st.append("<td> " + usuario.getEmail() + " </td>");
+			st.append("<td> " + usuario.getTelefone() + " </td>");
+			st.append("<td > " + usuario.getCelular() + " </td>");
 			st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarUsuario?codigo="
 					+ usuario.getCpf() + "'>Alterar</a> &nbsp;</td>");
 			st.append("<td><a  class='btn btn-danger' href='removerUsuairio?cpf=" + usuario.getCpf()
 					+ "'>Remover</a></td>");
 			st.append("</td>");
 			st.append("</tr>");
+
 		}
 		response.setStatus(200);
 		return st.toString();
@@ -157,7 +159,12 @@ public class UsuarioController {
 	@RequestMapping("/removerUsuario")
 	public String removerUsuario(Usuario usuario, Model model) {
 		UsuarioDao dao = new UsuarioDao();
-		dao.remover(usuario);
+		try {
+			dao.remover(usuario);
+		} catch (ViolacaoIntegridadeException e) {
+			model.addAttribute("mensagem", "Usuario não pode ser removido");
+			return "forward:exibirListarUsuario";
+		}
 
 		model.addAttribute("mensagem", "Usuario Removido com Sucesso");
 		return "forward:exibirListarUsuario";
@@ -192,10 +199,14 @@ public class UsuarioController {
 			return "forward:esqueciMinhaSenha";
 
 		}
-		
 
-	
-		    UsuarioDao dao = new UsuarioDao();
+		// if (result.hasErrors()) {
+		// model.addAttribute("senha", "* A senha deve ter no minímo 6 e no
+		// maximo 64 caracteres ");
+		// return "forward:esqueciMinhaSenha";
+		// }
+
+		UsuarioDao dao = new UsuarioDao();
 
 		if (dao.buscarPorCpf(usuario.getCpf()) != null) {
 			UsuarioDao dao1 = new UsuarioDao();
@@ -204,17 +215,12 @@ public class UsuarioController {
 			model.addAttribute("mensagem", " A Senha foi alterada com Sucesso!");
 			return "index";
 		}
-			
 
-			model.addAttribute("mensagem", "CPF inexistente");
-			return "forward:esqueciMinhaSenha";
+		model.addAttribute("mensagem", "CPF inexistente");
+		return "forward:esqueciMinhaSenha";
 
-		
+	}
 
-		} 
-
-
-	
 	// login usuario
 
 	@RequestMapping("efetuarLogin")

@@ -159,9 +159,9 @@
 							cssStyle="color:red; font-size:10px;" />
 					</div>
 
-					<input name="perfil.codigo" type="radio" value="1" /><label>Administrador</label>
-					<input name="perfil.codigo" type="radio" value="2" /><label>Profissional</label>
-					<input name="perfil.codigo" type="radio" value="3" /> <label>Usuario</label>
+					<input name="perfil.codigo" type="radio" value="1" required="required"/><label>Administrador</label>
+					<input name="perfil.codigo" type="radio" value="2" required="required"/><label>Profissional</label>
+					<input name="perfil.codigo" type="radio" value="3" required="required"/> <label>Usuario</label>
 
 					<div style="margin-top: 10px" class="form-group">
 						<!-- Button -->
@@ -214,14 +214,13 @@
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
 
-	<script type="text/javascript">
-		jQuery.noConflict();
-		jQuery(function($) {
-			$("#telefone").mask("(99)9999-9999");
-			$("#cpf").mask("999.999.999-99");
-			$("#celular").mask("(99)99999-9999");
-
-		});
-	</script>
+ 	<script type="text/javascript"> 
+ 		jQuery.noConflict();
+ 		jQuery(function($) {
+ 			$("#telefone").mask("(99)9999-9999");
+ 			$("#cpf").mask("999.999.999-99");
+ 			$("#celular").mask("(99)99999-9999");
+ 		});
+ 	</script> 
 </body>
 </html>

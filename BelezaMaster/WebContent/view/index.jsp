@@ -369,7 +369,13 @@ $("#show").show(500);
 });
 });
 
+// função temporizador
 
+//fuction qualquerfução(){
+	//setTimeOut(function){
+	//Window.location.href='localArquivo'	
+//	},milisegundos);
+//}
 </script>
 </body>
 

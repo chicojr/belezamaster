@@ -93,7 +93,7 @@
 							required="required">
 					</div>			
 					<p>
-						Profissional:<br> <select required="required" name="profissional.id">
+						Profissional:<br> <select class="form-control input-lg" required="required" name="profissional.id">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaProfissional}" var="obj">
 								<option value="${obj.id}"
@@ -105,7 +105,7 @@
 
 
 					<p>
-						Servico:<br> <select required="required"name="servico.codigo">
+						Servico:<br> <select class="form-control input-lg" required="required"name="servico.codigo">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaServico}" var="obj">
 								<option value="${obj.codigo}"
@@ -118,7 +118,7 @@
 
 
 					<p>
-						Usuario:<br> <select name="usuario.cpf">
+						Usuario:<br> <select class="form-control input-lg" required="required" name="usuario.cpf">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaUsuario}" var="obj">
 								<option value="${obj.cpf}"
@@ -160,14 +160,14 @@
 
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
-<script type="text/javascript">
+ <script type="text/javascript"> 
 		jQuery.noConflict();
-		jQuery(function($) {
-			$("#nome").mask("99/99/9999");
+	jQuery(function($) {
+		$("#nome").mask("99/99/9999");
 		
 
 		});
-	</script>
+ 	</script>
 
 </body>
 </html>

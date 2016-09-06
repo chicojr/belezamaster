@@ -104,7 +104,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="senha"
 							type="password" class="form-control" name="senha"
-							placeholder="Digite sua senha" required="required" maxlength="50"><br>
+							placeholder="Digite sua senha" required="required" maxlength="64"><br>
 
 					</div><br>
 					<span  class="error">${senha}</span> 
@@ -113,7 +113,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"
 							type="password" class="form-control" name="confSenha"
-							placeholder="Confirme senha" required="required" maxlength="50"><br>
+							placeholder="Confirme senha" required="required" maxlength="64"><br>
 
 
 					</div>

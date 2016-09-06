@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
+
+import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ProfissionalDao {
@@ -114,7 +117,7 @@ public class ProfissionalDao {
 
 	// Remover
 
-	public void remover(Profissional profissional) {
+	public void remover(Profissional profissional) throws ViolacaoIntegridadeException {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM PROFISSIONAL WHERE id = ?");
@@ -122,6 +125,9 @@ public class ProfissionalDao {
 			stmt.execute();
 			stmt.close();
 			connection.close();
+		}catch(MySQLIntegrityConstraintViolationException e){
+			throw new ViolacaoIntegridadeException();
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
