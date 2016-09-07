@@ -70,31 +70,31 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 		List<Atendimento> listarAtendimento = dao.buscar(situacao);
 		StringBuilder st = new StringBuilder();
-		st.append("<tr class='info'>");
-		st.append("<th class='span'>Nome do Usuário</th>");
-		st.append("<th class='span'>Cpf do Usuário</th>");
-		st.append("<th class='span'>Código do Servico</th>");
-		st.append("<th class='span'>Serviço</th>");
-		st.append("<th class='span'>Nome do Profissional</th>");
-		st.append("<th class='span'>Código do Atendimento</th>");
-		st.append("<th class='span'>Horário de Atendimento</th>");
-		st.append("<th class='span'>Situação</th>");
-		st.append("<th class='span'>Data do Atendimento</th>");
-		st.append("<th class='span'>Alterar</th>");
-		st.append("<th class='span'>Remover</th>");
+		st.append("<tr>");
+		st.append("<th>Nome do Usuário</th>");
+		st.append("<th>Cpf do Usuário</th>");
+		st.append("<th>Código do Servico</th>");
+		st.append("<th>Serviço</th>");
+		st.append("<th>Nome do Profissional</th>");
+		st.append("<th>Código do Atendimento</th>");
+		st.append("<th>Data do Atendimento</th>");
+		st.append("<th>Situação</th>");
+		st.append("<th>Horário de Atendimento</th>");
+		st.append("<th>Alterar</th>");
+		st.append("<th>Remover</th>");
 
 		st.append("</tr>");
 		for (Atendimento atendimento : listarAtendimento) {
 			st.append("<tr >");
-			st.append("<td class='span-text' > " + atendimento.getUsuario().getNome() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getUsuario().getCpf() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getServico().getCodigo() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getServico().getNome() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getProfissional().getNome() + " </td>");
-			st.append("<td class='span-text'> " + atendimento.getCodigoAtendimento() + " </td>");
-			st.append("<td class='span-text'>" + atendimento.getHorario() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getSituacao() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getDataAtendimento() + " </td>");
+			st.append("<td> " + atendimento.getUsuario().getNome() + " </td>");
+			st.append("<td> " + atendimento.getUsuario().getCpf() + " </td>");
+			st.append("<td> " + atendimento.getServico().getCodigo() + " </td>");
+			st.append("<td> " + atendimento.getServico().getNome() + " </td>");
+			st.append("<td> " + atendimento.getProfissional().getNome() + " </td>");
+			st.append("<td> " + atendimento.getCodigoAtendimento() + " </td>");
+			st.append("<td>" + atendimento.getHorario() + " </td>");
+			st.append("<td> " + atendimento.getSituacao() + " </td>");
+			st.append("<td> " + atendimento.getDataAtendimento() + " </td>");
 			st.append("<td><a  class='btn btn-success'  href='alterarRegistro?codigoAtendimento="
 					+ atendimento.getCodigoAtendimento() + "'>Registrar</a> &nbsp;</td>");
 			st.append("<td><a   class='btn btn-danger' href='removerCancelar?codigoAtendimento="
@@ -111,16 +111,16 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 		List<Atendimento> listarAtendimento = dao.buscar(situacao);
 		StringBuilder st = new StringBuilder();
-		st.append("<tr class='info'>");
+		st.append("<tr>");
 		st.append("<th>Nome do Usuário</th>");
 		st.append("<th>Cpf do Usuário</th>");
 		st.append("<th>Código do Servico</th>");
 		st.append("<th>Serviço</th>");
 		st.append("<th>Nome do Profissional</th>");
 		st.append("<th>Código do Atendimento</th>");
-		st.append("<th>Horário de Atendimento</th>");
-		st.append("<th>Situação</th>");
 		st.append("<th>Data do Atendimento</th>");
+		st.append("<th>Situação</th>");
+		st.append("<th>Horário de Atendimento</th>");
 		st.append("<th>Alterar</th>");
 		st.append("<th>Remover</th>");
 

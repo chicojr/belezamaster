@@ -20,7 +20,7 @@
 				<ul id="dropdown-dp" class="dropdown-menu">
 					<li> 						
 						<a href="exibirIncluirProduto">Cadastrar Produto</a>
-						<a href="exibirListarProduto">Pesquisar Produto</a>
+						<a href="exibirListarProduto">Listar Produto</a>
 					</li>
 				</ul>
 			</li>
@@ -29,7 +29,7 @@
 				<ul id="dropdown-dp" class="dropdown-menu">
 					<li> 						
 						<a href="exibirIncluirServico">Cadastrar Serviço</a>
-						<a href="exibirListarServico">Pesquisar Serviço</a>
+						<a href="exibirListarServico">Listar Serviço</a>
 					</li>
 				</ul>
 			</li>
@@ -37,8 +37,8 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário<span class="caret"></span></a>
 				<ul id="dropdown-dp" class="dropdown-menu">
 					<li> 						
+					    <a href="exibirIncluirUsuario">Cadastrar Usuário</a>
 						<a href="exibirListarUsuario">Listar Usuário</a>						
-						<a href="exibirIncluirUsuario">Cadastrar Usuário</a>
 					</li>
 				</ul>
 			</li>
@@ -47,7 +47,7 @@
 				<ul id="dropdown-dp" class="dropdown-menu">
 					<li> 						
 						<a href="exibirIncluirProfissional">Cadastrar Profissional</a>
-						<a href="exibirListarProfissional">Pesquisar Profissional</a>
+						<a href="exibirListarProfissional">Listar Profissional</a>
 					</li>
 				</ul>
 			</li>

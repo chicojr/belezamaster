@@ -58,21 +58,21 @@ public class ServicoController {
 		ServicoDao dao = new ServicoDao();
 		List<Servico> listaServico = dao.buscar(nome);
 		StringBuilder st = new StringBuilder();
-		st.append("<tr  style='background-color: #fff; font-weight:bold'>");
-		st.append("<td class='span'>Nome do Servico</td>");
-		st.append("<td class='span'>Descrição</td>");
-		st.append("<td class='span'>Valor</td>");
-		st.append("<td class='span'>Codígo</td>");
-		st.append("<td class='span'>Alterar</td>");
-		st.append("<td class='span'>Remover</td>");
+		st.append("<tr>");
+		st.append("<th>Nome do Servico</td>");
+		st.append("<th>Descrição</td>");
+		st.append("<th>Valor</td>");
+		st.append("<th>Codígo</td>");
+		st.append("<th>Alterar</td>");
+		st.append("<th>Remover</td>");
 
 		st.append("</tr>");
 		for (Servico servico : listaServico) {
 			st.append("<tr>");
-			st.append("<td class='span-text'> " + servico.getNome() + " </td>");
-			st.append("<td class='span-text'> " + servico.getDescricao() + " </td>");
-			st.append("<td class='span-text' > " + servico.getValor() + " </td>");
-			st.append("<td class='span-text' > " + servico.getCodigo() + " </td>");
+			st.append("<td> " + servico.getNome() + " </td>");
+			st.append("<td> " + servico.getDescricao() + " </td>");
+			st.append("<td> " + servico.getValor() + " </td>");
+			st.append("<td> " + servico.getCodigo() + " </td>");
 			st.append("<td><a class='btn btn-success' style='color: white' href='exibirAlterarServico?codigo="
 					+ servico.getCodigo() + "'>Editar</a> &nbsp;</td>");
 			st.append("<td><a  class='btn btn-danger' href='removerServico?codigo=" + servico.getCodigo()

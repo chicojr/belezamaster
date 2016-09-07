@@ -92,7 +92,7 @@
 				cssStyle="color:red; font-size:10px;" />
 			<br> <label class="span">Descrição:</label><br /> <input
 				type="text" class="form-control" name="descricao" maxlength="50"
-				required="true" value="${servico.descricao}" onkeypress="mascara(this,soLetras)"> <br>
+				required="true" value="${servico.descricao}"> <br>
 			
 			<br />
 		

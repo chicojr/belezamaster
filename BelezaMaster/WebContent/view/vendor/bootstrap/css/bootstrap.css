@@ -2325,7 +2325,7 @@ th {
   background-color: #f9f9f9;
 }
 .table-hover > tbody > tr:hover {
-  background-color: #babdb6;
+  background-color: #d3d7cf;
 }
 table col[class*="col-"] {
   position: static;
@@ -2444,8 +2444,10 @@ table th[class*="col-"] {
   background-color: #ebcccc;
 }
 .table-responsive {
+border-radius:10px 10px 10px 10px;
   min-height: .01%;
   overflow-x: auto;
+  
 }
 @media screen and (max-width: 767px) {
   .table-responsive {

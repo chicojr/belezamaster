@@ -62,6 +62,7 @@
 
 	<c:import url="../menu/menu.jsp"></c:import>
 
+<div class="container">
 
 	<br>
 	<br>
@@ -99,9 +100,9 @@
 	<p>
 	<div class="table table-responsive " >
 	
-	<table id="tabelaListaUsuario" border="1" class="table table-striped table-condensed">
+	<table id="tabelaListaUsuario" class="table table-hover table-bordered">
 	<thead>
-		<tr class="info">
+		<tr>
 			<th  >Nome Usuário</th>
 			<th>E-mail</th>
 			<th>Telefone</th>
@@ -130,6 +131,7 @@
 		</c:forEach>
 	</tbody>
 	</table>
+	</div>
 </div>
 	<script src="view/vendor/jquery/jquery.min.js"></script>
 

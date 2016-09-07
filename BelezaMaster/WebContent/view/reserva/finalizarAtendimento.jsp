@@ -50,9 +50,8 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> 
-    <script type="text/javascript">
+    <![endif]--> <script type="text/javascript"
+	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript">
 		$(document).ready(function() {
 			$("#situacao").keyup(function() {
 				var texto = $('#situacao').val();
@@ -76,12 +75,14 @@
 	<br>
 	<br>
 	<br>
-<center>
-<div class="container">
-	<div class="msg alert alert-success fade in">${finalizar},${cancelar}
-					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-				</div>
-	</div>
+	<center>
+		<div class="container">
+
+			<div class="msg alert alert-success fade in">${finalizar},${cancelar}
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			</div>
+		</div>
+
 	</center>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
@@ -98,57 +99,58 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-					<br /> <label class="span">Situação:</label><br /> <input
-						class="form-control" type="text" name="situacao"
-						onkeypress="mascara(this,soLetras)" id="situacao"/> <br /> <br /> 
+				<br /> <label class="span">Situação:</label><br /> <input
+					class="form-control" type="text" name="situacao"
+					onkeypress="mascara(this,soLetras)" id="situacao" /> <br /> <br />
 
 			</div>
 		</div>
 
 	</div>
 
-<div class="table table-responsive " >
+	<div class="table table-responsive ">
 
-	<table id="tabelaListaRegistrarAtendimento" border="1" class="table table-striped table-condensed">
-		<tr class='info'>
-			<th >Nome do Usuário</th>
-			<th>Cpf do Usuário</th>
-			<th >Código do Servico</th>
-			<th >Serviço</th>
-          	<th >Nome do Profissional</th>
-			<th >Código do Atendimento</th>
-			<th >Horário de Atendimento</th>
-			<th >Situação</th>
-			<th >Data do Atendimento</th>
-		    <th >Alterar</th>
-			<th >Remover</th>
+		<table id="tabelaListaRegistrarAtendimento"
+			class="table table-hover table-bordered">
+			<tr>
+				<th>Nome do Usuário</th>
+				<th>Cpf do Usuário</th>
+				<th>Código do Servico</th>
+				<th>Serviço</th>
+				<th>Nome do Profissional</th>
+				<th>Código do Atendimento</th>
+				<th>Data do Atendimento</th>
+				<th>Situação</th>				
+				<th>Horário de Atendimento</th>	
+				<th>Alterar</th>
+				<th>Remover</th>
 
-
-		</tr>
-
-		<c:forEach var="atendimento" items="${registrarAtendimento}">
-			<tr >
-
-				<td >${atendimento.usuario.nome}</td>
-				<td>${atendimento.usuario.cpf}</td>
-				<td >${atendimento.servico.codigo}</td>
-				<td >${atendimento.servico.nome}</td>
-				<td >${atendimento.profissional.nome}</td>
-				<td >${atendimento.codigoAtendimento}</td>
-				<td ><fmt:formatDate
-						value="${atendimento.horario}" pattern="dd/MM/yyyy" /></td>
-				<td >${atendimento.situacao}</td>
-				<td >${atendimento.dataAtendimento}</td>
-
-				<td><a class="btn btn-success"
-					href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>
-				<td><a class="btn btn-danger"
-					href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
 
 			</tr>
 
-		</c:forEach>
-	</table>
+			<c:forEach var="atendimento" items="${registrarAtendimento}">
+				<tr>
+
+					<td>${atendimento.usuario.nome}</td>
+					<td>${atendimento.usuario.cpf}</td>
+					<td>${atendimento.servico.codigo}</td>
+					<td>${atendimento.servico.nome}</td>
+					<td>${atendimento.profissional.nome}</td>
+					<td>${atendimento.codigoAtendimento}</td>
+					<td><fmt:formatDate value="${atendimento.horario}"
+							pattern="dd/MM/yyyy" /></td>
+					<td>${atendimento.situacao}</td>
+					<td>${atendimento.dataAtendimento}</td>
+
+					<td><a class="btn btn-success"
+						href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>
+					<td><a class="btn btn-danger"
+						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
+
+				</tr>
+
+			</c:forEach>
+		</table>
 	</div>
 	<br />
 	<br />
