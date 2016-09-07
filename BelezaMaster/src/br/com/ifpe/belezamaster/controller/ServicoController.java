@@ -25,12 +25,6 @@ public class ServicoController {
 
 	}
 
-	@RequestMapping("/exibirFazerReserva")
-	public String exibirFazerReserva() {
-		return "servico/fazerReserva";
-
-	}
-
 	// incluir servico
 	@RequestMapping("/incluirServico")
 	public String incluirServico(@Valid Servico servico, BindingResult result, Model model) {

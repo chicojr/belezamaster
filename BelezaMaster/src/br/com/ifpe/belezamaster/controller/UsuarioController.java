@@ -19,9 +19,7 @@ import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 
 @Controller
 public class UsuarioController {
-	private static int Adm = 1;
-	private static int prof = 1;
-	private static int user = 3;
+	
 
 	// Exibir Página Inicial
 	@RequestMapping("/exibirIndex")
@@ -75,7 +73,7 @@ public class UsuarioController {
 
 	}
 
-	// Exibir Pesquisar por CPF
+	// Exibir Alterar dados
 	@RequestMapping("/exibirAlterarDadosUsuario")
 	public String exibirAlterarDadosUsuario() {
 
@@ -157,13 +155,21 @@ public class UsuarioController {
 
 	// Remover Usuario
 	@RequestMapping("/removerUsuario")
-	public String removerUsuario(Usuario usuario, Model model) {
+	public String removerUsuario(Usuario usuario, Model model, HttpSession session) {
 		UsuarioDao dao = new UsuarioDao();
+		
 		try {
 			dao.remover(usuario);
 		} catch (ViolacaoIntegridadeException e) {
 			model.addAttribute("mensagem", "Usuario não pode ser removido");
 			return "forward:exibirListarUsuario";
+		}
+			UsuarioDao dao1 = new UsuarioDao();
+
+			if (dao1.buscarPorCpf(usuario.getCpf()) == null) {
+				session.invalidate();
+				model.addAttribute("mensagem", "Você Excluiu sua Conta Por Isso foi deslogado");
+				return "index";
 		}
 
 		model.addAttribute("mensagem", "Usuario Removido com Sucesso");
