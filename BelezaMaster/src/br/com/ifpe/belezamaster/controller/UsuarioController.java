@@ -164,13 +164,13 @@ public class UsuarioController {
 			model.addAttribute("mensagem", "Usuario não pode ser removido");
 			return "forward:exibirListarUsuario";
 		}
-			UsuarioDao dao1 = new UsuarioDao();
-
-			if (dao1.buscarPorCpf(usuario.getCpf()) == null) {
-				session.invalidate();
-				model.addAttribute("mensagem", "Você Excluiu sua Conta Por Isso foi deslogado");
-				return "index";
-		}
+//			UsuarioDao dao1 = new UsuarioDao();
+//
+//			if (dao1.buscarPorCpf(usuario.getCpf()) == null) {
+//				session.invalidate();
+//				model.addAttribute("mensagem", "Você Excluiu sua Conta Por Isso foi deslogado");
+//				return "index";
+//		}
 
 		model.addAttribute("mensagem", "Usuario Removido com Sucesso");
 		return "forward:exibirListarUsuario";
