@@ -197,7 +197,7 @@ public class UsuarioController {
 	}
 
 	// Alterar Senha
-	@RequestMapping("/AlterarSenha")
+	@RequestMapping("/alterarSenha")
 	public String AlterarSenha(@Valid Usuario usuario, BindingResult result, Model model) {
 
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {

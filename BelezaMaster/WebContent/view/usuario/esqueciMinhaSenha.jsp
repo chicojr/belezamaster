@@ -82,7 +82,7 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="AlterarSenha" id="loginform" class="form-horizontal" 
+				<form action="alterarSenha" id="loginform" class="form-horizontal" 
 					method="post" role="form">
 
 					&nbsp;<span class="error">${mesagem}</span> 
