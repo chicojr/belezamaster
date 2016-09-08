@@ -167,9 +167,9 @@ public class UsuarioController {
 //			UsuarioDao dao1 = new UsuarioDao();
 //
 //			if (dao1.buscarPorCpf(usuario.getCpf()) == null) {
-//				session.invalidate();
+//			session.invalidate();
 //				model.addAttribute("mensagem", "Você Excluiu sua Conta Por Isso foi deslogado");
-//				return "index";
+//				return "index";;
 //		}
 
 		model.addAttribute("mensagem", "Usuario Removido com Sucesso");

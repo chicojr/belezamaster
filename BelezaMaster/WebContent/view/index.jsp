@@ -145,7 +145,7 @@
                     </li>
                 </ul> <%} %>
             </div>
-            <!-- /.navbar-collapse -->
+            <!-- /navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
