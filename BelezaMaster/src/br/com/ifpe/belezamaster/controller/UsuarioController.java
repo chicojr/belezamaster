@@ -196,7 +196,7 @@ public class UsuarioController {
 
 	}
 
-	// Alterar Senha
+	// Alterar senha
 	@RequestMapping("/alterarSenha")
 	public String AlterarSenha(@Valid Usuario usuario, BindingResult result, Model model) {
 

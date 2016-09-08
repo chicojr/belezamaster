@@ -84,7 +84,7 @@
 					class="alert alert-danger col-sm-12"></div>
 		
         
-		<form action="alterarUsuario" method="post">
+		<form action="alterarUsuario"  method="post">
 
 
 			<input type="hidden" name="id">
