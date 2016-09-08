@@ -48,8 +48,7 @@
 <Br><Br><Br><Br><Br><Br><Br><Br>
 	<center>
 		<div class="container">
-			<div class="msg alert alert-success fade in">${mensagem}
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<div class="msg">${mensagem}
 			</div>
 		</div>
 	</center>

@@ -54,7 +54,12 @@
 	<br>
 	<br>
 
-
+<center>
+		<div class="container">
+			<div class="msg">${mensagem}
+			</div>
+		</div>
+	</center>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">

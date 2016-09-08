@@ -61,7 +61,7 @@
 	
 	<center>
 		<div class="container">
-			<div class="msg fade in">${mensagem}
+			<div class="msg">${mensagem}
 			</div>
 		</div>
 	</center>

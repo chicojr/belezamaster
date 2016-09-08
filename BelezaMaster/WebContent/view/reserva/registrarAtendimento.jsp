@@ -78,9 +78,8 @@
 	<center>
 		<div class="container">
 
-			<div class="msg alert alert-success fade in">${cancelar}
-				${registrar} <a href="#" class="close" data-dismiss="alert"
-					aria-label="close">&times;</a>
+			<div class="msg">${cancelar}
+				${registrar} 
 			</div>
 		</div>
 

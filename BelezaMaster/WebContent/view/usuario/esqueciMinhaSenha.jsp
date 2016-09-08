@@ -60,7 +60,7 @@
 
 	<center>
 		<div class="container">
-			<div class="msg alert alert-success fade in">${mensagem}
+			<div class="msg">${mensagem}
 			</div>
 		</div>
 	</center>
