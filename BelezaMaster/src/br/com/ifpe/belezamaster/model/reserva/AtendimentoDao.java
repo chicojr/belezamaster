@@ -1,10 +1,12 @@
 package br.com.ifpe.belezamaster.model.reserva;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
@@ -29,9 +31,9 @@ public class AtendimentoDao {
 
 	public void salvar(Atendimento atendimento) {
 		try {
-			String sql = "INSERT INTO ATENDIMENTO (  horario, codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATENDIMENTO (  data_atendimento, codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setDate(1, Datas.criarDataSQL(atendimento.getHorario()));
+			stmt.setDate(1, Datas.criarDataSQL(atendimento.getDataAtendimento()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
 			stmt.setInt(3, atendimento.getProfissional().getId());
 			stmt.setInt(4, atendimento.getServico().getCodigo());
@@ -67,7 +69,7 @@ public class AtendimentoDao {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setDate(1, new java.sql.Date(atendimento.getHorario().getTime()));
+			stmt.setDate(1,  Datas.criarDataSQL(Calendar.getInstance().getTime()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
 
 			stmt.execute();

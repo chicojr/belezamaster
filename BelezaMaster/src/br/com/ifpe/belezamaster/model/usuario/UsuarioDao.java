@@ -11,6 +11,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
+import br.com.ifpe.belezamaster.model.login.Perfil;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class UsuarioDao {
@@ -238,7 +239,10 @@ public class UsuarioDao {
 		usuario.setTelefone(rs.getString("Telefone"));
 		usuario.setCelular(rs.getString("celular"));
 		usuario.setCpf(rs.getString("cpf"));
-
+		
+		Perfil perfil = new Perfil();
+		perfil.setCodigo(rs.getInt("codigo_perfil"));
+        usuario.setPerfil(perfil);
 		return usuario;
 	}
 }

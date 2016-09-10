@@ -88,7 +88,7 @@
 							class="glyphicon glyphicon-user"></i></span> 
 							
 							<input id="nome"
-							type="text" class="form-control" name="horario"
+							type="text" class="form-control" name="dataAtendimento"
 							placeholder="Digite Data de Atendimento"
 							required="required">
 					</div>			

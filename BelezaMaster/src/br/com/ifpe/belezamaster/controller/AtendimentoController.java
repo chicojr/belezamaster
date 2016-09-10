@@ -46,6 +46,7 @@ public class AtendimentoController {
 	@RequestMapping("/fazerReserva")
 	public String IncluirAtendimento(Atendimento atendimento, BindingResult result, Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
+		
 		dao.salvar(atendimento);
 		model.addAttribute("mensagem", "A Reserva foi cadastrado com Sucesso!!");
 		return "forward:exibirIncluirAtendimento";

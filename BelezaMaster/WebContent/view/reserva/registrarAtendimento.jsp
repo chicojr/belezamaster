@@ -122,9 +122,9 @@
 				<th>Serviço</th>
 				<th>Nome do Profissional</th>
 				<th>Código do Atendimento</th>
-				<th>Data do Atendimento</th>
+				<th>Horário de Atendimento</th>
 				<th>Situação</th>
-			    <th>Horário de Atendimento</th>
+				<th>Data do Atendimento</th>
 				<th>Alterar</th>
 				<th>Remover</th>
 
