@@ -45,23 +45,18 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-   <%
-		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		boolean NivelDePerfil = false;
-		if (usuario != null) {
-			Perfil perfil = usuario.getPerfil();
-			if (perfil != null) {
-				if (perfil.getCodigo() == 1) {
-					NivelDePerfil = true;
-				}
-			}
-		}
-	%>
-   
-
-</head>
+    <![endif]--> <%
+ 	Usuario usuario = (Usuario) session.getAttribute("usuario");
+ 	boolean NivelDePerfil = false;
+ 	if (usuario != null) {
+ 		Perfil perfil = usuario.getPerfil();
+ 		if (perfil != null) {
+ 			if (perfil.getCodigo() == 1) {
+ 				NivelDePerfil = true;
+ 			}
+ 		}
+ 	}
+ %></head>
 <body class="bg-dark-2">
 
 	<c:import url="../menu/menu.jsp"></c:import>
@@ -76,8 +71,7 @@
 
 	<center>
 		<div class="container">
-			<div class="msg">${mensagem}
-			</div>
+			<div class="msg">${mensagem}</div>
 		</div>
 	</center>
 
@@ -94,7 +88,7 @@
 			</div>
 
 			<div style="padding-top: 30px" class="panel-body">
-			
+
 
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
@@ -107,10 +101,10 @@
 							class="glyphicon glyphicon-user"></i></span> <input id="nome"
 							type="text" class="form-control" name="nome"
 							placeholder="Digite seu nome" onkeypress="mascara(this,soLetras)"
-							value="${usuario.nome}" maxlength="50" required="required" >
+							value="${usuario.nome}" maxlength="50" required="required">
 						<form:errors path="usuario.nome" cssStyle="color:red" />
 					</div>
-				&nbsp;<span class="error">${cpf}</span> 
+					&nbsp;<span class="error">${cpf}</span>
 
 					<div style="margin-bottom: 25px" class="input-group">
 
@@ -122,8 +116,8 @@
 							equired="required">
 					</div>
 
-				&nbsp;<span class="error">${email}</span> 
-                 <div style="margin-bottom: 25px" class="input-group">
+					&nbsp;<span class="error">${email}</span>
+					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-envelope"></i></span> <input id="email"
 							type="email" class="form-control" name="email"
@@ -131,18 +125,16 @@
 							required="required" maxlength="50" />
 						<form:errors path="usuario.email"
 							cssStyle="color:red; font-size:10px;" />
-					</div><br>
-					<span  class="error">${senha}</span> <span
-						 class="error">${confsenha}</span>
+					</div>
+					<br> <span class="error">${senha}</span> <span class="error">${confsenha}</span>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="senha"
 							type="password" class="form-control" name="senha"
 							placeholder="Digite sua senha" required="required" maxlength="20"><br>
 
-					</div><br>
-					<span  class="error">${senha}</span> 
-					<span  class="error">${confsenha}</span>
+					</div>
+					<br> <span class="error">${senha}</span> <span class="error">${confsenha}</span>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"
@@ -151,7 +143,7 @@
 
 
 					</div>
-<br>
+					<br>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="fa fa-phone-square" aria-hidden="true"></i></span> <input
@@ -161,7 +153,7 @@
 						<form:errors path="usuario.telefone"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-<br>
+					<br>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="fa fa-mobile fa-2x" aria-hidden="true"></i></span> <input
@@ -172,17 +164,20 @@
 						<form:errors path="usuario.celular"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-<%
-if (NivelDePerfil != false) {
-	%>
-					<input name="perfil.codigo" type="radio" value="1" required="required"/><label>Administrador</label>
-					<input name="perfil.codigo" type="radio" value="2" required="required"/><label>Profissional</label>
-					<input name="perfil.codigo" type="radio" value="3" required="required"/> <label>Usuario</label>
-       <%
-		}
-		%>
-				<input name="perfil.codigo" type="hidden" value="3" required="required"/>
-					
+					<%
+						if (NivelDePerfil != false) {
+					%>
+					<input name="perfil.codigo" type="radio" value="1"
+						required="required" /><label>Administrador</label> <input
+						name="perfil.codigo" type="radio" value="2" required="required" /><label>Profissional</label>
+					<input name="perfil.codigo" type="radio" value="3"
+						required="required" /> <label>Usuario</label>
+					<%
+						}
+					%>
+					<input name="perfil.codigo" type="hidden" value="3"
+						required="required" />
+
 					<div style="margin-top: 10px" class="form-group">
 						<!-- Button -->
 
@@ -234,13 +229,13 @@ if (NivelDePerfil != false) {
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
 
- 	<script type="text/javascript"> 
- 		jQuery.noConflict();
- 		jQuery(function($) {
- 			$("#telefone").mask("(99)9999-9999");
- 			$("#cpf").mask("999.999.999-99");
- 			$("#celular").mask("(99)99999-9999");
- 		});
- 	</script> 
+	<script type="text/javascript">
+		jQuery.noConflict();
+		jQuery(function($) {
+			$("#telefone").mask("(99)9999-9999");
+			$("#cpf").mask("999.999.999-99");
+			$("#celular").mask("(99)99999-9999");
+		});
+	</script>
 </body>
 </html>

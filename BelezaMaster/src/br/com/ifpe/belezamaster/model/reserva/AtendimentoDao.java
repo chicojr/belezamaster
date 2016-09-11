@@ -62,8 +62,8 @@ public class AtendimentoDao {
 		}
 	
 	}
+	
 	// Alterar registra atendimento
-
 	public void alterarRegistrar(Atendimento atendimento) {
 		String sql = "UPDATE ATENDIMENTO SET situacao = 'P', horario = ?  WHERE codigo = ?";
 

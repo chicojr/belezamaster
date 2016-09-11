@@ -78,9 +78,7 @@
 	<center>
 		<div class="container">
 
-			<div class="msg">${cancelar}
-				${registrar} 
-			</div>
+			<div class="msg">${cancelar}${registrar}</div>
 		</div>
 
 	</center>
@@ -128,9 +126,7 @@
 				<th>Alterar</th>
 				<th>Remover</th>
 
-
 			</tr>
-
 			<c:forEach var="atendimento" items="${registrarAtendimento}">
 				<tr>
 
@@ -146,12 +142,10 @@
 					<td><fmt:formatDate value="${atendimento.dataAtendimento}"
 							pattern="dd/MM/yyyy" /></td>
 
-
 					<td><a class="btn btn-success"
 						href="alterarRegistro?codigoAtendimento=${atendimento.codigoAtendimento}">Registrar</a></td>
 					<td><a class="btn btn-danger"
 						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
-
 				</tr>
 
 			</c:forEach>
@@ -169,7 +163,6 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
-
 	<!-- Plugin JavaScript -->
 	<script src="view/vendor/easing/easing.min.js"></script>
 	<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
@@ -178,7 +171,6 @@
 	<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
 	<script type="text/javascript"
 		src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
-
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
 </body>
