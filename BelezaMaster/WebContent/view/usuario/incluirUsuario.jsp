@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="br.com.ifpe.belezamaster.model.usuario.Usuario"%>
+<%@ page import="br.com.ifpe.belezamaster.model.login.Perfil"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,6 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+
 <link href="view/css/style.css" rel="stylesheet" type="text/css" />
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
@@ -44,6 +47,18 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     
+   <%
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		boolean NivelDePerfil = false;
+		if (usuario != null) {
+			Perfil perfil = usuario.getPerfil();
+			if (perfil != null) {
+				if (perfil.getCodigo() == 1) {
+					NivelDePerfil = true;
+				}
+			}
+		}
+	%>
    
 
 </head>
@@ -157,11 +172,17 @@
 						<form:errors path="usuario.celular"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-
+<%
+if (NivelDePerfil != false) {
+	%>
 					<input name="perfil.codigo" type="radio" value="1" required="required"/><label>Administrador</label>
 					<input name="perfil.codigo" type="radio" value="2" required="required"/><label>Profissional</label>
 					<input name="perfil.codigo" type="radio" value="3" required="required"/> <label>Usuario</label>
-
+       <%
+		}
+		%>
+				<input name="perfil.codigo" type="hidden" value="3" required="required"/>
+					
 					<div style="margin-top: 10px" class="form-group">
 						<!-- Button -->
 

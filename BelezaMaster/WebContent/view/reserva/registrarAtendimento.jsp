@@ -143,7 +143,8 @@
 					<td><fmt:formatDate value="${atendimento.horario}"
 							pattern="dd/MM/yyyy" /></td>
 					<td>${atendimento.situacao}</td>
-					<td>${atendimento.dataAtendimento}</td>
+					<td><fmt:formatDate value="${atendimento.dataAtendimento}"
+							pattern="dd/MM/yyyy" /></td>
 
 
 					<td><a class="btn btn-success"

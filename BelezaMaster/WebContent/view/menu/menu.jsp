@@ -7,10 +7,20 @@
 
 </head>
 <body>
-
-
 	<%
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		boolean NivelDePerfil = false;
+		if (usuario != null) {
+			Perfil perfil = usuario.getPerfil();
+			if (perfil != null) {
+				if (perfil.getCodigo() == 1) {
+					NivelDePerfil = true;
+				}
+			}
+		}
+	%>
+
+	<%
 		boolean exibirMenu = false;
 		if (usuario != null) {
 			Perfil perfil = usuario.getPerfil();
@@ -77,7 +87,7 @@
 						}
 					%>
 					<%
-						if (exibirMenu != false) {
+						if (NivelDePerfil != false) {
 					%>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Profissional<span class="caret"></span></a>
@@ -86,18 +96,57 @@
 									Profissional</a> <a href="exibirListarProfissional">Listar
 									Profissional</a></li>
 						</ul></li>
-							<%
+					<%
 						}
 					%>
+<%
+									if (exibirMenu != false) {
+								%>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Reserva<span class="caret"></span></a>
 						<ul id="dropdown-dp" class="dropdown-menu">
-							<li><a href="exibirIncluirAtendimento">Fazer Reserva</a> <a
-								href="exibirFinalizarAtendimento	">Finalizar Atendimento</a> <a
-								href="exibirListarAtendimento">Registrar Atendimento</a></li>
+							<li><a href="exibirIncluirAtendimento">Fazer Reserva</a>
+								 <a href="exibirFinalizarAtendimento	">Finalizar Atendimento</a>
+								<a href="exibirListarAtendimento">Registrar Atendimento</a></li>
+						
 						</ul></li>
+	<%
+								}
+							%>
 
 
+
+
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"><b> <i class="fa fa-user"
+								aria-hidden="true">&nbsp;</i> Bem vindo,
+								${usuarioLogado.nome}&nbsp;&nbsp;
+						</b> <span class="caret"></span></a>
+						<ul id="id" class="dropdown-menu">
+							<li>
+								<div class="row">
+									<div class="col-md-12">
+
+										<a class="nav-tabs-dropdown btn-01"
+											href="exibirAlterarDadosUsuario"><strong>Alterar
+												Dados</strong></a>
+										<div class="espaco-negro"></div>
+										<a class="nav-tabs-dropdown btn-01"
+											href="exibirIncluirAtendimento"><strong>Fazer
+												Reserva</strong></a>
+										<p />
+									</div>
+
+									<div class="bottom">
+
+										<a href="logout" class="btn-new"><strong>Sair</strong></a>
+									</div>
+									<Br>
+								</div>
+							</li>
+
+						</ul></li>
 
 
 				</ul>

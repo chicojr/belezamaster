@@ -47,7 +47,7 @@ public class UsuarioController {
 		}
 
 		if (result.hasErrors()) {
-			model.addAttribute("senha", "* A senha deve ter no minímo 6 e no maximo 64 caracteres ");
+			model.addAttribute("senha", "* A senha deve ter no minímo 6 caracteres.");
 			return "forward:exibirIncluirUsuario";
 		}
 
@@ -67,7 +67,7 @@ public class UsuarioController {
 			UsuarioDao dao2 = new UsuarioDao();
 
 			dao2.salvar(usuario);
-			model.addAttribute("mensagem", " O Usuário foi adicionado com Sucesso!");
+			model.addAttribute("mensagem", " O Cadastro foi realizado com Sucesso!");
 			return "usuario/incluirUsuario";
 		}
 

@@ -78,9 +78,9 @@ public class AtendimentoController {
 		st.append("<th>Serviço</th>");
 		st.append("<th>Nome do Profissional</th>");
 		st.append("<th>Código do Atendimento</th>");
-		st.append("<th>Data do Atendimento</th>");
-		st.append("<th>Situação</th>");
 		st.append("<th>Horário de Atendimento</th>");
+		st.append("<th>Situação</th>");
+		st.append("<th>Data do Atendimento</th>");
 		st.append("<th>Alterar</th>");
 		st.append("<th>Remover</th>");
 
@@ -105,6 +105,7 @@ public class AtendimentoController {
 		response.setStatus(200);
 		return st.toString();
 	}
+
 
 	// pesquisar Finalizar reserva
 	@RequestMapping("/pesquisarFinalizarAtendimento")
@@ -151,8 +152,7 @@ public class AtendimentoController {
 	@RequestMapping("/alterarRegistro")
 	public String 	alterarAtendimento(Atendimento atendimento, Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
-		Calendar horario = Calendar.getInstance();
-		atendimento.setHorario(horario.getTime());
+
 		dao.alterarRegistrar(atendimento);
 		model.addAttribute("registrar", " O Atendimento foi registrado com Sucesso!");
 		return "forward:exibirListarAtendimento";

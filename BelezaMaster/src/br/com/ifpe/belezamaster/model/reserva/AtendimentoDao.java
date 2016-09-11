@@ -31,7 +31,7 @@ public class AtendimentoDao {
 
 	public void salvar(Atendimento atendimento) {
 		try {
-			String sql = "INSERT INTO ATENDIMENTO (  data_atendimento, codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATENDIMENTO (data_atendimento,codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, Datas.criarDataSQL(atendimento.getDataAtendimento()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
@@ -65,7 +65,7 @@ public class AtendimentoDao {
 	// Alterar registra atendimento
 
 	public void alterarRegistrar(Atendimento atendimento) {
-		String sql = "UPDATE ATENDIMENTO SET situacao = 'A', horario = ?  WHERE codigo = ?";
+		String sql = "UPDATE ATENDIMENTO SET situacao = 'P', horario = ?  WHERE codigo = ?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
