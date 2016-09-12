@@ -61,7 +61,7 @@
 	
 	<center>
 		<div class="container">
-			<div class="msg fade in">${mensagem}
+			<div class="msg">${mensagem}
 			</div>
 		</div>
 	</center>
@@ -88,12 +88,12 @@
 							class="glyphicon glyphicon-user"></i></span> 
 							
 							<input id="nome"
-							type="datetime" class="form-control" name="dataAtendimento"
-							placeholder="Digite o Data do Atendimento"
+							type="text" class="form-control" name="dataAtendimento"
+							placeholder="Digite Data de Atendimento"
 							required="required">
 					</div>			
 					<p>
-						Profissional:<br> <select required="required" name="profissional.id">
+						Profissional:<br> <select class="form-control input-lg" required="required" name="profissional.id">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaProfissional}" var="obj">
 								<option value="${obj.id}"
@@ -105,7 +105,7 @@
 
 
 					<p>
-						Servico:<br> <select required="required"name="servico.codigo">
+						Servico:<br> <select class="form-control input-lg" required="required"name="servico.codigo">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaServico}" var="obj">
 								<option value="${obj.codigo}"
@@ -118,7 +118,7 @@
 
 
 					<p>
-						Usuario:<br> <select required="true" name="usuario.cpf">
+						Usuario:<br> <select class="form-control input-lg" required="required" name="usuario.cpf">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaUsuario}" var="obj">
 								<option value="${obj.cpf}"
@@ -127,8 +127,6 @@
 							</c:forEach>
 						</select>
 					</p>
-										
-
 
 					
 					<button type="submit" class="btn btn-success submit">&nbsp;
@@ -162,14 +160,14 @@
 
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
-<script type="text/javascript">
+ <script type="text/javascript"> 
 		jQuery.noConflict();
-		jQuery(function($) {
-			$("#nome").mask("99/99/9999   99:99:99");
+	jQuery(function($) {
+		$("#nome").mask("99/99/9999");
 		
 
 		});
-	</script>
+ 	</script>
 
 </body>
 </html>

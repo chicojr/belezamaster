@@ -42,92 +42,94 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]--> <script type="text/javascript"src="view/js/jquery-2.1.4.js">
-    
-    </script> <script type="text/javascript">
-		$(document).ready(function() {
-			$("#nome").keyup(function() {
-				var texto = $('#nome').val();
-				$.post("pesquisarProduto", {'nome' : texto}, function(dados) {
-					$('#tabelaListaProduto').html(dados);
-				});
-			});
+    <![endif]--> <script type="text/javascript"
+	src="view/js/jquery-2.1.4.js">
+					
+				</script> <script type="text/javascript">
+					$(document).ready(function() {
+						$("#nome").keyup(function() {
+							var texto = $('#nome').val();
+							$.post("pesquisarProduto", {
+								'nome' : texto
+							}, function(dados) {
+								$('#tabelaListaProduto').html(dados);
+							});
+						});
 
-		});
-	</script>
+					});
+				</script>
 </head>
 <body class="bg-dark-2">
 
 	<c:import url="../menu/menu.jsp"></c:import>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	<div class="container">
-		<center>
-			<div class="msg alert alert-success fade in">
-				<strong>${mensagem}</strong> <a href="#" class="close"
-					data-dismiss="alert" aria-label="close">&times;</a>
-			</div>
 
-		</center>
-	</div>
-	<div id="loginbox" style="margin-top: 50px;"
-		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<div class="panel-title">Listar Produto</div>
-				<div
-					style="float: right; font-size: 80%; position: relative; top: -10px">
+		<br> <br> <br> <br> <br>
+		<center>
+		<div class="container">
+			<div class="msg">${mensagem}
+			</div>
+		</div>
+	</center>
+		<div id="loginbox" style="margin-top: 50px;"
+			class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Listar Produto</div>
+					<div
+						style="float: right; font-size: 80%; position: relative; top: -10px">
+					</div>
+				</div>
+
+				<div style="padding-top: 30px" class="panel-body">
+
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+
+					<!-- Input pesquisar -->
+					<br /> <label class="span">Nome:</label><br /> <input
+						class="form-control" type="text" name="nomeProduto" id="nome" />
+					<br /> <br />
+
 				</div>
 			</div>
 
-			<div style="padding-top: 30px" class="panel-body">
-
-				<div style="display: none" id="login-alert"
-					class="alert alert-danger col-sm-12"></div>
-                              
-                              <!-- Input pesquisar -->
-					<br /> <label class="span">Nome:</label><br /> <input
-						class="form-control" type="text" name="nomeProduto"
-						id="nome"  /> <br /> <br />
-
-			</div>
 		</div>
+		<div class="table table-responsive ">
 
+			<table id="tabelaListaProduto" border="1"
+				class="table table-hover table-bordered">
+				<tr>
+					<th>Codígo</th>
+					<th>Nome do produto</th>
+					<th>Descrição</th>
+					<th>Quantidade</th>
+					<th>Valor</th>
+					<th>Alterar</th>
+					<th>Remover</th>
+
+				</tr>
+
+				<c:forEach var="produto" items="${listarProduto}">
+					<tr>
+						<td>${produto.codigo}</td>
+						<td>${produto.nomeProduto}</td>
+						<td>${produto.descricao}</td>
+						<td>${produto.quantidade}</td>
+						<td>${produto.valor}</td>
+
+						<td><a class="btn btn-success"
+							href="exibirAlterarProduto?codigo=${produto.codigo}">Alterar</a></td>
+						<td><a class="btn btn-danger"
+							href="removerProduto?codigo=${produto.codigo}">Remover</a></td>
+
+
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
 	</div>
-	<p>
-	<table id="tabelaListaProduto" border="1" class="table table-bordered">
-		<tr style="background-color: #fff; font-weight: bold;">
-            <td class="span">Codígo</td>
-			<td class="span">Nome do produto</td>
-			<td class="span">Descrição</td>
-			<td class="span">Quantidade</td>
-			<td class="span">Valor</td>
-			<td class="span">Alterar</td>
-			<td class="span">Remover</td>
 
-		</tr>
-
-		<c:forEach var="produto" items="${listarProduto}">
-			<tr>
-				<td class="span-text">${produto.codigo}</td>
-				<td class="span-text">${produto.nomeProduto}</td>
-				<td class="span-text">${produto.descricao}</td>
-				<td class="span-text">${produto.quantidade}</td>
-				<td class="span-text">${produto.valor}</td>
-				
-                	<td><a class="btn btn-success"
-					href="exibirAlterarProduto?codigo=${produto.codigo}">Alterar</a></td>
-				<td><a class="btn btn-danger"
-					href="removerProduto?codigo=${produto.codigo}">Remover</a></td>
-
-
-			</tr>
-		</c:forEach>
-	</table>
 	<br />
 	<br />
 	<br />

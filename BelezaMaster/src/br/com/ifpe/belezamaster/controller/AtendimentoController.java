@@ -23,7 +23,6 @@ import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
 
 @Controller
 public class AtendimentoController {
-
 	// EXIBIR INCLUIR RESERVA
 	@RequestMapping("/exibirIncluirAtendimento")
 	public String ExibirIncluirAtendimento(Atendimento atendimento, Model model) {
@@ -46,22 +45,13 @@ public class AtendimentoController {
 	// INCLUIR RESERVA
 	@RequestMapping("/fazerReserva")
 	public String IncluirAtendimento(Atendimento atendimento, BindingResult result, Model model) {
+		AtendimentoDao dao = new AtendimentoDao();
 		
-	AtendimentoDao dao = new AtendimentoDao();
-	if (!dao.AtendimentoReserva(atendimento.getDataAtendimento(),atendimento.getProfissional().getId())) {
 		dao.salvar(atendimento);
 		model.addAttribute("mensagem", "A Reserva foi cadastrado com Sucesso!!");
-		return "forward:exibirIncluirAtendimento";	
-	
-	}else{
-		
-	model.addAttribute("mensagem", "A Reserva não foi cadastrado, Por favor tente outro horário!!");
-	
+		return "forward:exibirIncluirAtendimento";
 	}
-	
-	return "forward:exibirIncluirAtendimento";	
-	
-	}
+
 	/* Finalizar e registro */
 
 	// exibir listar registro
@@ -81,31 +71,31 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 		List<Atendimento> listarAtendimento = dao.buscar(situacao);
 		StringBuilder st = new StringBuilder();
-		st.append("<tr  style='background-color: #fff; font-weight:bold'>");
-		st.append("<th class='span'>Nome do Usuário</th>");
-		st.append("<th class='span'>Cpf do Usuário</th>");
-		st.append("<th class='span'>Código do Servico</th>");
-		st.append("<th class='span'>Serviço</th>");
-		st.append("<th class='span'>Nome do Profissional</th>");
-		st.append("<th class='span'>Código do Atendimento</th>");
-		st.append("<th class='span'>Horário de Atendimento</th>");
-		st.append("<th class='span'>Situação</th>");
-		st.append("<th class='span'>Data do Atendimento</th>");
-		st.append("<th class='span'>Alterar</th>");
-		st.append("<th class='span'>Remover</th>");
+		st.append("<tr>");
+		st.append("<th>Nome do Usuário</th>");
+		st.append("<th>Cpf do Usuário</th>");
+		st.append("<th>Código do Servico</th>");
+		st.append("<th>Serviço</th>");
+		st.append("<th>Nome do Profissional</th>");
+		st.append("<th>Código do Atendimento</th>");
+		st.append("<th>Horário de Atendimento</th>");
+		st.append("<th>Situação</th>");
+		st.append("<th>Data do Atendimento</th>");
+		st.append("<th>Alterar</th>");
+		st.append("<th>Remover</th>");
 
 		st.append("</tr>");
 		for (Atendimento atendimento : listarAtendimento) {
-			st.append("<tr>");
-			st.append("<td class='span-text' > " + atendimento.getUsuario().getNome() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getUsuario().getCpf() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getServico().getCodigo() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getServico().getNome() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getProfissional().getNome() + " </td>");
-			st.append("<td class='span-text'> " + atendimento.getCodigoAtendimento() + " </td>");
-			st.append("<td class='span-text'>" + atendimento.getHorario() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getSituacao() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getDataAtendimento() + " </td>");
+			st.append("<tr >");
+			st.append("<td> " + atendimento.getUsuario().getNome() + " </td>");
+			st.append("<td> " + atendimento.getUsuario().getCpf() + " </td>");
+			st.append("<td> " + atendimento.getServico().getCodigo() + " </td>");
+			st.append("<td> " + atendimento.getServico().getNome() + " </td>");
+			st.append("<td> " + atendimento.getProfissional().getNome() + " </td>");
+			st.append("<td> " + atendimento.getCodigoAtendimento() + " </td>");
+			st.append("<td>" + atendimento.getHorario() + " </td>");
+			st.append("<td> " + atendimento.getSituacao() + " </td>");
+			st.append("<td> " + atendimento.getDataAtendimento() + " </td>");
 			st.append("<td><a  class='btn btn-success'  href='alterarRegistro?codigoAtendimento="
 					+ atendimento.getCodigoAtendimento() + "'>Registrar</a> &nbsp;</td>");
 			st.append("<td><a   class='btn btn-danger' href='removerCancelar?codigoAtendimento="
@@ -116,37 +106,38 @@ public class AtendimentoController {
 		return st.toString();
 	}
 
+
 	// pesquisar Finalizar reserva
 	@RequestMapping("/pesquisarFinalizarAtendimento")
 	public @ResponseBody String FinalizarAtendimento(@RequestParam String situacao, HttpServletResponse response) {
 		AtendimentoDao dao = new AtendimentoDao();
 		List<Atendimento> listarAtendimento = dao.buscar(situacao);
 		StringBuilder st = new StringBuilder();
-		st.append("<tr  style='background-color: #fff; font-weight:bold'>");
-		st.append("<th class='span'>Nome do Usuário</th>");
-		st.append("<th class='span'>Cpf do Usuário</th>");
-		st.append("<th class='span'>Código do Servico</th>");
-		st.append("<th class='span'>Serviço</th>");
-		st.append("<th class='span'>Nome do Profissional</th>");
-		st.append("<th class='span'>Código do Atendimento</th>");
-		st.append("<th class='span'>Horário de Atendimento</th>");
-		st.append("<th class='span'>Situação</th>");
-		st.append("<th class='span'>Data do Atendimento</th>");
-		st.append("<th class='span'>Alterar</th>");
-		st.append("<th class='span'>Remover</th>");
+		st.append("<tr>");
+		st.append("<th>Nome do Usuário</th>");
+		st.append("<th>Cpf do Usuário</th>");
+		st.append("<th>Código do Servico</th>");
+		st.append("<th>Serviço</th>");
+		st.append("<th>Nome do Profissional</th>");
+		st.append("<th>Código do Atendimento</th>");
+		st.append("<th>Data do Atendimento</th>");
+		st.append("<th>Situação</th>");
+		st.append("<th>Horário de Atendimento</th>");
+		st.append("<th>Alterar</th>");
+		st.append("<th>Remover</th>");
 
 		st.append("</tr>");
 		for (Atendimento atendimento : listarAtendimento) {
 			st.append("<tr>");
-			st.append("<td class='span-text' > " + atendimento.getUsuario().getNome() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getUsuario().getCpf() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getServico().getCodigo() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getServico().getNome() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getProfissional().getNome() + " </td>");
-			st.append("<td class='span-text'> " + atendimento.getCodigoAtendimento() + " </td>");
-			st.append("<td class='span-text'>" + atendimento.getHorario() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getSituacao() + " </td>");
-			st.append("<td class='span-text' > " + atendimento.getDataAtendimento() + " </td>");
+			st.append("<td> " + atendimento.getUsuario().getNome() + " </td>");
+			st.append("<td> " + atendimento.getUsuario().getCpf() + " </td>");
+			st.append("<td> " + atendimento.getServico().getCodigo() + " </td>");
+			st.append("<td> " + atendimento.getServico().getNome() + " </td>");
+			st.append("<td> " + atendimento.getProfissional().getNome() + " </td>");
+			st.append("<td> " + atendimento.getCodigoAtendimento() + " </td>");
+			st.append("<td>" + atendimento.getHorario() + " </td>");
+			st.append("<td> " + atendimento.getSituacao() + " </td>");
+			st.append("<td> " + atendimento.getDataAtendimento() + " </td>");
 			st.append("<td><a  class='btn btn-success'  href='finalizarAtendimento?codigoAtendimento="
 					+ atendimento.getCodigoAtendimento() + "'>Finalizar</a> &nbsp;</td>");
 			st.append("<td><a   class='btn btn-danger' href='removerCancelar?codigoAtendimento="
@@ -159,10 +150,9 @@ public class AtendimentoController {
 
 	// Redireciona para alterar registro
 	@RequestMapping("/alterarRegistro")
-	public String alterarAtendimento(Atendimento atendimento, Model model) {
+	public String 	alterarAtendimento(Atendimento atendimento, Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
-		Calendar horario = Calendar.getInstance();
-		atendimento.setHorario(horario.getTime());
+
 		dao.alterarRegistrar(atendimento);
 		model.addAttribute("registrar", " O Atendimento foi registrado com Sucesso!");
 		return "forward:exibirListarAtendimento";

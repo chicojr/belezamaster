@@ -59,8 +59,7 @@
          <br>
 	<center>
 		<div class="container">
-			<div class="msg alert alert-success fade in">${mensagem}
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<div class="msg">${mensagem}
 			</div>
 		</div>
 	</center>
@@ -84,7 +83,7 @@
 					class="alert alert-danger col-sm-12"></div>
 		
         
-		<form action="alterarUsuario" method="post">
+		<form action="alterarUsuario"  method="post">
 
 
 			<input type="hidden" name="id">

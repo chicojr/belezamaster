@@ -62,6 +62,7 @@
 
 	<c:import url="../menu/menu.jsp"></c:import>
 
+<div class="container">
 
 	<br>
 	<br>
@@ -70,10 +71,12 @@
 	<br>
 
 
-
-
-	<div class="msg">${msg}</div>
-	<div id="loginbox" style="margin-top: 50px;"
+		<center>
+			<div class="container">
+				<div class="msg">${mensagem}</div>
+			</div>
+		</center>
+		<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
@@ -96,28 +99,29 @@
 
 	</div>
 	<p>
+	<div class="table table-responsive " >
 	
-	
-	<table id="tabelaListaUsuario" border="1" class="table table-bordered">
-		<tr style="background-color: #fff; font-weight: bold;">
-			<td class="span">Nome Usuário</td>
-			<td class="span">E-mail</td>
-			<td class="span">Telefone</td>
-			<td class="span">Celular</td>
-			<td class="span">Alterar</td>
-			<td class="span">Remover</td>
+	<table id="tabelaListaUsuario" class="table table-hover table-bordered">
+	<thead>
+		<tr>
+			<th  >Nome Usuário</th>
+			<th>E-mail</th>
+			<th>Telefone</th>
+			<th>Celular</th>
+			<th>Alterar</th>
+			<th>Remover</th>
 
 
 
 		</tr>
-
-
+</thead>
+<tbody >
 		<c:forEach var="usuario" items="${listarUsuario}">
 			<tr>
-				<td class="span-text"> ${usuario.nome}</td>
-				<td class="span-text"> ${usuario.email}</td>
-				<td class="span-text"> ${usuario.telefone}</td>
-				<td class="span-text"> ${usuario.celular}</td>
+				<td > ${usuario.nome}</td>
+				<td > ${usuario.email}</td>
+				<td > ${usuario.telefone}</td>
+				<td > ${usuario.celular}</td>
 		
 		        <td><a class="btn btn-success" href="exibirAlterarUsuario?cpf=${usuario.cpf}"> Alterar</a></td>
 				<td><a class="btn btn-danger" href="removerUsuario?cpf=${usuario.cpf}"> Remover</a></td>
@@ -126,8 +130,10 @@
 
 			</tr>
 		</c:forEach>
+	</tbody>
 	</table>
-
+	</div>
+</div>
 	<script src="view/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->

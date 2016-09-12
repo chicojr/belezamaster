@@ -60,6 +60,7 @@
 <body class="bg-dark-2">
 
 	<c:import url="../menu/menu.jsp"></c:import>
+		<div class="container">
 
 
 	<br>
@@ -69,8 +70,7 @@
 	<br>
 	<center>
 		<div class="container">
-			<div class="msg alert alert-success fade in">${mensagem}
-				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<div class="msg">${mensagem}
 			</div>
 		</div>
 	</center>
@@ -101,26 +101,27 @@
 		</div>
 
 	</div>
-	<p>
+		<div class="table table-responsive " >
+	
 
-		<table id="tabelaListaServico" border="1" class="table table-bordered">
-		<tr style="background-color: #fff; font-weight: bold">
-			<td class="span">Nome do Servico</td>
-			<td class="span">Descrição</td>
-			<td class="span">Valor</td>
-			<td class="span">Codígo</td>
-			<td class="span">Alterar</td>
-			<td class="span">Remover</td>
+		<table id="tabelaListaServico" class="table table-hover table-bordered">
+		<tr>
+			<th>Nome do Servico</th>
+			<th>Descrição</th>
+			<th>Valor</th>
+			<th>Codígo</th>
+			<th>Alterar</th>
+			<th>Remover</th>
 
 
 		</tr>
 
 		<c:forEach var="servico" items="${listaServico}">
 			<tr>
-				<td class="span-text">${servico.nome}</td>
-				<td class="span-text">${servico.descricao}</td>
-				<td class="span-text">${servico.valor}</td>
-				<td class="span-text">${servico.codigo}</td>
+				<td>${servico.nome}</td>
+				<td>${servico.descricao}</td>
+				<td>${servico.valor}</td>
+				<td>${servico.codigo}</td>
 
 				<td><a class="btn btn-success" style="color: white"
 					href="exibirAlterarServico?codigo=${servico.codigo}">Alterar</a></td>
@@ -130,6 +131,9 @@
 			</tr>
 		</c:forEach>
 	</table>
+	</div>
+			</div>
+	
 	<br />
 	<br />
 	<br />

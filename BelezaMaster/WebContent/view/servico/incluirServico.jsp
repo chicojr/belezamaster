@@ -53,11 +53,10 @@
 	<c:import url="../menu/menu.jsp"></c:import>
 <br><br><br><br><br>
 	<center>
-	<div class="container">
-	  <div class="msg alert alert-success fade in">${mensagem}   
-	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-	  </div>
-	</div>
+		<div class="container">
+			<div class="msg">${mensagem}
+			</div>
+		</div>
 	</center>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
@@ -92,7 +91,7 @@
 				cssStyle="color:red; font-size:10px;" />
 			<br> <label class="span">Descrição:</label><br /> <input
 				type="text" class="form-control" name="descricao" maxlength="50"
-				required="true" value="${servico.descricao}" onkeypress="mascara(this,soLetras)"> <br>
+				required="true" value="${servico.descricao}"> <br>
 			
 			<br />
 		

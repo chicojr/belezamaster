@@ -159,7 +159,7 @@
                 <h1 id="homeHeading">Beleza Master Especializada em Designer de Cortes</h1>
                 <hr>
                 <p>Especializada em Cortes Femininos e Masculinos, Designer de Sobrancelhas, Penteados para noivas e muito mais!</p>
-                <a href="#about" class="btn btn-primary btn-xl page-scroll">Saiba Mais</a>
+                <a href="exibirIncluirUsuario" class="btn btn-primary btn-xl page-scroll">Cadastre-se</a>
             </div>
         </div>
         
