@@ -158,7 +158,7 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Beleza Master Especializada em Designer de Cortes</h1>
                 <hr>
-                <p>Especializada em Cortes Femininos e Masculinos, Designer de Sombrancelhas, Penteados para noivas e muito mais!</p>
+                <p>Especializada em Cortes Femininos e Masculinos, Designer de Sobrancelhas, Penteados para noivas e muito mais!</p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Saiba Mais</a>
             </div>
         </div>
@@ -171,10 +171,12 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading"> Nós temos o que você precisa!</h2>
                     <hr class="light">
-                    <p class="text-faded">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Nullam congue blandit tincidunt. Integer vel posuere ligula, in congue lorem. 
-                    Nam eget augue dignissim, tristique lorem eget, hendrerit nunc. 
-                    Maecenas sed quam a arcu consectetur commodo id sit amet mi.</p>
+                    <p class="text-faded"> CABELOS: Cortes, Hidratação, Coloração, Reflexo, Mechas, Luzes, Escova, Penteado, Alongamento, Permanente. <br>
+                   						   MAQUIAGEM: Coloração e permanente de cílios, Design de sobrancelhas, Coloração de sobrancelhas. <br>
+                   						   UNHAS: Manicure e pedicure, Hidratação, Unhas de cristal, Unhas de porcelana, Unhas de gel.
+                    
+                    
+                    </p>
                     <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Começar!</a>
                  
                 </div>
@@ -198,30 +200,31 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-scissors text-primary sr-icons"></i>
                         <h3>Cortes Femininos e Masculinos</h3>
-                        <p class="text-muted">Feminino: Corte Médio, Long Bob, Messy Hair.<p class="text-muted" />
-                        Masculino: Corte Moicano, Militar e Muito Mais!
+                        <p class="text-muted">A arte de criar um visual personalizado com base no temperamento e no estilo de vida da pessoa.<p class="text-muted" />
+                       
                         </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-eye text-primary sr-icons"></i>
-                        <h3>Designer de Sombrancelhas</h3>
-                        <p class="text-muted">Para todos os tipos de rosto, Oval, Redondo e Muito Mais!</p>
+                        <h3>Designer de Sobrancelhas</h3>
+                        <p class="text-muted">Além da técnica tradicional, que utiliza a pinça, também é oferecido o serviço de depilação egípcia. O método é perfeito para a remoção de pelos delicados no rosto, pois não agride a pele. Outra vantagem é que causa menos dor.
+</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-sign-language text-primary sr-icons"></i>
                         <h3>Manicure & Pedicure</h3>
-                        <p class="text-muted">Corte, Limpeza e Pintura.</p>
+                        <p class="text-muted">Por dentro das últimas novidades, as profissionais do salão são capazes de dar acabamento perfeito e duradouro.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
                         <h3>Penteados para Noivas</h3>
-                        <p class="text-muted">Escolha qualquer tipo de modelo para o seu dia!</p>
+                        <p class="text-muted">Penteados com o cabelo solto, preso, semi-preso, com ondas, cachos, tranças e penteados românticos. Com certeza aqui você irá encontrar uma sugestão interessante para você arrasar no seu casamento.</p>
                     </div>
                 </div>
             </div>
@@ -237,10 +240,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                  
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                   
                                 </div>
                             </div>
                         </div>
@@ -252,10 +255,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    
                                 </div>
                             </div>
                         </div>
@@ -267,10 +270,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                              
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                 
                                 </div>
                             </div>
                         </div>
@@ -282,10 +285,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                           
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                       
                                 </div>
                             </div>
                         </div>
@@ -297,10 +300,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                         
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                  
                                 </div>
                             </div>
                         </div>
@@ -312,10 +315,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                             
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                         
                                 </div>
                             </div>
                         </div>
@@ -330,7 +333,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Fale Conosco!</h2>
                     <hr class="primary">
-                    <p>Pronto para começar a usar nossos serviços? Isso é ótimo! Entre em contaco conosco por Telefone ou E-mail e vamos entrar em contato com você o mais rápido possível!</p>
+                    <p>Pronto para começar a usar nossos serviços? Isso é ótimo! Entre em contato conosco por Telefone ou E-mail!</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
