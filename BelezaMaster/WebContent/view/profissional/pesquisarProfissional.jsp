@@ -61,7 +61,6 @@
 <body class="bg-dark-2">
 
 	<c:import url="../menu/menu.jsp"></c:import>
-		<div class="container">
 
 
 	<br>
@@ -72,9 +71,10 @@
 
 	<center>
 		<div class="container">
-			<div class="msg">${mensagem}
+			<div class="msg alert alert-success fade in">${mensagem} 
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				</div>
 			</div>
-		</div>
 	</center>
 	<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
@@ -102,29 +102,28 @@
 		</div>
 
 	</div>
-	<div class="table table-responsive " >
-	
-	<table id="tabelaListaProfissional" class="table table-hover table-bordered">
-		<tr>
-			<th>Nome do Profissional</th>
-			<th>Profissão</th>
-			<th>CPF</th>
-			<th>E-mail</th>
-			<th>Endereço</th>
-			<th>Telefone</th>
-			<th>Celular</th>
-			<th>Alterar</th>
-			<th>Remover</th>
+	<p>
+	<table id="tabelaListaProfissional" border='1' class="table table-bordered">
+		<tr style="background-color: #fff; font-weight: bold;">
+			<td class="span">Nome do Profissional</td>
+			<td class="span">Profissão</td>
+			<td class="span">CPF</td>
+			<td class="span">E-mail</td>
+			<td class="span">Endereço</td>
+			<td class="span">Telefone</td>
+			<td class="span">Celular</td>
+			<td class="span">Alterar</td>
+			<td class="span">Remover</td>
 		</tr>
 		<c:forEach var="profissional" items="${listarProfissional}">
 			<tr>
-				<td>${profissional.nome}</td>
-				<td>${profissional.profissao}</td>
-				<td>${profissional.cpf}</td>
-				<td>${profissional.email}</td>
-				<td>${profissional.endereco}</td>
-				<td>${profissional.telefone}</td>
-				<td>${profissional.celular}</td>
+				<td class="span-text">${profissional.nome}</td>
+				<td class="span-text">${profissional.profissao}</td>
+				<td class="span-text">${profissional.cpf}</td>
+				<td class="span-text">${profissional.email}</td>
+				<td class="span-text">${profissional.endereco}</td>
+				<td class="span-text">${profissional.telefone}</td>
+				<td class="span-text">${profissional.celular}</td>
 				<td><a class="btn btn-success"
 					href="exibirAlterarProfissional?id=${profissional.id}">Alterar</a></td>
 				<td><a class="btn btn-danger"
@@ -132,8 +131,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	</div>
-				</div>
 	
 	<!-- jQuery -->
 	<script src="view/vendor/jquery/jquery.min.js"></script>

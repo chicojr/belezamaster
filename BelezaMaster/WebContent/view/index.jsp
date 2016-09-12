@@ -145,7 +145,7 @@
                     </li>
                 </ul> <%} %>
             </div>
-            <!-- /navbar-collapse -->
+            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
@@ -158,8 +158,8 @@
             <div class="header-content-inner">
                 <h1 id="homeHeading">Beleza Master Especializada em Designer de Cortes</h1>
                 <hr>
-                <p>Especializada em Cortes Femininos e Masculinos, Designer de Sobrancelhas, Penteados para Noivas e Muito mais!</p>
-                <a href="exibirIncluirUsuario" class="btn btn-primary btn-xl page-scroll">Cadastre-se</a>
+                <p>Especializada em Cortes Femininos e Masculinos, Designer de Sombrancelhas, Penteados para noivas e muito mais!</p>
+                <a href="#about" class="btn btn-primary btn-xl page-scroll">Saiba Mais</a>
             </div>
         </div>
         
@@ -206,8 +206,8 @@
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
                         <i class="fa fa-4x fa-eye text-primary sr-icons"></i>
-                        <h3>Designer de Sobrancelhas</h3>
-                        <p class="text-muted">Para todos os tipos de rostos!</p>
+                        <h3>Designer de Sombrancelhas</h3>
+                        <p class="text-muted">Para todos os tipos de rosto, Oval, Redondo e Muito Mais!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
@@ -237,10 +237,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                  
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -252,10 +252,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                 
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                   
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -267,10 +267,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                         
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                 
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -282,10 +282,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                 
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                  
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -297,10 +297,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                               
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                 
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -312,10 +312,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    
+                                    Category
                                 </div>
                                 <div class="project-name">
-                                 
+                                    Project Name
                                 </div>
                             </div>
                         </div>
@@ -330,7 +330,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">Fale Conosco!</h2>
                     <hr class="primary">
-                    <p>Pronto para começar a usar nossos serviços? Isso é ótimo! Entre em contaco conosco por Telefone ou E-mail!</p>
+                    <p>Pronto para começar a usar nossos serviços? Isso é ótimo! Entre em contaco conosco por Telefone ou E-mail e vamos entrar em contato com você o mais rápido possível!</p>
                 </div>
                 <div class="col-lg-4 col-lg-offset-2 text-center">
                     <i class="fa fa-phone fa-3x sr-contact"></i>
@@ -369,13 +369,7 @@ $("#show").show(500);
 });
 });
 
-// função temporizador
 
-//fuction qualquerfução(){
-	//setTimeOut(function){
-	//Window.location.href='localArquivo'	
-//	},milisegundos);
-//}
 </script>
 </body>
 

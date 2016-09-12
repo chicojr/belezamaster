@@ -87,6 +87,16 @@ public class Datas {
 	 * @param formatoData yyyy-MM-dd
 	 * @return
 	 */
+	public static Date criarData1(String dataFormatada){
+		Date data = null;
+		try {
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+			data = format.parse(dataFormatada);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return data; 
+	}
 	public static Date criarData(String dataFormatada){
 		Date data = null;
 		try {

@@ -60,7 +60,7 @@
 
 	<center>
 		<div class="container">
-			<div class="msg">${mensagem}
+			<div class="msg alert alert-success fade in">${mensagem}
 			</div>
 		</div>
 	</center>
@@ -82,7 +82,7 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<form action="alterarSenha"  id="loginform" class="form-horizontal" 
+				<form action="AlterarSenha" id="loginform" class="form-horizontal" 
 					method="post" role="form">
 
 					&nbsp;<span class="error">${mesagem}</span> 
@@ -104,7 +104,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="senha"
 							type="password" class="form-control" name="senha"
-							placeholder="Digite sua senha" required="required" maxlength="64"><br>
+							placeholder="Digite sua senha" required="required" maxlength="50"><br>
 
 					</div><br>
 					<span  class="error">${senha}</span> 
@@ -113,7 +113,7 @@
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"
 							type="password" class="form-control" name="confSenha"
-							placeholder="Confirme senha" required="required" maxlength="64"><br>
+							placeholder="Confirme senha" required="required" maxlength="50"><br>
 
 
 					</div>

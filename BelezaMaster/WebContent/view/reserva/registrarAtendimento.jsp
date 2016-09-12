@@ -44,13 +44,15 @@
 
 <!-- Theme CSS -->
 <link href="view/css/creative.css" rel="stylesheet">
-<script type="text/javascript" src="view/js/validaCPF.js"></script> <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<script type="text/javascript" src="view/js/validaCPF.js"></script>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]--> <script type="text/javascript"
-	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript">
+    <![endif]--> <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> 
+    <script type="text/javascript">
 		$(document).ready(function() {
 			$("#situacao").keyup(function() {
 				var texto = $('#situacao').val();
@@ -74,104 +76,101 @@
 	<br>
 	<br>
 	<br>
+<center>
+	<div class="container">
+		<div class="msg alert alert-success fade in">${cancelar} ${registrar}
 
-	<center>
-		<div class="container">
-
-			<div class="msg">${cancelar}${registrar}</div>
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 		</div>
+		</div>
+		</center>
+		<div id="loginbox" style="margin-top: 50px;"
+			class=" col-md-6 col-md-offset-3 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title">Listar Registro de Atendimento</div>
+					<div
+						style="float: right; font-size: 80%; position: relative; top: -10px">
+					</div>
+				</div>
 
-	</center>
+				<div style="padding-top: 30px" class="panel-body">
 
-	<div id="loginbox" style="margin-top: 50px;"
-		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
-		<div class="panel panel-info">
-			<div class="panel-heading">
-				<div class="panel-title">Listar Registro de Atendimento</div>
-				<div
-					style="float: right; font-size: 80%; position: relative; top: -10px">
+					<div style="display: none" id="login-alert"
+						class="alert alert-danger col-sm-12"></div>
+
+						<br /> <label class="span">Situação:</label><br /> <input
+							class="form-control" type="text" name="situacao"
+							onkeypress="mascara(this,soLetras)" id="situacao"/> <br /> <br />
+
+					</form>
 				</div>
 			</div>
 
-			<div style="padding-top: 30px" class="panel-body">
-
-				<div style="display: none" id="login-alert"
-					class="alert alert-danger col-sm-12"></div>
-
-				<br /> <label class="span">Situação:</label><br /> <input
-					class="form-control" type="text" name="situacao"
-					onkeypress="mascara(this,soLetras)" id="situacao" /> <br /> <br />
-
-			</div>
 		</div>
 
-	</div>
-	<div class="table table-responsive ">
 
 
+		<table id="tabelaListaRegistrarAtendimento" border='1' class="table table-bordered">
+			<tr style='background-color: #fff; font-weight: bold;'>
 
-		<table id="tabelaListaRegistrarAtendimento"
-			class="table table-hover table-bordered">
-			<tr>
+				<td class="span">Nome do Usuário</td>
+				<td class="span">Cpf do Usuário</td>
+				<td class="span">Código do Servico</td>
+				<td class="span">Serviço</td>
+				<td class="span">Nome do Profissional</td>
+				<td class="span">Código do Atendimento</td>
+				<td class="span">Horário de Atendimento</td>
+				<td class="span">Situação</td>
+				<td class="span">Data do Atendimento</td>
+				<td class="span">Alterar</td>
+				<td class="span">Remover</td>
 
-				<th>Nome do Usuário</th>
-				<th>Cpf do Usuário</th>
-				<th>Código do Servico</th>
-				<th>Serviço</th>
-				<th>Nome do Profissional</th>
-				<th>Código do Atendimento</th>
-				<th>Horário de Atendimento</th>
-				<th>Situação</th>
-				<th>Data do Atendimento</th>
-				<th>Alterar</th>
-				<th>Remover</th>
 
 			</tr>
+
 			<c:forEach var="atendimento" items="${registrarAtendimento}">
 				<tr>
 
-					<td>${atendimento.usuario.nome}</td>
-					<td>${atendimento.usuario.cpf}</td>
-					<td>${atendimento.servico.codigo}</td>
-					<td>${atendimento.servico.nome}</td>
-					<td>${atendimento.profissional.nome}</td>
-					<td>${atendimento.codigoAtendimento}</td>
-					<td><fmt:formatDate value="${atendimento.horario}"
-							pattern="dd/MM/yyyy" /></td>
-					<td>${atendimento.situacao}</td>
-					<td><fmt:formatDate value="${atendimento.dataAtendimento}"
-							pattern="dd/MM/yyyy" /></td>
+					<td class="span-text">${atendimento.usuario.nome}</td>
+					<td class="span-text">${atendimento.usuario.cpf}</td>
+					<td class="span-text">${atendimento.servico.codigo}</td>
+					<td class="span-text">${atendimento.servico.nome}</td>
+					<td class="span-text">${atendimento.profissional.nome}</td>
+					<td class="span-text">${atendimento.codigoAtendimento}</td>
+					<td class="span-text"><fmt:formatDate
+							value="${atendimento.horario}" pattern="dd/MM/yyyy" /></td>
+					<td class="span-text">${atendimento.situacao}</td>
+					<td class="span-text">${atendimento.dataAtendimento}</td>
+
 
 					<td><a class="btn btn-success"
 						href="alterarRegistro?codigoAtendimento=${atendimento.codigoAtendimento}">Registrar</a></td>
-					<td><a class="btn btn-danger"
-						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
+					<td><a  class="btn btn-danger" href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
+
 				</tr>
 
 			</c:forEach>
 		</table>
-	</div>
+		<br /> <br /> <br /> <br />
+<script type="text/javascript">
 
-	<br />
-	<br />
-	<br />
-	<br />
-	<script type="text/javascript">
-		
-	</script>
-	<script src="view/vendor/jquery/jquery.min.js"></script>
+</script>
+		<script src="view/vendor/jquery/jquery.min.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!-- Plugin JavaScript -->
-	<script src="view/vendor/easing/easing.min.js"></script>
-	<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
-	<script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-	<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-	<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-	<script type="text/javascript"
-		src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
-	<!-- Theme JavaScript -->
-	<script src="view/js/creative.min.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="view/vendor/easing/easing.min.js"></script>
+		<script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
+		<script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
+		<script type="text/javascript"
+			src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+
+		<!-- Theme JavaScript -->
+		<script src="view/js/creative.min.js"></script>
 </body>
 </html>

@@ -10,25 +10,23 @@
 <head>
 <href
 	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
-	' rel='stylesheet' type='text/css' />
+	' rel='stylesheet' type='text/css'/>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
 <link href="view/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
-<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-<script type="text/javascript"
-	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> <script
+	type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script> <script
+	type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 
 
 
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
 
-<!-- Bootstrap Core CSS -->
-<!-- Custom Fonts -->
+<!-- Bootstrap Core CSS --> <!-- Custom Fonts -->
 <link href="view/vendor/font-awesome/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link
@@ -55,16 +53,16 @@
     <![endif]-->
 </head>
 <body class="bg-dark-2">
-	<c:import url="../menu/menu.jsp"></c:import>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
+	<c:import url="../menu/menu.jsp"></c:import>
+
+
+	<br><br><br><br><br>
+	
 	<center>
 		<div class="container">
-			<div class="msg">${mensagem}</div>
+			<div class="msg fade in">${mensagem}
+			</div>
 		</div>
 	</center>
 
@@ -87,13 +85,15 @@
 					<label>Data de Atendimento</label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="text" class="form-control" name="dataAtendimento"
-							placeholder="Digite Data de Atendimento" required="required">
-					</div>
+							class="glyphicon glyphicon-user"></i></span> 
+							
+							<input id="nome"
+							type="datetime" class="form-control" name="dataAtendimento"
+							placeholder="Digite o Data do Atendimento"
+							required="required">
+					</div>			
 					<p>
-						Profissional:<br> <select class="form-control input-lg"
-							required="required" name="profissional.id">
+						Profissional:<br> <select required="required" name="profissional.id">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaProfissional}" var="obj">
 								<option value="${obj.id}"
@@ -105,8 +105,7 @@
 
 
 					<p>
-						Servico:<br> <select class="form-control input-lg"
-							required="required" name="servico.codigo">
+						Servico:<br> <select required="required"name="servico.codigo">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaServico}" var="obj">
 								<option value="${obj.codigo}"
@@ -119,8 +118,7 @@
 
 
 					<p>
-						Usuario:<br> <select class="form-control input-lg"
-							required="required" name="usuario.cpf">
+						Usuario:<br> <select required="true" name="usuario.cpf">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaUsuario}" var="obj">
 								<option value="${obj.cpf}"
@@ -129,15 +127,17 @@
 							</c:forEach>
 						</select>
 					</p>
+										
 
 
+					
 					<button type="submit" class="btn btn-success submit">&nbsp;
-						Reservar &nbsp;</button>
-
+				Reservar &nbsp;</button>
+				
 					<button type="reset" class="btn btn-danger submit">&nbsp;
-						Cancelar &nbsp;</button>
-					&nbsp;
-
+				Cancelar &nbsp;</button>
+			&nbsp;
+			
 
 
 
@@ -158,15 +158,15 @@
 	<script type="text/javascript" src="view/js/validaCPF.js"></script>
 	<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
 	<script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
-	<script type="text/javascript"
-		src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+	<script type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
 
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript">
 		jQuery.noConflict();
 		jQuery(function($) {
-			$("#nome").mask("99/99/9999");
+			$("#nome").mask("99/99/9999   99:99:99");
+		
 
 		});
 	</script>

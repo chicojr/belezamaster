@@ -1,12 +1,11 @@
 package br.com.ifpe.belezamaster.model.reserva;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
@@ -31,22 +30,46 @@ public class AtendimentoDao {
 
 	public void salvar(Atendimento atendimento) {
 		try {
-			String sql = "INSERT INTO ATENDIMENTO (data_atendimento,codigo, id_profissional, codigo_servico , cpf_usuario, situacao) VALUES(?,?,?,?,?,?)";
+			String sql = "INSERT INTO ATENDIMENTO ( data_atendimento, codigo, id_profissional, codigo_servico , cpf_usuario ,situacao) VALUES(?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setDate(1, Datas.criarDataSQL(atendimento.getDataAtendimento()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
 			stmt.setInt(3, atendimento.getProfissional().getId());
 			stmt.setInt(4, atendimento.getServico().getCodigo());
 			stmt.setString(5, atendimento.getUsuario().getCpf());
-			stmt.setString(6, "P");
-
-
+			stmt.setString(6, "F");
+		
+	
 			stmt.execute();
 			connection.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	// Buscar por codigo
+		public boolean  AtendimentoReserva (Date data_atendimento,int id_profissional) {
+			try {
+				PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ATENDIMENTO WHERE data_atendimento = ? AND id_profissional = ?");
+				stmt.setDate(1, Datas.criarDataSQL(data_atendimento));
+				stmt.setInt(2, id_profissional);
+				
+				ResultSet rs = stmt.executeQuery();
+
+				if (rs.next()) {
+					return true;
+				}
+
+				rs.close();
+				stmt.close();
+				connection.close();
+				return false;
+
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
 
 	//Cancelar reserva
 	public void cancelar(Atendimento atendimento) {
@@ -62,14 +85,14 @@ public class AtendimentoDao {
 		}
 	
 	}
-	
 	// Alterar registra atendimento
+
 	public void alterarRegistrar(Atendimento atendimento) {
-		String sql = "UPDATE ATENDIMENTO SET situacao = 'P', horario = ?  WHERE codigo = ?";
+		String sql = "UPDATE ATENDIMENTO SET situacao = 'A', horario = ?  WHERE codigo = ?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setDate(1,  Datas.criarDataSQL(Calendar.getInstance().getTime()));
+			stmt.setDate(1, new java.sql.Date(atendimento.getHorario().getTime()));
 			stmt.setInt(2, atendimento.getCodigoAtendimento());
 
 			stmt.execute();

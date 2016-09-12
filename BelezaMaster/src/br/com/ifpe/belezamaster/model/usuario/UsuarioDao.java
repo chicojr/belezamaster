@@ -9,9 +9,6 @@ import java.util.List;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-
-import br.com.ifpe.belezamaster.model.login.Perfil;
 import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class UsuarioDao {
@@ -37,7 +34,7 @@ public class UsuarioDao {
 
 			stmt.setString(1, usuario.getCpf());
 			stmt.setString(2, usuario.getNome());
-			stmt.setString(3, usuario.getEmail());
+			stmt.setString(3, usuario.getEmail());	
 			stmt.setString(4, DigestUtils.md5Hex(usuario.getSenha()));
 			stmt.setString(5, usuario.getTelefone());
 			stmt.setString(6, usuario.getCelular());
@@ -143,8 +140,8 @@ public class UsuarioDao {
 		}
 	
 
-	// remover Usuario
-	public void remover(Usuario usuario) throws ViolacaoIntegridadeException {
+	// remover
+	public void remover(Usuario usuario) {
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement("DELETE FROM USUARIO WHERE cpf = ?");
@@ -152,10 +149,6 @@ public class UsuarioDao {
 			stmt.execute();
 			stmt.close();
 			connection.close();
-		}catch(MySQLIntegrityConstraintViolationException e){
-			throw new ViolacaoIntegridadeException();
-			
-		
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -182,32 +175,6 @@ public class UsuarioDao {
 					throw new RuntimeException(e);
 				}
 			}
-			
-			// listar Usuario
-			public List<Usuario> listar() {
-
-				try {
-					List<Usuario> listarUsuario = new ArrayList<Usuario>();
-					PreparedStatement stmt = (PreparedStatement) this.connection
-							.prepareStatement("SELECT * FROM USUARIO ORDER BY nome");
-
-					ResultSet rs = stmt.executeQuery();
-
-					while (rs.next()) {
-						listarUsuario.add(montarObjeto(rs));
-					}
-
-					rs.close();
-					stmt.close();
-					connection.close();
-
-					return listarUsuario;
-				} catch (SQLException e) {
-					throw new RuntimeException(e);
-				}
-			}
-			
-			
 	// Buscar Usuario Login
 
 	public Usuario buscarUsuario(Usuario usuario) {
@@ -229,7 +196,29 @@ public class UsuarioDao {
 		}
 	}
 	
-	
+	// lISTAR
+	public List<Usuario> listar() {
+
+		try {
+			List<Usuario> listarUsuario = new ArrayList<Usuario>();
+			PreparedStatement stmt = (PreparedStatement) this.connection
+					.prepareStatement("SELECT * FROM USUARIO ORDER BY nome");
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				listarUsuario.add(montarObjeto(rs));
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return listarUsuario;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	private Usuario montarObjeto(ResultSet rs) throws SQLException {
 
@@ -239,10 +228,7 @@ public class UsuarioDao {
 		usuario.setTelefone(rs.getString("Telefone"));
 		usuario.setCelular(rs.getString("celular"));
 		usuario.setCpf(rs.getString("cpf"));
-		
-		Perfil perfil = new Perfil();
-		perfil.setCodigo(rs.getInt("codigo_perfil"));
-        usuario.setPerfil(perfil);
+
 		return usuario;
 	}
 }
