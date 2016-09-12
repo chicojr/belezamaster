@@ -4,9 +4,11 @@ public class TelaPerfil {
 	private Perfil perfil;
 	private Tela tela;
 	
+	
 	public Perfil getPerfil() {
 		return perfil;
 	}
+	
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}

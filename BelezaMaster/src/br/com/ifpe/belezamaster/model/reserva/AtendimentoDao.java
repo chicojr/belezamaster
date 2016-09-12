@@ -19,6 +19,7 @@ public class AtendimentoDao {
 
 	private Connection connection;
 
+	
 	public AtendimentoDao() {
 		try {
 			this.connection = new ConnectionFactory().getConnection();

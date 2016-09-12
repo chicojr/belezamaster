@@ -14,7 +14,7 @@ import br.com.ifpe.belezamaster.util.ConnectionFactory;
 
 public class ServicoDao {
 
-	// abri conexï¿½o
+	// abri conexão
 	private Connection connection;
 
 	public ServicoDao() {

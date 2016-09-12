@@ -23,8 +23,7 @@ public class ProdutoController {
 		return "produto/incluirProduto";
 
 	}
-
-	// incluir produto
+	//incluir produto
 	@RequestMapping("/incluirProduto")
 	public String CadastroProduto(@Valid Produto produto, BindingResult result, Model model) {
 
@@ -32,7 +31,6 @@ public class ProdutoController {
 			model.addAttribute("nomeProduto", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
 			return "forward:exibirIncluirProduto";
 		}
-
 		ProdutoDao dao = new ProdutoDao();
 		dao.salvar(produto);
 		model.addAttribute("mensagem", "Produto inserido com Sucesso!");

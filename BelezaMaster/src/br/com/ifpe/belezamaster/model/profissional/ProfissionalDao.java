@@ -16,6 +16,7 @@ public class ProfissionalDao {
 
 	private Connection connection;
 
+	
 	public ProfissionalDao() {
 		try {
 			this.connection = new ConnectionFactory().getConnection();

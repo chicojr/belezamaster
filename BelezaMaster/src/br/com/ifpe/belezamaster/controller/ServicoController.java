@@ -83,7 +83,6 @@ public class ServicoController {
 		response.setStatus(200);
 		return st.toString();
 	}
-
 	// alterar Servico
 	@RequestMapping("/exibirAlterarServico")
 	public String exibirServico(Model model, Servico servico) {
@@ -109,8 +108,7 @@ public class ServicoController {
 		return "servico/alterarServico";
 
 	}
-
-	// Remover servico
+	//Remover servico
 	@RequestMapping("/removerServico")
 	public String removerServico(Servico servico, Model model) {
 		ServicoDao dao = new ServicoDao();
@@ -121,7 +119,6 @@ public class ServicoController {
 			return "forward:exibirListarServico";
 
 		}
-
 		model.addAttribute("mensagem", "Servico Removido com Sucesso");
 		return "forward:exibirListarServico";
 	}

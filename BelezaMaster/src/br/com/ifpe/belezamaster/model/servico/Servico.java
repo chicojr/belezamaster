@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Servico {
      
+	
 	@NotEmpty(message="O campo de ser preenchido")
 	@Size(max= 30, message=" O nome do serviço deve ter no maximo 30 caracteres")
 	@Pattern(regexp = "^[A-Za-z ]*$")

@@ -35,8 +35,7 @@ public class UsuarioController {
 		return "usuario/incluirUsuario";
 
 	}
-
-	// incluir usuario
+	//incluir usuario
 	@RequestMapping("/incluirUsuario")
 	public String incluirUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
 		UsuarioDao dao = new UsuarioDao();

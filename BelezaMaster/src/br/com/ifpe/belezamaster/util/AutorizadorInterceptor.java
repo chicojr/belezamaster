@@ -14,6 +14,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object controller)
 			throws Exception {
 
+		
 		String uri = request.getRequestURI();
 		if (uri.contains("fonts") || uri.contains("css") || uri.contains("img") || uri.contains("js")
 				|| uri.contains("less") || uri.contains("view/vendor") || uri.contains("gulpfile.js")

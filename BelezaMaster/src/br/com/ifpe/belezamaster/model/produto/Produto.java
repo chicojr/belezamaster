@@ -7,11 +7,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Produto {
 	
 	
-	@NotEmpty(message = "N√£o √© permitido caracteres e espa√ßo.")
+	@NotEmpty(message = "N„o È permitido caracteres e especias.")
 	@Pattern(regexp = "^[A-Za-z0-9 ]*$")
 	private String nomeProduto;
 	@NotEmpty()
-	@Pattern(regexp = "^[A-Za-z0-9 ]*$" , message = "N√£o √© permitido caracteres e espa√ßo.") 
+	@Pattern(regexp = "^[A-Za-z0-9 ]*$" , message = "N„oo È permitido caracteres e especias.") 
 	private String descricao;
 	private int codigo;
 	private int quantidade;

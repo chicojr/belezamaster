@@ -8,12 +8,14 @@ import br.com.ifpe.belezamaster.model.login.Perfil;
 
 public class Usuario {
 
+	
 	@Override
 	public String toString() {
 		return "Usuario [nome=" + nome + ", email=" + email + ", senha=" + senha + ", confSenha=" + confSenha + ", cpf="
 				+ cpf + ", telefone=" + telefone + ", celular=" + celular + "]";
 	}
 
+	
 	@NotEmpty(message = "O nome deve ser preenchido")
 	@Size(max = 50, message = " O nome deve deve ter no máximo 50 caracteres")
 	private String nome;

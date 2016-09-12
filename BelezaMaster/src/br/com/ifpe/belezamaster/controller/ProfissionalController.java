@@ -18,12 +18,10 @@ import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 public class ProfissionalController {
 
 	// CADASTRANDO O PROFISSIONAL
-
 	@RequestMapping("/exibirIncluirProfissional")
 	public String exibirIncluirProfissional(Profissional profissional) {
 		return "profissional/incluirProfissional";
 	}
-
 	// INCLUINDO O PROFISSIONAL
 
 	@RequestMapping("/incluirProfissional")
@@ -35,7 +33,6 @@ public class ProfissionalController {
 			return "forward:exibirIncluirProfissional";
 		}
 		ProfissionalDao dao1 = new ProfissionalDao();
-
 		if (dao1.buscarPorCpf(profissional.getCpf()) != null) {
 			model.addAttribute("cpf", " Cpf já cadastrado");
 			return "forward:exibirIncluirProfissional";

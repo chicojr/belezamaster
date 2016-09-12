@@ -15,6 +15,7 @@ public class ProdutoDao {
 
 	public ProdutoDao() {
 
+		
 		try {
 			this.connection = new ConnectionFactory().getConnection();
 		} catch (SQLException e) {

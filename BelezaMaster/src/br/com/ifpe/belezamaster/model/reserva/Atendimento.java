@@ -9,11 +9,10 @@ import br.com.ifpe.belezamaster.model.servico.Servico;
 import br.com.ifpe.belezamaster.model.usuario.Usuario;
 
 /**
- * "O campo situacao poderá receber quatro valores
+ * "O campo  situacao poderá receber quatro valores
  * P(Pendente),A(Atendimento),F(Finalizado),C(Cancelado).
  *
  **/
-
 public class Atendimento {
     @DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date horario;

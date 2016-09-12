@@ -1,6 +1,5 @@
 package br.com.ifpe.belezamaster.controller;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -46,7 +45,7 @@ public class AtendimentoController {
 	@RequestMapping("/fazerReserva")
 	public String IncluirAtendimento(Atendimento atendimento, BindingResult result, Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
-		
+
 		dao.salvar(atendimento);
 		model.addAttribute("mensagem", "A Reserva foi cadastrado com Sucesso!!");
 		return "forward:exibirIncluirAtendimento";
@@ -64,8 +63,7 @@ public class AtendimentoController {
 		return "reserva/registrarAtendimento";
 
 	}
-
-	// pesquisar registrar reserva
+  //pesquisar registrar reserva
 	@RequestMapping("/PesquisarRegistrarAtendimento")
 	public @ResponseBody String registrarAtendimento(@RequestParam String situacao, HttpServletResponse response) {
 		AtendimentoDao dao = new AtendimentoDao();
@@ -105,7 +103,6 @@ public class AtendimentoController {
 		response.setStatus(200);
 		return st.toString();
 	}
-
 
 	// pesquisar Finalizar reserva
 	@RequestMapping("/pesquisarFinalizarAtendimento")
@@ -150,7 +147,7 @@ public class AtendimentoController {
 
 	// Redireciona para alterar registro
 	@RequestMapping("/alterarRegistro")
-	public String 	alterarAtendimento(Atendimento atendimento, Model model) {
+	public String alterarAtendimento(Atendimento atendimento, Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
 
 		dao.alterarRegistrar(atendimento);
