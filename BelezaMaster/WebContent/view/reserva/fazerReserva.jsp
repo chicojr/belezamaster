@@ -82,7 +82,7 @@
 					class="alert alert-danger col-sm-12"></div>
 
 				<form action="fazerReserva" method="post">
-					<label>Data de Atendimento</label>
+			 <label class="span">Data de Atendimento <br /></label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-user"></i></span> 
@@ -93,7 +93,8 @@
 							required="required">
 					</div>			
 					<p>
-						Profissional:<br> <select class="form-control input-lg" required="required" name="profissional.id">
+									 <label class="span">Profissional: <br /></label>
+<br> <select class="form-control input-lg" required="required" name="profissional.id">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaProfissional}" var="obj">
 								<option value="${obj.id}"
@@ -105,7 +106,7 @@
 
 
 					<p>
-						Servico:<br> <select class="form-control input-lg" required="required"name="servico.codigo">
+						<label class="span">Serviço: <br /></label><br> <select class="form-control input-lg" required="required"name="servico.codigo">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaServico}" var="obj">
 								<option value="${obj.codigo}"
@@ -118,7 +119,7 @@
 
 
 					<p>
-						Usuario:<br> <select class="form-control input-lg" required="required" name="usuario.cpf">
+						<label class="span">Usuário: <br /></label><br> <select class="form-control input-lg" required="required" name="usuario.cpf">
 							<option value="">Selecione</option>
 							<c:forEach items="${listaUsuario}" var="obj">
 								<option value="${obj.cpf}"

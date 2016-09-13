@@ -100,21 +100,25 @@
 			
 
 
-				<form id="loginform" class="form-horizontal" action="incluirUsuario"
-					method="post" role="form">
+				<form id="loginform" class="form-horizontal" action="incluirUsuario" method="post" role="form">
 
+
+<label class="span">Nome: <br /></label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-user"></i></span> <input id="nome"
-							type="text" class="form-control" name="nome"
+							class="glyphicon glyphicon-user"></i></span>
+							
+							
+							 <input id="nome" type="text" class="form-control" name="nome"
 							placeholder="Digite seu nome" onkeypress="mascara(this,soLetras)"
 							value="${usuario.nome}" maxlength="50" required="required" >
 						<form:errors path="usuario.nome" cssStyle="color:red" />
 					</div>
+					<label class="span">Cpf: <br /></label>
 				&nbsp;<span class="error">${cpf}</span> 
 
 
-                     Cpf:
+                     
 					<div style="margin-bottom: 25px" class="input-group">
                         
                          
@@ -127,8 +131,10 @@
 							onblur="javascript: validarCPF(this.value);" maxlength="14"
 							equired="required">
 					</div>
-
+                    
+                    <label class="span">Email: <br /></label>
 				&nbsp;<span class="error">${email}</span> 
+				
                  <div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-envelope"></i></span> <input id="email"
@@ -137,18 +143,29 @@
 							required="required" maxlength="50" />
 						<form:errors path="usuario.email"
 							cssStyle="color:red; font-size:10px;" />
-					</div><br>
-					<span  class="error">${senha}</span> <span
-						 class="error">${confsenha}</span>
+					</div>
+					
+					<label class="span">Senha: <br /></label>
+					<span  class="error">${senha}</span> 
+						
+					
+					
+						<span class="error">${confsenha}</span>
+						
 					<div style="margin-bottom: 25px" class="input-group">
+					
 						<span class="input-group-addon"><i
-							class="glyphicon glyphicon-lock"></i></span> <input id="senha"
+							class="glyphicon glyphicon-lock"></i></span>
+							
+							
+							 <input id="senha"
 							type="password" class="form-control" name="senha"
 							placeholder="Digite sua senha" required="required" maxlength="20"><br>
 
-					</div><br>
+					</div>
 					<span  class="error">${senha}</span> 
 					<span  class="error">${confsenha}</span>
+					<label class="span">Confirme a senha: <br /></label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"
@@ -157,17 +174,22 @@
 
 
 					</div>
-<br>
+					
+					<label class="span">Telefone: <br /></label>
+<br>                 
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
-							class="fa fa-phone-square" aria-hidden="true"></i></span> <input
+							class="fa fa-phone-square" aria-hidden="true"></i></span> 
+							
+							
+						<input
 							id="telefone" type="tel" class="form-control" name="telefone"
 							placeholder="Digite seu telefone" required="required"
 							maxlength="13" value="${usuario.telefone}">
 						<form:errors path="usuario.telefone"
 							cssStyle="color:red; font-size:10px;" />
 					</div>
-<br>
+            <label class="span">Celular: <br /></label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="fa fa-mobile fa-2x" aria-hidden="true"></i></span> <input
@@ -177,7 +199,11 @@
 							maxlength="14" value="${usuario.celular}">
 						<form:errors path="usuario.celular"
 							cssStyle="color:red; font-size:10px;" />
+		
 					</div>
+					
+					<label class="span">Escolha uma opção: <br /></label>
+					<br>
 <%
 if (NivelDePerfil != false) {
 	%>
