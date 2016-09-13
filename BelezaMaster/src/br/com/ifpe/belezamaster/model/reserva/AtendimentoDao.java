@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import br.com.ifpe.belezamaster.model.profissional.Profissional;
 import br.com.ifpe.belezamaster.model.profissional.ProfissionalDao;
 import br.com.ifpe.belezamaster.model.servico.ServicoDao;
 import br.com.ifpe.belezamaster.model.usuario.UsuarioDao;
@@ -97,7 +98,7 @@ public class AtendimentoDao {
 		}
 	}
 
-	// buscar por nome
+	// buscar por codigo de atendimento
 	public List<Atendimento> buscar(String codigoAtendimento) {
 		try {
 			List<Atendimento> listarAtendimento = new ArrayList<Atendimento>();
@@ -123,8 +124,30 @@ public class AtendimentoDao {
 		}
 
 	}
-
 	
+	// Buscar por datas e id profissional
+			public boolean  AtendimentoReserva(java.util.Date date,int id_profissional) {
+				try {
+					PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ATENDIMENTO WHERE data_atendimento = ? AND id_profissional = ?");
+					stmt.setDate(1, Datas.criarDataSQL(date));
+					stmt.setInt(2, id_profissional);
+					
+					ResultSet rs = stmt.executeQuery();
+
+					if (rs.next()) {
+						return true;
+					}
+
+					rs.close();
+					stmt.close();
+					connection.close();
+					return false;
+
+				} catch (SQLException e) {
+					throw new RuntimeException(e);
+				}
+			}
+
 	// Listar profissional
 	public List<Atendimento> listar() {
 

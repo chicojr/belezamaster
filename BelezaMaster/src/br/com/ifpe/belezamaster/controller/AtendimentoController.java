@@ -40,16 +40,28 @@ public class AtendimentoController {
 
 		return "reserva/fazerReserva";
 	}
-
+	
+	
+	
 	// INCLUIR RESERVA
-	@RequestMapping("/fazerReserva")
-	public String IncluirAtendimento(Atendimento atendimento, BindingResult result, Model model) {
+		@RequestMapping("/fazerReserva")
+		public String IncluirAtendimento(Atendimento atendimento, BindingResult result, Model model) {
+			
 		AtendimentoDao dao = new AtendimentoDao();
+		if (dao.AtendimentoReserva(atendimento.getDataAtendimento(),atendimento.getProfissional().getId()) ) {
+			
+			model.addAttribute("mensagem", "A Reserva não foi cadastrado, Por favor tente outro horário!!");
+			return "forward:exibirIncluirAtendimento";
+		
+		}
+		AtendimentoDao dao1 = new AtendimentoDao();
 
-		dao.salvar(atendimento);
-		model.addAttribute("mensagem", "Reserva realizada com Sucesso!");
+		dao1.salvar(atendimento);
+		model.addAttribute("mensagem", "A Reserva foi cadastrado com Sucesso!!");
 		return "forward:exibirIncluirAtendimento";
-	}
+
+		}
+			
 
 	/* Finalizar e registro */
 
