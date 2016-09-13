@@ -76,7 +76,14 @@
 
 
 				</div>
+				
+						
+				
+				
+				
+				
 			</div>
+			<span style="color: red;">${nome}</span>
 
 			<div style="padding-top: 30px" class="panel-body">
 

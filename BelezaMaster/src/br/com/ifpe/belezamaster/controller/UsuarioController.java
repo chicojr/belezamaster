@@ -41,21 +41,21 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 
 		if (result.hasErrors()) {
-			model.addAttribute("senha", "* A senha deve ter no minímo 6 caracteres.");
-			return "forward:exibirIncluirUsuario";
-		}
-		
-		if (result.hasErrors()) {
 			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
 			return "forward:exibirIncluirUsuario";
 		}
+
+		if (result.hasErrors()) {
+			model.addAttribute("senha", "* A senha deve ter no minímo 6 caracteres.");
+			return "forward:exibirIncluirUsuario";
+		}
+
 		UsuarioDao dao1 = new UsuarioDao();
 
 		if (dao1.buscarPorEmail(usuario.getEmail()) != null) {
 			model.addAttribute("email", " E-mail já cadastrado");
 			return "forward:exibirIncluirUsuario";
 		}
-
 
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
 			model.addAttribute("confsenha", "As senhas estão diferentes!");
@@ -106,7 +106,14 @@ public class UsuarioController {
 
 	// Redireciona para alterar usuario
 	@RequestMapping("/alterarUsuario")
-	public String alterarUsuario(Usuario usuario, Model model) {
+	public String alterarUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
+		
+		if (result.hasErrors()) {
+			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			return "forward:exibirAlterarUsuario";
+		}
+
+		
 		UsuarioDao dao = new UsuarioDao();
 		dao.alterar(usuario);
 		model.addAttribute("mensagem", " Cadastro alterado com Sucesso!");
