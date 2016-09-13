@@ -153,6 +153,8 @@
 					</ul> <%
  	}
  %>
+ </li>
+ </ul>
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
@@ -350,7 +352,7 @@
 			</div>
 			<div class="col-lg-4 col-lg-offset-2 text-center">
 				<i class="fa fa-phone fa-3x sr-contact"></i>
-				<p>(81)00000-0000</p>
+				<p>(00)00000-0000</p>
 			</div>
 			<div class="col-lg-4 text-center">
 				<i class="fa fa-envelope-o fa-3x sr-contact"></i>
