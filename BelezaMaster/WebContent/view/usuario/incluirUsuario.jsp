@@ -207,6 +207,8 @@
 <%
 if (NivelDePerfil != false) {
 	%><label class="span">Escolha uma opção: <br /></label>
+						<br>
+	
 					<input name="perfil.codigo" type="radio" value="1" required="required"/><label>Administrador</label>
 					<input name="perfil.codigo" type="radio" value="2" required="required"/><label>Profissional</label>
 					<input name="perfil.codigo" type="radio" value="3" required="required"/> <label>Usuario</label>
