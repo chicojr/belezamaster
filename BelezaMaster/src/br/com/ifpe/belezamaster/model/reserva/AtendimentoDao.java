@@ -98,15 +98,15 @@ public class AtendimentoDao {
 	}
 
 	// buscar por nome
-	public List<Atendimento> buscar(String situacao) {
+	public List<Atendimento> buscar(String codigoAtendimento) {
 		try {
 			List<Atendimento> listarAtendimento = new ArrayList<Atendimento>();
 			PreparedStatement stmt = null;
-			if (!situacao.equals("")) {
-				stmt = this.connection.prepareStatement("SELECT * FROM ATENDIMENTO WHERE situacao LIKE ? ORDER BY situacao");
-				stmt.setString(1, "%" + situacao + "%");
-			} else if (situacao.equals("")) {
-				stmt = this.connection.prepareStatement("SELECT * FROM ATENDIMENTO ORDER BY situacao");
+			if (!codigoAtendimento.equals("")) {
+				stmt = this.connection.prepareStatement("SELECT * FROM ATENDIMENTO WHERE codigo LIKE ? ORDER BY situacao");
+				stmt.setString(1, "%" + codigoAtendimento + "%");
+			} else if (codigoAtendimento.equals("")) {
+				stmt = this.connection.prepareStatement("SELECT * FROM ATENDIMENTO ORDER BY codigo");
 			}
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {

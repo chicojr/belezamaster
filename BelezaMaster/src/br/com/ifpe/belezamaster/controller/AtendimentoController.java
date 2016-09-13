@@ -65,9 +65,9 @@ public class AtendimentoController {
 	}
   //pesquisar registrar reserva
 	@RequestMapping("/PesquisarRegistrarAtendimento")
-	public @ResponseBody String registrarAtendimento(@RequestParam String situacao, HttpServletResponse response) {
+	public @ResponseBody String registrarAtendimento(@RequestParam String codigoAtendimento, HttpServletResponse response) {
 		AtendimentoDao dao = new AtendimentoDao();
-		List<Atendimento> listarAtendimento = dao.buscar(situacao);
+		List<Atendimento> listarAtendimento = dao.buscar(codigoAtendimento);
 		StringBuilder st = new StringBuilder();
 		st.append("<tr>");
 		st.append("<th>Nome do Usuário</th>");
@@ -106,9 +106,9 @@ public class AtendimentoController {
 
 	// pesquisar Finalizar reserva
 	@RequestMapping("/pesquisarFinalizarAtendimento")
-	public @ResponseBody String FinalizarAtendimento(@RequestParam String situacao, HttpServletResponse response) {
+	public @ResponseBody String FinalizarAtendimento(@RequestParam String codigoAtendimento, HttpServletResponse response) {
 		AtendimentoDao dao = new AtendimentoDao();
-		List<Atendimento> listarAtendimento = dao.buscar(situacao);
+		List<Atendimento> listarAtendimento = dao.buscar(codigoAtendimento);
 		StringBuilder st = new StringBuilder();
 		st.append("<tr>");
 		st.append("<th>Nome do Usuário</th>");

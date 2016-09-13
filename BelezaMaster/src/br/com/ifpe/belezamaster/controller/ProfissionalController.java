@@ -106,7 +106,7 @@ public class ProfissionalController {
 
 	// Alterar profissional
 	@RequestMapping("/exibirAlterarProfissional")
-	public String exibirAlterarProfissional(@Valid Profissional profissional, Model model) {
+	public String exibirAlterarProfissional( Profissional profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		Profissional ProfissionalCOD = dao.buscarPorId(profissional.getId());
 		model.addAttribute("profissional", ProfissionalCOD);

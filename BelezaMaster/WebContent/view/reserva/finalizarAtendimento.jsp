@@ -53,17 +53,18 @@
     <![endif]--> <script type="text/javascript"
 	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript">
 		$(document).ready(function() {
-			$("#situacao").keyup(function() {
-				var texto = $('#situacao').val();
+			$("#codigoAtendimento").keyup(function() {
+				var texto = $('#codigoAtendimento').val();
 				$.post("pesquisarFinalizarAtendimento", {
-					'situacao' : texto
+					'codigoAtendimento' : texto
 				}, function(dados) {
-					$('#tabelaListaRegistrarAtendimento').html(dados);
+					$('#tabelaListaFinalizarAtendimento').html(dados);
 				});
 			});
 
 		});
 	</script>
+
 </head>
 <body class="bg-dark-2">
 
@@ -96,9 +97,9 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<br /> <label class="span">Situação:</label><br /> <input
-					class="form-control" type="text" name="situacao"
-					onkeypress="mascara(this,soLetras)" id="situacao" /> <br /> <br />
+				<br /> <label class="span">Código Atendimento</label><br /> <input
+					class="form-control" type="text" name="codigoAtendimento"
+					onkeypress="mascara(this,soNumeros)" id="codigoAtendimento" /> <br /> <br />
 
 			</div>
 		</div>
@@ -107,7 +108,7 @@
 
 	<div class="table table-responsive ">
 
-		<table id="tabelaListaRegistrarAtendimento"
+		<table id="tabelaListaFinalizarAtendimento"
 			class="table table-hover table-bordered">
 			<tr>
 				<th>Nome do Usuário</th>
@@ -140,7 +141,7 @@
 					<td><fmt:formatDate value="${atendimento.dataAtendimento}"
 							pattern="dd/MM/yyyy" /></td>
 
-					<td><a class="btn btn-success"
+					<td><a  class="btn btn-success"
 						href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>
 					<td><a class="btn btn-danger"
 						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>

@@ -52,10 +52,10 @@
     <![endif]--> <script type="text/javascript"
 	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript">
 		$(document).ready(function() {
-			$("#situacao").keyup(function() {
-				var texto = $('#situacao').val();
+			$("#codigoAtendimento").keyup(function() {
+				var texto = $('#codigoAtendimento').val();
 				$.post("PesquisarRegistrarAtendimento", {
-					'situacao' : texto
+					'codigoAtendimento' : texto
 				}, function(dados) {
 					$('#tabelaListaRegistrarAtendimento').html(dados);
 				});
@@ -100,9 +100,9 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<br /> <label class="span">Situação:</label><br /> <input
-					class="form-control" type="text" name="situacao"
-					onkeypress="mascara(this,soLetras)" id="situacao" /> <br /> <br />
+				<br /> <label class="span">Código do Atendimento:</label><br /> <input
+					class="form-control" type="text" name="codigoAtendimento"
+					onkeypress="mascara(this,soNumeros)" id="codigoAtendimento" /> <br /> <br />
 
 			</div>
 		</div>
