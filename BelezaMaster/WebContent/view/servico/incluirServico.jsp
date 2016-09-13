@@ -37,11 +37,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery.maskMoney.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="view/js/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script>
 <script type="text/javascript"
 	src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
+<script>
+$(function() {
+$("#real").maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:'.', affixesStay: false});
+})
+</script>
 
 
 </head>
@@ -85,8 +92,8 @@
 				cssStyle="color:red; font-size:10px;" />
 
 			<br> <label class="span"> Valor: </label><br /> <input
-				type="text" class="form-control" name="valor" required="true"
-				value="${servico.valor}" onkeypress="mascara(this,soNumeros)"> <br>
+				type="text" id="real" class="form-control" name="valor" required="true"
+				value="${servico.valor}" > <br>
 			<form:errors path="servico.valor"
 				cssStyle="color:red; font-size:10px;" />
 			<br> <label class="span">Descrição:</label><br /> <input
@@ -115,7 +122,6 @@
     <script src="view/vendor/scrollreveal/scrollreveal.min.js"></script>
     <script src="view/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 <script type="text/javascript" src="view/js/validaCPF.js"></script>
-
     <!-- Theme JavaScript -->
     <script src="view/js/creative.min.js"></script>
 			
