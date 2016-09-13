@@ -1,11 +1,21 @@
 package br.com.ifpe.belezamaster.model.profissional;
 
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Profissional {
 private	int id;
+@NotEmpty
+@Pattern(regexp = "^[A-Za-z ]*$")
 private String nome;
+@NotEmpty
+@Pattern(regexp = "^[A-Za-z ]*$")
 private String profissao;
 private String cpf;
 private String email;
+@NotEmpty
+@Pattern(regexp = "^[A-Za-z0-9 ]*$")
 private String endereco;
 private String telefone;
 private String celular;
@@ -23,7 +33,7 @@ public String getNome() {
 	return nome;
 }
 public void setNome(String nome) {
-	this.nome = nome;
+	this.nome = nome.trim();
 }
 public String getProfissao() {
 	return profissao;
@@ -47,7 +57,7 @@ public String getEndereco() {
 	return endereco;
 }
 public void setEndereco(String endereco) {
-	this.endereco = endereco;
+	this.endereco = endereco.trim();
 }
 public String getTelefone() {
 	return telefone;

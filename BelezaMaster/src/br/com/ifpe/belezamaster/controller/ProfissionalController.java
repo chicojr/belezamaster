@@ -3,9 +3,11 @@ package br.com.ifpe.belezamaster.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -25,8 +27,12 @@ public class ProfissionalController {
 	// INCLUINDO O PROFISSIONAL
 
 	@RequestMapping("/incluirProfissional")
-	public String incluirProfissional(Profissional profissional, Model model) {
+	public String incluirProfissional(@Valid Profissional profissional, BindingResult result, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
+		if (result.hasErrors()) {
+			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			return "forward:exibirIncluirProfissional";
+		}
 
 		if (dao.buscarPorEmail(profissional.getEmail()) != null) {
 			model.addAttribute("email", " E-mail já cadastrado");
@@ -38,6 +44,7 @@ public class ProfissionalController {
 			return "forward:exibirIncluirProfissional";
 
 		} else {
+
 			ProfissionalDao dao2 = new ProfissionalDao();
 
 			dao2.salvar(profissional);
@@ -45,6 +52,7 @@ public class ProfissionalController {
 			return "forward:exibirListarProfissional";
 
 		}
+
 	}
 
 	// listar servico
@@ -98,7 +106,7 @@ public class ProfissionalController {
 
 	// Alterar profissional
 	@RequestMapping("/exibirAlterarProfissional")
-	public String exibirAlterarProfissional(Model model, Profissional profissional) {
+	public String exibirAlterarProfissional(@Valid Profissional profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		Profissional ProfissionalCOD = dao.buscarPorId(profissional.getId());
 		model.addAttribute("profissional", ProfissionalCOD);
@@ -108,8 +116,13 @@ public class ProfissionalController {
 
 	// Redireciona para alterar profissional
 	@RequestMapping("/alterarProfissional")
-	public String alterarProfissional(Profissional Profissional, Model model) {
+	public String alterarProfissional(Profissional Profissional, BindingResult result, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
+		if (result.hasErrors()) {
+			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			return "forward:exibirAlterarProfissional";
+		}
+		
 		dao.alterar(Profissional);
 		model.addAttribute("mensagem", "Profissional alterado com Sucesso!");
 		return "forward:exibirListarProfissional";

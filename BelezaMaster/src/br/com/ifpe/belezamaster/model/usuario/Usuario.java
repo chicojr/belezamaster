@@ -1,5 +1,6 @@
 package br.com.ifpe.belezamaster.model.usuario;
 
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -18,6 +19,7 @@ public class Usuario {
 	
 	@NotEmpty(message = "O nome deve ser preenchido")
 	@Size(max = 50, message = " O nome deve deve ter no máximo 50 caracteres")
+	@Pattern(regexp = "^[A-Za-z ]*$")
 	private String nome;
 
 	@NotEmpty(message = "O codigo deve ser preenchido")
@@ -56,7 +58,7 @@ public class Usuario {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = nome.trim();
 	}
 
 	public String getEmail() {

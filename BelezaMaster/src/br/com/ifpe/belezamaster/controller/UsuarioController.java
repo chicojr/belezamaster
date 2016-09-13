@@ -19,7 +19,6 @@ import br.com.ifpe.belezamaster.model.usuario.ViolacaoIntegridadeException;
 
 @Controller
 public class UsuarioController {
-	
 
 	// Exibir Página Inicial
 	@RequestMapping("/exibirIndex")
@@ -35,10 +34,16 @@ public class UsuarioController {
 		return "usuario/incluirUsuario";
 
 	}
-	//incluir usuario
+
+	// incluir usuario
 	@RequestMapping("/incluirUsuario")
 	public String incluirUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
 		UsuarioDao dao = new UsuarioDao();
+
+		if (result.hasErrors()) {
+			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			return "forward:exibirIncluirUsuario";
+		}
 
 		if (dao.buscarPorEmail(usuario.getEmail()) != null) {
 			model.addAttribute("email", " E-mail já cadastrado");
@@ -156,14 +161,13 @@ public class UsuarioController {
 	@RequestMapping("/removerUsuario")
 	public String removerUsuario(Usuario usuario, Model model, HttpSession session) {
 		UsuarioDao dao = new UsuarioDao();
-		
+
 		try {
 			dao.remover(usuario);
 		} catch (ViolacaoIntegridadeException e) {
 			model.addAttribute("mensagem", "Usuario não pode ser removido, pois tem reserva pendente.");
 			return "forward:exibirListarUsuario";
 		}
-
 
 		model.addAttribute("mensagem", "Usuario Removido com Sucesso");
 		return "forward:exibirListarUsuario";

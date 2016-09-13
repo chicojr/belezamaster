@@ -93,6 +93,8 @@
 					<a href="#">Forgot password?</a>
 				</div>
 			</div>
+			
+			<span style="color: red;">${nome}</span>
 
 			<div style="padding-top: 30px" class="panel-body">
 			
@@ -111,12 +113,17 @@
 					</div>
 				&nbsp;<span class="error">${cpf}</span> 
 
-					<div style="margin-bottom: 25px" class="input-group">
 
-						<span class="input-group-addon"><i class="fa fa-cc"
+                     Cpf:
+					<div style="margin-bottom: 25px" class="input-group">
+                        
+                         
+						<span class="input-group-addon">
+						
+						<i class="fa fa-cc"
+		
 							aria-hidden="true"></i></span> <input id="cpf" type="text"
-							class="form-control" name="cpf" value="${usuario.cpf}"
-							placeholder="Digite seu CPF"
+							class="form-control" name="cpf" value="${usuario.cpf}" placeholder="Digite seu CPF"
 							onblur="javascript: validarCPF(this.value);" maxlength="14"
 							equired="required">
 					</div>
