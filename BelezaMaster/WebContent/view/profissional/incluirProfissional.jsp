@@ -91,7 +91,7 @@
 						value="${profissional.cpf}"
 						onblur="javascript: validarCPF(this.value);" required="required" />
 					&nbsp;<span style="color: red;">${cpf}</span> <br> <br /> <label
-						class="span">E-mail: <br /></label> <input type="text"
+						class="span">E-mail: <br /></label> <input type="email"
 						class="form-control" name="email" value="${profissional.email}"
 						maxlength="50" required="required" />&nbsp;<span style="color: red;">${email}</span> <br /> <label class="span">Endereço:
 					
