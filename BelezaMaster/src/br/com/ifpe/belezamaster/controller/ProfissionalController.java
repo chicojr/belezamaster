@@ -106,7 +106,7 @@ public class ProfissionalController {
 
 	// Alterar profissional
 	@RequestMapping("/exibirAlterarProfissional")
-	public String exibirAlterarProfissional( Profissional profissional, Model model) {
+	public String exibirAlterarProfissional(Profissional profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		Profissional ProfissionalCOD = dao.buscarPorId(profissional.getId());
 		model.addAttribute("profissional", ProfissionalCOD);
@@ -116,13 +116,14 @@ public class ProfissionalController {
 
 	// Redireciona para alterar profissional
 	@RequestMapping("/alterarProfissional")
-	public String alterarProfissional(Profissional Profissional, BindingResult result, Model model) {
-		ProfissionalDao dao = new ProfissionalDao();
+	public String alterarProfissional(@Valid Profissional Profissional, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
 			return "forward:exibirAlterarProfissional";
 		}
-		
+
+		ProfissionalDao dao = new ProfissionalDao();
+
 		dao.alterar(Profissional);
 		model.addAttribute("mensagem", "Profissional alterado com Sucesso!");
 		return "forward:exibirListarProfissional";
