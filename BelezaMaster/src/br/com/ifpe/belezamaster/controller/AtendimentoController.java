@@ -47,7 +47,7 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 
 		dao.salvar(atendimento);
-		model.addAttribute("mensagem", "A Reserva foi cadastrado com Sucesso!!");
+		model.addAttribute("mensagem", "Reserva realizada com Sucesso!");
 		return "forward:exibirIncluirAtendimento";
 	}
 
@@ -151,7 +151,7 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 
 		dao.alterarRegistrar(atendimento);
-		model.addAttribute("registrar", " O Atendimento foi registrado com Sucesso!");
+		model.addAttribute("registrar", "Atendimento registrado com Sucesso!");
 		return "forward:exibirListarAtendimento";
 
 	}
@@ -172,7 +172,7 @@ public class AtendimentoController {
 	public String alterarFinalizarAtendimento(Atendimento atendimento, Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
 		dao.alterarFinalizar(atendimento);
-		model.addAttribute("finalizar", " O Atendimento foi Finalizado com Sucesso!");
+		model.addAttribute("finalizar", "Atendimento Finalizado com Sucesso!");
 		return "forward:exibirFinalizarAtendimento";
 
 	}

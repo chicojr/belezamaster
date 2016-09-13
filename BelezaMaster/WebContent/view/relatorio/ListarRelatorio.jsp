@@ -1,28 +1,20 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="pt-br">
-
+<html>
 <head>
+
 <href
 	='http://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,800
-	' rel='stylesheet' type='text/css'>
+	'rel='stylesheet' type='text/css'>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
+
 <link href="view/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="view/js/jquery-2.1.4.js"></script> <script
-	type="text/javascript" src="view/js/jquery-1.2.6.pack.js"></script> <script
-	type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
-
-
-
 <title>Beleza Master - Especialista em Designer de Cortes
 	Femininos e Masculinos</title>
 
@@ -50,20 +42,7 @@
 <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]--> <script type="text/javascript"
-	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript">
-		$(document).ready(function() {
-			$("#situacao").keyup(function() {
-				var texto = $('#situacao').val();
-				$.post("pesquisarFinalizarAtendimento", {
-					'situacao' : texto
-				}, function(dados) {
-					$('#tabelaListaRegistrarAtendimento').html(dados);
-				});
-			});
-
-		});
-	</script>
+    <![endif]-->
 </head>
 <body class="bg-dark-2">
 
@@ -75,13 +54,9 @@
 	<br>
 	<br>
 	<br>
-	<center>
-		<div class="container">
-				<div class="msg">${finalizar}${cancelar}
-			</div>
-		</div>
-	</center>
-	<div id="loginbox" style="margin-top: 50px;"
+	<br>
+
+			<div id="loginbox" style="margin-top: 50px;"
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
@@ -96,67 +71,55 @@
 				<div style="display: none" id="login-alert"
 					class="alert alert-danger col-sm-12"></div>
 
-				<br /> <label class="span">Situação:</label><br /> <input
-					class="form-control" type="text" name="situacao"
-					onkeypress="mascara(this,soLetras)" id="situacao" /> <br /> <br />
 
+			
+				<form action="ListarRelatorio" method="post">
+					<p>
+						Data de Inicio: <br /> <input type="text"
+							class="form-control" name="dataInicio" required="true"> <br>
+					</p>
+
+					<p>
+						Data de T�rmino: <br /> <input type="text" 
+							class="form-control" name="dataTermino" required="true">
+					</p>
+
+					<p>
+						<input class="btn btn-success" type="submit" value="Pesquisar"> 
+						&nbsp; &nbsp;<input class="btn btn-danger" type="reset" value="Limpar">
+					</p>
+				</form>
 			</div>
+			<br> <br> <br> <br>
+		</div>
 		</div>
 
-	</div>
+		<div class="table table-responsive ">
 
-	<div class="table table-responsive ">
-
-		<table id="tabelaListaRegistrarAtendimento"
-			class="table table-hover table-bordered">
-			<tr>
-				<th>Nome do Usuário</th>
-				<th>Cpf do Usuário</th>
-				<th>Código do Servico</th>
-				<th>Serviço</th>
-				<th>Nome do Profissional</th>
-				<th>Código do Atendimento</th>
-				<th>Horário de Atendimento</th>
-				<th>Situação</th>				
-			    <th>Data do Atendimento</th>	
-				<th>Alterar</th>
-				<th>Remover</th>
-
-
-			</tr>
-
-			<c:forEach var="atendimento" items="${registrarAtendimento}">
+			<table class="table table-hover table-bordered">
 				<tr>
-
-					<td>${atendimento.usuario.nome}</td>
-					<td>${atendimento.usuario.cpf}</td>
-					<td>${atendimento.servico.codigo}</td>
-					<td>${atendimento.servico.nome}</td>
-					<td>${atendimento.profissional.nome}</td>
-					<td>${atendimento.codigoAtendimento}</td>
-					<td><fmt:formatDate value="${atendimento.horario}"
-							pattern="dd/MM/yyyy" /></td>
-					<td>${atendimento.situacao}</td>
-					<td><fmt:formatDate value="${atendimento.dataAtendimento}"
-							pattern="dd/MM/yyyy" /></td>
-
-					<td><a class="btn btn-success"
-						href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>
-					<td><a class="btn btn-danger"
-						href="removerCancelar?codigoAtendimento=${atendimento.codigoAtendimento}">Cancelar</a></td>
-
+					<th>Nome do Usuario</th>
+					<th>Nome do Profissional</th>
+					<th>Hor�rio do Servi�o</th>
+					<th>Valor do Servi�o</th>
+					<th>Descri��o do Servi�o</th>
 				</tr>
 
-			</c:forEach>
-		</table>
-	</div>
-	<br />
-	<br />
-	<br />
-	<br />
+				<c:forEach var="relatorio" items="${listarRelatorio}">
+					<tr>
+						<td>${relatorio.usuarioNome}</td>
+						<td>${relatorio.profissionalNome}</td>
+						<td><fmt:formatDate
+								value="${relatorio.servicoHorario}" pattern="dd/MM/yyyy" /></td>
+						<td>${relatorio.servicoValor}</td>
+						<td>${relatorio.servicoDescricao}</td>
 
+					</tr>
+				</c:forEach>
+			</table>
 
-	<script src="view/vendor/jquery/jquery.min.js"></script>
+		</div>
+			<script src="view/vendor/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -174,6 +137,6 @@
 	<!-- Theme JavaScript -->
 	<script src="view/js/creative.min.js"></script>
 
-
+		
 </body>
 </html>

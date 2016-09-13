@@ -30,13 +30,13 @@ public class ServicoController {
 	public String incluirServico(@Valid Servico servico, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres.");
 			return "forward:exibirIncluirServico";
 		}
 
 		ServicoDao dao = new ServicoDao();
 		dao.salvar(servico);
-		model.addAttribute("mensagem", "O Serviço foi cadastrado com sucesso!");
+		model.addAttribute("mensagem", "Serviço cadastrado com sucesso!");
 		return "servico/incluirServico";
 
 	}
@@ -104,7 +104,7 @@ public class ServicoController {
 
 		ServicoDao dao = new ServicoDao();
 		dao.alterar(servico);
-		model.addAttribute("mensagem", " O Servico foi alterado com Sucesso!");
+		model.addAttribute("mensagem", "Servico alterado com Sucesso!");
 		return "servico/alterarServico";
 
 	}
@@ -115,7 +115,7 @@ public class ServicoController {
 		try {
 			dao.remover(servico);
 		} catch (ViolacaoIntegridadeException e) {
-			model.addAttribute("mensagem", "Servico não pode ser removido");
+			model.addAttribute("mensagem", "Servico não pode ser removido.");
 			return "forward:exibirListarServico";
 
 		}

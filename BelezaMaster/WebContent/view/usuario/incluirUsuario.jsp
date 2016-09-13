@@ -97,8 +97,6 @@
 			<div style="padding-top: 30px" class="panel-body">
 			
 
-				<div style="display: none" id="login-alert"
-					class="alert alert-danger col-sm-12"></div>
 
 				<form id="loginform" class="form-horizontal" action="incluirUsuario"
 					method="post" role="form">

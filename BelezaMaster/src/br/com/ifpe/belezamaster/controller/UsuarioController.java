@@ -66,7 +66,7 @@ public class UsuarioController {
 			UsuarioDao dao2 = new UsuarioDao();
 
 			dao2.salvar(usuario);
-			model.addAttribute("mensagem", " O Cadastro foi realizado com Sucesso!");
+			model.addAttribute("mensagem", " Cadastro realizado com Sucesso!");
 			return "usuario/incluirUsuario";
 		}
 
@@ -102,7 +102,7 @@ public class UsuarioController {
 	public String alterarUsuario(Usuario usuario, Model model) {
 		UsuarioDao dao = new UsuarioDao();
 		dao.alterar(usuario);
-		model.addAttribute("mensagem", " O Cadastro alterado com Sucesso!");
+		model.addAttribute("mensagem", " Cadastro alterado com Sucesso!");
 		return "usuario/alterarUsuario";
 
 	}
@@ -160,7 +160,7 @@ public class UsuarioController {
 		try {
 			dao.remover(usuario);
 		} catch (ViolacaoIntegridadeException e) {
-			model.addAttribute("mensagem", "Usuario não pode ser removido");
+			model.addAttribute("mensagem", "Usuario não pode ser removido, pois tem reserva pendente.");
 			return "forward:exibirListarUsuario";
 		}
 
@@ -204,7 +204,7 @@ public class UsuarioController {
 			UsuarioDao dao1 = new UsuarioDao();
 
 			dao1.alterarSenha(usuario);
-			model.addAttribute("mensagem", " A Senha foi alterada com Sucesso!");
+			model.addAttribute("mensagem", "Senha alterada com Sucesso!");
 			return "index";
 		}
 

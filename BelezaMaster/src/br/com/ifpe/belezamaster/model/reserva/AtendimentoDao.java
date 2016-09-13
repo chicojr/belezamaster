@@ -66,7 +66,7 @@ public class AtendimentoDao {
 	// Alterar registra atendimento
 
 	public void alterarRegistrar(Atendimento atendimento) {
-		String sql = "UPDATE ATENDIMENTO SET situacao = 'P', horario = ?  WHERE codigo = ?";
+		String sql = "UPDATE ATENDIMENTO SET situacao = 'A', horario = ?  WHERE codigo = ?";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);

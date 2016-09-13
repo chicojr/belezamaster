@@ -99,20 +99,22 @@
 					<%
 						}
 					%>
-<%
-									if (exibirMenu != false) {
-								%>
+					<%
+						if (exibirMenu != false) {
+					%>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Reserva<span class="caret"></span></a>
 						<ul id="dropdown-dp" class="dropdown-menu">
-							<li><a href="exibirIncluirAtendimento">Fazer Reserva</a>
-								 <a href="exibirFinalizarAtendimento	">Finalizar Atendimento</a>
-								<a href="exibirListarAtendimento">Registrar Atendimento</a></li>
-						
+							<li><a href="exibirIncluirAtendimento">Fazer Reserva</a> <a
+								href="exibirFinalizarAtendimento	">Finalizar Atendimento</a> <a
+								href="exibirListarAtendimento">Registrar Atendimento</a> <a
+								href="ExibirRelatorio">Relatório de Atendimento</a></li>
+
+
 						</ul></li>
-	<%
-								}
-							%>
+					<%
+						}
+					%>
 
 
 
@@ -131,12 +133,16 @@
 										<a class="nav-tabs-dropdown btn-01"
 											href="exibirAlterarDadosUsuario"><strong>Alterar
 												Dados</strong></a>
+
 										<div class="espaco-negro"></div>
 										<a class="nav-tabs-dropdown btn-01"
 											href="exibirIncluirAtendimento"><strong>Fazer
 												Reserva</strong></a>
-										<p />
+									<br><br> 
+									
+
 									</div>
+
 
 									<div class="bottom">
 

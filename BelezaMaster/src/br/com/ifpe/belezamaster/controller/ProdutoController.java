@@ -33,7 +33,7 @@ public class ProdutoController {
 		}
 		ProdutoDao dao = new ProdutoDao();
 		dao.salvar(produto);
-		model.addAttribute("mensagem", "Produto inserido com Sucesso!");
+		model.addAttribute("mensagem", "Produto cadastrado com Sucesso!");
 		return "produto/incluirProduto";
 
 	}
@@ -60,7 +60,7 @@ public class ProdutoController {
 
 		ProdutoDao dao = new ProdutoDao();
 		dao.alterar(produto);
-		model.addAttribute("mensagem", " O produto foi alterado com Sucesso!");
+		model.addAttribute("mensagem", " Produto alterado com Sucesso!");
 		return "forward:exibirListarProduto";
 
 	}
@@ -116,7 +116,7 @@ public class ProdutoController {
 		ProdutoDao dao = new ProdutoDao();
 		dao.remover(codigo);
 
-		model.addAttribute("mensagem", "Produto Removido com Sucesso");
+		model.addAttribute("mensagem", "Produto Removido com Sucesso.");
 		return "forward:exibirListarProduto";
 	}
 

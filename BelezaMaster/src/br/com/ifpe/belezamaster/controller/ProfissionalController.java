@@ -41,7 +41,7 @@ public class ProfissionalController {
 			ProfissionalDao dao2 = new ProfissionalDao();
 
 			dao2.salvar(profissional);
-			model.addAttribute("mensagem", "Profissional Adicionado com Sucesso!");
+			model.addAttribute("mensagem", "Profissional cadastrado com Sucesso!");
 			return "forward:exibirListarProfissional";
 
 		}
@@ -111,7 +111,7 @@ public class ProfissionalController {
 	public String alterarProfissional(Profissional Profissional, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		dao.alterar(Profissional);
-		model.addAttribute("mensagem", " O Profissional foi alterado com Sucesso!");
+		model.addAttribute("mensagem", "Profissional alterado com Sucesso!");
 		return "forward:exibirListarProfissional";
 
 	}
@@ -123,7 +123,7 @@ public class ProfissionalController {
 		try {
 			dao.remover(profissional);
 		} catch (ViolacaoIntegridadeException e) {
-			model.addAttribute("mensagem", "Profissional Não pode ser Removido");
+			model.addAttribute("mensagem", "Profissional Não pode ser Removido, Pois está com reservas.");
 			return "forward:exibirListarProfissional";
 		}
 		model.addAttribute("mensagem", "Profissional Removido com Sucesso");
