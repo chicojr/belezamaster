@@ -13,7 +13,7 @@
 		if (usuario != null) {
 			Perfil perfil = usuario.getPerfil();
 			if (perfil != null) {
-				if (perfil.getCodigo() == 1) {
+				if (perfil.getCodigo() != 2 || perfil.getCodigo() != 3) {
 					NivelDePerfil = true;
 				}
 			}
@@ -22,7 +22,7 @@
 
 	<%
 		boolean exibirMenu = false;
-		if (usuario != null) {
+		if (usuario != null)  {
 			Perfil perfil = usuario.getPerfil();
 			if (perfil != null) {
 				if (perfil.getCodigo() == 1 || perfil.getCodigo() == 2) {
@@ -105,10 +105,10 @@
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown">Reserva<span class="caret"></span></a>
 						<ul id="dropdown-dp" class="dropdown-menu">
-							<li><a href="exibirIncluirAtendimento">Fazer Reserva</a> <a
-								href="exibirFinalizarAtendimento	">Finalizar Atendimento</a> <a
-								href="exibirListarAtendimento">Registrar Atendimento</a> <a
-								href="ExibirRelatorio">Relatório de Atendimento</a></li>
+							<li><a href="exibirIncluirAtendimento">Fazer Reserva</a>
+							 <a href="exibirListarAtendimento">Registrar Atendimento</a> 
+							 <a	href="exibirFinalizarAtendimento">Finalizar Atendimento</a> 
+							 <a	href="ExibirRelatorio">Relatório de Atendimento</a></li>
 
 
 						</ul></li>
@@ -118,7 +118,9 @@
 
 
 
-
+<%
+						if (exibirMenu != false) {
+					%>
 
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown"><b> <i class="fa fa-user"
@@ -135,14 +137,21 @@
 												Dados</strong></a>
 
 										<div class="espaco-negro"></div>
+										<%
+											if (NivelDePerfil != true) {
+										%>
 										<a class="nav-tabs-dropdown btn-01"
 											href="exibirIncluirAtendimento"><strong>Fazer
 												Reserva</strong></a>
-									<br><br> 
-									
+										<%
+											}
+										%>
+										<br>
+										<br>
+
 
 									</div>
-
+	
 
 									<div class="bottom">
 
@@ -151,7 +160,9 @@
 									<Br>
 								</div>
 							</li>
-
+<%
+						}
+					%>
 						</ul></li>
 
 

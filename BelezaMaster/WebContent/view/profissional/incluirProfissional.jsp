@@ -94,7 +94,7 @@
 						class="span">E-mail: <br /></label> <input type="text"
 						class="form-control" name="email" value="${profissional.email}"
 						maxlength="50" required="required" />&nbsp;<span style="color: red;">${email}</span> <br /> <label class="span">Endereço:
-						<br />
+					
 					</label> <input type="text" class="form-control" name="endereco"
 						value="${profissional.endereco}" maxlength="50"
 						required="required" /> 
