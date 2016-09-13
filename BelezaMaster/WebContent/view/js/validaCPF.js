@@ -122,7 +122,7 @@ function mascara(o,f){
 					erro = true;
 			}
 			if (erro) {
-				alert(" não é uma data válida!!!");
+				alert("  Data Inválida!");
 				
 				campo.value = "";
 				return false;
