@@ -61,7 +61,6 @@
 <body class="bg-dark-2">
 
 	<c:import url="../menu/menu.jsp"></c:import>
-		<div class="container">
 
 
 	<br>
@@ -133,7 +132,6 @@
 		</c:forEach>
 	</table>
 	</div>
-				</div>
 	
 	<!-- jQuery -->
 	<script src="view/vendor/jquery/jquery.min.js"></script>
