@@ -17,12 +17,12 @@ public class Usuario {
 	}
 
 	
-	@NotEmpty(message = "O nome deve ser preenchido")
+	@NotEmpty
 	@Size(max = 50, message = " O nome deve deve ter no máximo 50 caracteres")
 	@Pattern(regexp = "^[A-Za-z ]*$")
 	private String nome;
 
-	@NotEmpty(message = "O codigo deve ser preenchido")
+	@NotEmpty
 	@Size(max = 50, message = " O E-mail deve deve ter no máximo 50 caracteres")
 	private String email;
 
@@ -36,7 +36,7 @@ public class Usuario {
 	private String cpf;
 
 	@NotEmpty
-	@Size(max = 15, message = " O Telefone deve deve ter no máximo 13 caracteres, seguindo o padrão '(XX)XXXXX-XXXX' ")
+	@Size(max = 14, message = " O Telefone deve deve ter no máximo 13 caracteres, seguindo o padrão '(XX)XXXXX-XXXX' ")
 	private String telefone;
 
 	@NotEmpty

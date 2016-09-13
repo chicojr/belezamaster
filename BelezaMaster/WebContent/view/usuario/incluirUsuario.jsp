@@ -163,9 +163,10 @@
 							placeholder="Digite sua senha" required="required" maxlength="20"><br>
 
 					</div>
+					
+					
+					<label class="span">Confirme a senha: <br /></label><span  class="error">${confsenha}</span>
 					<span  class="error">${senha}</span> 
-					<span  class="error">${confsenha}</span>
-					<label class="span">Confirme a senha: <br /></label>
 					<div style="margin-bottom: 25px" class="input-group">
 						<span class="input-group-addon"><i
 							class="glyphicon glyphicon-lock"></i></span> <input id="confSenha"

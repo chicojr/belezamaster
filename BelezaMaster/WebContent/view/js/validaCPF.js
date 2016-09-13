@@ -2,7 +2,8 @@ function validarCPF(cpf) {
 	var filtro = /^\d{3}.\d{3}.\d{3}-\d{2}$/i;
 
 	if (!filtro.test(cpf)) {
-		window.alert("CPF inválido. Tente novamente.");
+		alert("CPF inválido. Tente novamente.");
+		
 		return false;
 	}
 
@@ -14,7 +15,7 @@ function validarCPF(cpf) {
 			|| cpf == "44444444444" || cpf == "55555555555"
 			|| cpf == "66666666666" || cpf == "77777777777"
 			|| cpf == "88888888888" || cpf == "99999999999") {
-		window.alert("CPF inválido. Tente novamente.");
+		alert("CPF inválido. Tente novamente.");
 		return false;
 	}
 
@@ -28,7 +29,9 @@ function validarCPF(cpf) {
 		resto = 0;
 	}
 	if (resto != parseInt(cpf.charAt(9))) {
-		window.alert("CPF inválido. Tente novamente.");
+		alert("CPF inválido. Tente novamente.");
+	
+
 		return false;
 	}
 

@@ -41,19 +41,21 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 
 		if (result.hasErrors()) {
+			model.addAttribute("senha", "* A senha deve ter no minímo 6 caracteres.");
+			return "forward:exibirIncluirUsuario";
+		}
+		
+		if (result.hasErrors()) {
 			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
 			return "forward:exibirIncluirUsuario";
 		}
+		UsuarioDao dao1 = new UsuarioDao();
 
-		if (dao.buscarPorEmail(usuario.getEmail()) != null) {
+		if (dao1.buscarPorEmail(usuario.getEmail()) != null) {
 			model.addAttribute("email", " E-mail já cadastrado");
 			return "forward:exibirIncluirUsuario";
 		}
 
-		if (result.hasErrors()) {
-			model.addAttribute("senha", "* A senha deve ter no minímo 6 caracteres.");
-			return "forward:exibirIncluirUsuario";
-		}
 
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
 			model.addAttribute("confsenha", "As senhas estão diferentes!");
@@ -61,16 +63,16 @@ public class UsuarioController {
 
 		}
 
-		UsuarioDao dao1 = new UsuarioDao();
+		UsuarioDao dao2 = new UsuarioDao();
 
-		if (dao1.buscarPorCpf(usuario.getCpf()) != null) {
+		if (dao2.buscarPorCpf(usuario.getCpf()) != null) {
 			model.addAttribute("cpf", " Cpf já cadastrado");
 			return "forward:exibirIncluirUsuario";
 
 		} else {
-			UsuarioDao dao2 = new UsuarioDao();
+			UsuarioDao dao3 = new UsuarioDao();
 
-			dao2.salvar(usuario);
+			dao3.salvar(usuario);
 			model.addAttribute("mensagem", " Cadastro realizado com Sucesso!");
 			return "usuario/incluirUsuario";
 		}
