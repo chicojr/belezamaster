@@ -50,10 +50,18 @@
 	src="view/js/jquery-2.1.4.js"></script> <script type="text/javascript"
 	src="view/js/jquery-1.2.6.pack.js"></script> <script
 	type="text/javascript" src="view/js/jquery.maskedinput-1.1.4.pack.js" /></script>
-</head>
-<script type="text/javascript">
-	
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery.maskMoney.js" type="text/javascript"></script>
+<script>
+$(function() {
+    
+  
+$("#real").maskMoney({prefix:'R$', allowNegative: true, thousands:'.', decimal:'.', affixesStay: false});
+})
 </script>
+
+</head>
+
 <body class="bg-dark-2">
 	<c:import url="../menu/menu.jsp"></c:import>
 	<br>
@@ -104,7 +112,8 @@
 						required="required" onkeypress="mascara(this,soNumeros)">
 					<br> <br> <label class="span">Valor:</label><br /> <input
 						type="text" class="form-control" name="valor" maxlength="10"
-						required="required" onkeypress="mascara(this,soNumeros)">
+						required="required" id="real" >
+						
 					<br> <br /> <input type="submit" class="btn btn-primary"
 						value="Cadastrar" name="btn-cadastrar" /> &nbsp;&nbsp; <input
 						type="reset" class="btn btn-danger" value="Limpar"
@@ -130,4 +139,8 @@
 	</div>
 
 </body>
+<script>
+  
+</script>
+<script type="text/javascript" src="view/js/validaCPF.js"></script>
 </html>

@@ -148,12 +148,12 @@ public class AtendimentoDao {
 				}
 			}
 
-	// Listar profissional
-	public List<Atendimento> listar() {
+	// Listar registrar atendimento
+	public List<Atendimento> listarRegistrar() {
 
 		try {
 			List<Atendimento> registrarAtendimento = new ArrayList<Atendimento>();
-			PreparedStatement stmt = (PreparedStatement) this.connection.prepareStatement("select * from ATENDIMENTO;");
+			PreparedStatement stmt = (PreparedStatement) this.connection.prepareStatement("select * from ATENDIMENTO WHERE situacao = 'P'");
 
 			ResultSet rs = stmt.executeQuery();
 
@@ -170,6 +170,32 @@ public class AtendimentoDao {
 			throw new RuntimeException(e);
 		}
 	}
+
+	// Listar finalizar atendimento
+		public List<Atendimento> listarF() {
+
+			try {
+				List<Atendimento> finalizarAtendimento = new ArrayList<Atendimento>(); 
+				
+				PreparedStatement stmt = (PreparedStatement) this.connection.prepareStatement("select * from ATENDIMENTO WHERE situacao = 'A' OR situacao =  'F' ");
+
+				ResultSet rs = stmt.executeQuery();
+
+				while (rs.next()) {
+					finalizarAtendimento.add(montarObjeto(rs));
+				}
+
+				rs.close();
+				stmt.close();
+				connection.close();
+
+				return finalizarAtendimento;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+
+
 
 	// Montar o Objeto
 

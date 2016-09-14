@@ -135,9 +135,9 @@ public class UsuarioController {
 	// pesquisar usuario
 
 	@RequestMapping("/pesquisarUsuario")
-	public @ResponseBody String pesquisarUsuario(@RequestParam String email, HttpServletResponse response) {
+	public @ResponseBody String pesquisarUsuario(@RequestParam String nome, HttpServletResponse response) {
 		UsuarioDao dao = new UsuarioDao();
-		List<Usuario> listarUsuario = dao.buscar(email);
+		List<Usuario> listarUsuario = dao.buscar(nome);
 		StringBuilder st = new StringBuilder();
 		st.append("<tr>");
 		st.append("<th>Nome Usuário</th>");

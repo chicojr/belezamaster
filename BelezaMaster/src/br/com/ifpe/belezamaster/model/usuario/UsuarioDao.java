@@ -76,14 +76,14 @@ public class UsuarioDao {
 	}
 
 	// buscar por nome
-				public List<Usuario> buscar(String email) {
+				public List<Usuario> buscar(String nome) {
 					try {
 						List<Usuario> listarUsuario = new ArrayList<Usuario>();
 						PreparedStatement stmt = null;
-						if (!email.equals("")) {
-							stmt = this.connection.prepareStatement("SELECT * FROM USUARIO WHERE email LIKE ? ORDER BY nome");
-							stmt.setString(1, "%" + email + "%");
-						} else if (email.equals("")) {
+						if (!nome.equals("")) {
+							stmt = this.connection.prepareStatement("SELECT * FROM USUARIO WHERE nome LIKE ?");
+							stmt.setString(1, "%" + nome + "%");
+						} else if (nome.equals("")) {
 							stmt = this.connection.prepareStatement("SELECT * FROM USUARIO ORDER BY nome");
 						}
 						ResultSet rs = stmt.executeQuery();

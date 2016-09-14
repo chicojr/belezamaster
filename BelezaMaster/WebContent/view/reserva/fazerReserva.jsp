@@ -90,7 +90,7 @@
 							
 							<input id="nome" onblur="validaDat(this,this.value)" type="text" class="form-control" name="dataAtendimento"
 							placeholder="Digite Data de Atendimento"
-							required="required">
+							required="required" value="<fmt:formatDate value="${atendimento.dataAtendimento}" pattern="MM/dd/yyyy" />">
 					</div>			
 					<p>
 									 <label class="span">Profissional: <br /></label>
@@ -164,8 +164,7 @@
  <script type="text/javascript"> 
 		jQuery.noConflict();
 	jQuery(function($) {
-		$("#nome").mask("99/99/9999");
-		
+		$("#nome").mask("99/99/9999");		
 
 		});
  	</script>

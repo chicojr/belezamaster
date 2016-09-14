@@ -45,19 +45,19 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript"src="view/js/jquery-2.1.4.js">
+    <script type="text/javascript"src="view/js/jquery-2.1.4.js"></script>
     
-    </script> <script type="text/javascript">
+ <script type="text/javascript">
 		$(document).ready(function() {
-			$("#email").keyup(function() {
-				var texto = $('#email').val();
-				$.post("pesquisarUsuario", {'email' : texto}, function(dados) {
+			$("#nome").keyup(function() {
+				var texto = $('#nome').val();
+				$.post("pesquisarUsuario", {'nome' : texto}, function(dados) {
 					$('#tabelaListaUsuario').html(dados);
 				});
 			});
 
 		});
-	</script>
+	    </script>
 </head>
 <body class="bg-dark-2">
 
@@ -94,7 +94,7 @@
 
 			
 					<br /> <label class="span">E-mail:</label><br /> <input
-						class="form-control" type="text" name="email" id="email" /> <br /> <br /> 
+						class="form-control" type="text" name="nome" id="nome" /> <br /> <br /> 
 			</div>
 		</div>
 
@@ -105,7 +105,7 @@
 	<table id="tabelaListaUsuario" class="table table-hover table-bordered">
 	<thead>
 		<tr>
-			<th  >Nome Usuário</th>
+			<th>Nome Usuário</th>
 			<th>E-mail</th>
 			<th>Telefone</th>
 			<th>Celular</th>

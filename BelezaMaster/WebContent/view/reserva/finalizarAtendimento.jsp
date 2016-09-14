@@ -136,10 +136,10 @@
 					<td>${atendimento.profissional.nome}</td>
 					<td>${atendimento.codigoAtendimento}</td>
 					<td><fmt:formatDate value="${atendimento.horario}"
-							pattern="dd/MM/yyyy" /></td>
+							pattern="MM/dd/yyyy" /></td>
 					<td>${atendimento.situacao}</td>
 					<td><fmt:formatDate value="${atendimento.dataAtendimento}"
-							pattern="dd/MM/yyyy" /></td>
+							pattern="MM/dd/yyyy" /></td>
 
 					<td><a  class="btn btn-success"
 						href="finalizarAtendimento?codigoAtendimento=${atendimento.codigoAtendimento}">Finalizar</a></td>

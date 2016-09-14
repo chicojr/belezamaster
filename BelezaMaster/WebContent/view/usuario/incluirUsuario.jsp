@@ -77,7 +77,7 @@
 
 	<center>
 		<div class="container">
-			<div class="msg">${mensagem}
+			<div class="msg"><span class="alert-success">${mensagem}</span>
 			</div>
 		</div>
 	</center>

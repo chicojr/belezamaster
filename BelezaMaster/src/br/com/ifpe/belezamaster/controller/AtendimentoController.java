@@ -69,7 +69,7 @@ public class AtendimentoController {
 	@RequestMapping("/exibirListarAtendimento")
 	public String listarAtendimento(Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
-		List<Atendimento> registrarAtendimento = dao.listar();
+		List<Atendimento> registrarAtendimento = dao.listarRegistrar();
 		model.addAttribute("registrarAtendimento", registrarAtendimento);
 
 		return "reserva/registrarAtendimento";
@@ -172,7 +172,7 @@ public class AtendimentoController {
 	@RequestMapping("/exibirFinalizarAtendimento")
 	public String listarFinalizarAtendimento(Model model) {
 		AtendimentoDao dao = new AtendimentoDao();
-		List<Atendimento> registrarAtendimento = dao.listar();
+		List<Atendimento> registrarAtendimento = dao.listarF();
 		model.addAttribute("registrarAtendimento", registrarAtendimento);
 
 		return "reserva/finalizarAtendimento";
