@@ -166,7 +166,7 @@
 	<br>
 	<center>
 		<div>
-			<span style="font-size: 20px;">${mensagem}</span>
+			<span style="font-size: 25px;">${mensagem}</span>
 		</div>
 	</center>
 
@@ -348,8 +348,8 @@
 			<div class="col-lg-8 col-lg-offset-2 text-center">
 				<h2 class="section-heading">Fale Conosco!</h2>
 				<hr class="primary">
-				<p>Pronto para começar a usar nossos serviços? Isso é ótimo!
-					Entre em contato conosco por Telefone ou E-mail!</p>
+				<h4>Pronto para começar a usar nossos serviços? Isso é ótimo!<br>
+					Entre em contato conosco por Telefone ou E-mail!</h4><br><br>
 			</div>
 			<div class="col-lg-4 col-lg-offset-2 text-center">
 				<i class="fa fa-phone fa-3x sr-contact"></i>

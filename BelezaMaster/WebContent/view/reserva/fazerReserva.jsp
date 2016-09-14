@@ -164,8 +164,8 @@
  <script type="text/javascript"> 
 		jQuery.noConflict();
 	jQuery(function($) {
-		$("#nome").mask("99/99/9999   99:99");
-		});
+		 $("#nome").mask("99/99/9999   99:99");
+		 });
  	</script>
 
 </body>

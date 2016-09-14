@@ -60,7 +60,7 @@
 		class=" col-md-6 col-md-offset-3 col-sm-offset-2">
 		<div class="panel panel-info">
 			<div class="panel-heading">
-				<div class="panel-title">Relatório Atendimento</div>
+				<div class="panel-title">Relatório de Atendimento</div>
 				<div
 					style="float: right; font-size: 80%; position: relative; top: -10px">
 				</div>
