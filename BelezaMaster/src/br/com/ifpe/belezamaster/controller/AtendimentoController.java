@@ -50,7 +50,7 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 		if (dao.AtendimentoReserva(atendimento.getDataAtendimento(),atendimento.getProfissional().getId()) ) {
 			
-			model.addAttribute("mensagem", "A Reserva não foi cadastrado, Por favor tente outro horário!!");
+			model.addAttribute("mensagem", "A Reserva não foi realizada, Por favor tente outro horário!");
 			return "forward:exibirIncluirAtendimento";
 		
 		}
