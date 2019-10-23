@@ -78,6 +78,7 @@
 
 
 				<form name="form1" action="incluirProfissional" method="post">
+					
 					<label class="span">Nome do Profissional: <br /></label> <input
 						type="text" class="form-control" name="nome" maxlength="50"
 						value="${profissional.nome}" onkeypress="mascara(this,soLetras)"
@@ -86,22 +87,27 @@
 					</label> <input type="text" class="form-control" name="profissao"
 						maxlength="20" value="${profissional.profissao}"
 						required="required" onkeypress="mascara(this,soLetras)" /> <br />
+					
 					<label class="span">CPF: <br /></label> <input type="text"
 						class="form-control" id="cpf" name="cpf" maxlength="14"
 						value="${profissional.cpf}"
 						onblur="javascript: validarCPF(this.value);" required="required" />
-					&nbsp;<span style="color: red;">${cpf}</span> <br> <br /> <label
-						class="span">E-mail: <br /></label> <input type="email"
-						class="form-control" name="email" value="${profissional.email}"
-						maxlength="50" required="required" />&nbsp;<span style="color: red;">${email}</span> <br /> <label class="span">Endereço:
+					&nbsp;<span style="color: red;">${cpf}</span> <br> <br /> 
 					
+					<label class="span">E-mail: <br /></label> <input type="email"
+						class="form-control" name="email" value="${profissional.email}"
+						maxlength="50" required="required" />&nbsp;<span style="color: red;">${email}</span> <br /> 
+						
+					<label class="span">Endereço:	
 					</label> <input type="text" class="form-control" name="endereco"
 						value="${profissional.endereco}" maxlength="50"
 						required="required" /> 
 					<br /> <label class="span">Telefone: <br />
 					</label> <input type="text" class="form-control" id="telefone"
 						name="telefone" value="${profissional.telefone}" maxlength="14"
-						required="required" /> <br /> <label class="span">Celular:
+						required="required" /> <br />
+						
+					 <label class="span">Celular:
 						<br />
 					</label> <input type="text" class="form-control" id="celular"
 						name="celular" value="${profissional.celular}" maxlength="15"

@@ -128,11 +128,11 @@
 					type="hidden" class="form-control author" id="cpf" name="cpf"
 					 value="${usuario.cpf}">
 			</div>
-			<br /> <a href="exibirIndex"
+			<br /> <a href="exibirListarUsuario"
 				class="btn btn-danger submit link-password-02">Cancelar</a> &nbsp;
 			
 			&nbsp;
-			<button type="submit" class="btn btn-warning submit">&nbsp;
+			<button type="submit"  href="exibirListarUsuario" class="btn btn-warning submit">&nbsp;
 				Alterar &nbsp;</button>
 
 		</form>

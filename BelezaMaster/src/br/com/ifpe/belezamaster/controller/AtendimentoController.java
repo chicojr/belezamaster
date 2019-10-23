@@ -50,7 +50,7 @@ public class AtendimentoController {
 		AtendimentoDao dao = new AtendimentoDao();
 		if (dao.AtendimentoReserva(atendimento.getDataAtendimento(),atendimento.getProfissional().getId()) ) {
 			
-			model.addAttribute("mensagem", "A Reserva não foi realizada, Por favor tente outro horário!");
+			model.addAttribute("mensagem", "A Reserva n�o foi realizada, Por favor tente outro hor�rio!");
 			return "forward:exibirIncluirAtendimento";
 		
 		}
@@ -82,14 +82,14 @@ public class AtendimentoController {
 		List<Atendimento> listarAtendimento = dao.buscar(codigoAtendimento);
 		StringBuilder st = new StringBuilder();
 		st.append("<tr>");
-		st.append("<th>Nome do Usuário</th>");
-		st.append("<th>Cpf do Usuário</th>");
-		st.append("<th>Código do Servico</th>");
-		st.append("<th>Serviço</th>");
+		st.append("<th>Nome do Usu�rio</th>");
+		st.append("<th>Cpf do Usu�rio</th>");
+		st.append("<th>C�digo do Servico</th>");
+		st.append("<th>Servi�o</th>");
 		st.append("<th>Nome do Profissional</th>");
-		st.append("<th>Código do Atendimento</th>");
-		st.append("<th>Horário de Atendimento</th>");
-		st.append("<th>Situação</th>");
+		st.append("<th>C�digo do Atendimento</th>");
+		st.append("<th>Hor�rio de Atendimento</th>");
+		st.append("<th>Situa��oo</th>");
 		st.append("<th>Data do Atendimento</th>");
 		st.append("<th>Alterar</th>");
 		st.append("<th>Remover</th>");
@@ -123,15 +123,15 @@ public class AtendimentoController {
 		List<Atendimento> listarAtendimento = dao.buscar(codigoAtendimento);
 		StringBuilder st = new StringBuilder();
 		st.append("<tr>");
-		st.append("<th>Nome do Usuário</th>");
-		st.append("<th>Cpf do Usuário</th>");
-		st.append("<th>Código do Servico</th>");
-		st.append("<th>Serviço</th>");
+		st.append("<th>Nome do Usu�rio</th>");
+		st.append("<th>Cpf do Usu�rio</th>");
+		st.append("<th>Codigo do Servico</th>");
+		st.append("<th>Servi�o</th>");
 		st.append("<th>Nome do Profissional</th>");
-		st.append("<th>Código do Atendimento</th>");
+		st.append("<th>C�digo do Atendimento</th>");
 		st.append("<th>Data do Atendimento</th>");
-		st.append("<th>Situação</th>");
-		st.append("<th>Horário de Atendimento</th>");
+		st.append("<th>Situa��o</th>");
+		st.append("<th>Hor�rio de Atendimento</th>");
 		st.append("<th>Alterar</th>");
 		st.append("<th>Remover</th>");
 

@@ -30,13 +30,13 @@ public class ServicoController {
 	public String incluirServico(@Valid Servico servico, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo n√£o pode ser preenchido s√≥ com espa√ßos ou caracteres.");
+			model.addAttribute("nome", "*O campo n„o pode ser preenchido com espaÁos ou caracteres especias.");
 			return "forward:exibirIncluirServico";
 		}
 
 		ServicoDao dao = new ServicoDao();
 		dao.salvar(servico);
-		model.addAttribute("mensagem", "Servi√ßo cadastrado com sucesso!");
+		model.addAttribute("mensagem", "ServiÁo cadastrado com sucesso!");
 		return "servico/incluirServico";
 
 	}
@@ -60,9 +60,9 @@ public class ServicoController {
 		StringBuilder st = new StringBuilder();
 		st.append("<tr>");
 		st.append("<th>Nome do Servico</td>");
-		st.append("<th>Descri√ß√£o</td>");
+		st.append("<th>DescriÁ„o</td>");
 		st.append("<th>Valor</td>");
-		st.append("<th>Cod√≠go</td>");
+		st.append("<th>CÛdigo</td>");
 		st.append("<th>Alterar</td>");
 		st.append("<th>Remover</td>");
 
@@ -98,7 +98,7 @@ public class ServicoController {
 	public String alterarServico(@Valid Servico servico, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo n√£o pode ser preenchido s√≥ com espa√ßos ou caracteres. ");
+			model.addAttribute("nome", "*O campo n„o pode ser preenchido com espaÁos ou caracteres. ");
 			return "forward:exibirAlterarServico";
 		}
 
@@ -115,7 +115,7 @@ public class ServicoController {
 		try {
 			dao.remover(servico);
 		} catch (ViolacaoIntegridadeException e) {
-			model.addAttribute("mensagem", "Servico n√£o pode ser removido.");
+			model.addAttribute("mensagem", "Servico n„o pode ser removido.");
 			return "forward:exibirListarServico";
 
 		}

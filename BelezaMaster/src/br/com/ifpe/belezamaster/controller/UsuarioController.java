@@ -41,7 +41,7 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			model.addAttribute("nome", "*O campo n�o pode ser preenchido  com espa�os ou caracteres especiais. ");
 			return "forward:exibirIncluirUsuario";
 		}
 
@@ -53,12 +53,12 @@ public class UsuarioController {
 		UsuarioDao dao1 = new UsuarioDao();
 
 		if (dao1.buscarPorEmail(usuario.getEmail()) != null) {
-			model.addAttribute("email", " E-mail já cadastrado");
+			model.addAttribute("email", " E-mail j� cadastrado");
 			return "forward:exibirIncluirUsuario";
 		}
 
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
-			model.addAttribute("confsenha", "As senhas estão diferentes!");
+			model.addAttribute("confsenha", "As senhas est�o diferentes!");
 			return "forward:exibirIncluirUsuario";
 
 		}
@@ -66,7 +66,7 @@ public class UsuarioController {
 		UsuarioDao dao2 = new UsuarioDao();
 
 		if (dao2.buscarPorCpf(usuario.getCpf()) != null) {
-			model.addAttribute("cpf", " Cpf já cadastrado");
+			model.addAttribute("cpf", " Cpf j� cadastrado");
 			return "forward:exibirIncluirUsuario";
 
 		} else {
@@ -92,7 +92,7 @@ public class UsuarioController {
 		UsuarioDao dao = new UsuarioDao();
 
 		if (dao.buscarPorCpf(usuario.getCpf()) == null) {
-			model.addAttribute("cpf", " Cpf não cadastrado");
+			model.addAttribute("cpf", " Cpf n�o cadastrado");
 			return "forward:exibirPesquisarPorCpf";
 
 		} else {
@@ -109,7 +109,7 @@ public class UsuarioController {
 	public String alterarUsuario(@Valid Usuario usuario, BindingResult result, Model model) {
 		
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo não pode ser preenchido só com espaços ou caracteres. ");
+			model.addAttribute("nome", "*O campo não pode ser preenchido s�o com espa�os ou caracteres especias. ");
 			return "forward:exibirAlterarUsuario";
 		}
 
@@ -174,7 +174,7 @@ public class UsuarioController {
 		try {
 			dao.remover(usuario);
 		} catch (ViolacaoIntegridadeException e) {
-			model.addAttribute("mensagem", "Usuario não pode ser removido, pois tem reserva pendente.");
+			model.addAttribute("mensagem", "Usuario n�o pode ser removido, pois tem reserva pendente.");
 			return "forward:exibirListarUsuario";
 		}
 
@@ -207,7 +207,7 @@ public class UsuarioController {
 	public String AlterarSenha(@Valid Usuario usuario, BindingResult result, Model model) {
 
 		if (!usuario.getSenha().equals(usuario.getConfSenha())) {
-			model.addAttribute("confsenha", "As senhas estão diferentes!");
+			model.addAttribute("confsenha", "As senhas est�o diferentes!");
 			return "forward:esqueciMinhaSenha";
 
 		}
@@ -237,7 +237,7 @@ public class UsuarioController {
 			session.setAttribute("usuarioLogado", usuarioLogado);
 			return "home";
 		}
-		model.addAttribute("mensagem", "A conta ou a senha estão incorretas.Tente novamente.");
+		model.addAttribute("mensagem", "A conta ou a senha est�o incorretas.Tente novamente.");
 		return "index";
 	}
 

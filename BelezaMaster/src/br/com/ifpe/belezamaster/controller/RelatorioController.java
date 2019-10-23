@@ -14,7 +14,7 @@ import br.com.ifpe.belezamaster.util.Datas;
 @Controller
 public class RelatorioController {
 
-	// EXIBIR PÁGINA DO RELÁTORIO
+	// EXIBIR PÁGINA DO RELATÓRIO
 	@RequestMapping("/ExibirRelatorio")
 	public String ExibirRelatorio(Model model) {
 		RelatorioDao dao = new RelatorioDao();
@@ -23,7 +23,7 @@ public class RelatorioController {
 		return "relatorio/ListarRelatorio";
 	}
 
-	// PESQUISAR NA PÁGINA DO RELÁTORIO
+	// PESQUISAR NA PÁGINA RELATÓRIO
 	@RequestMapping("/ListarRelatorio")
 	public String PesquisarExibirRelatorio(Model model, @RequestParam("dataInicio") String dataInicio,@RequestParam("dataTermino") String dataTermino ) {
         RelatorioDao dao = new RelatorioDao();

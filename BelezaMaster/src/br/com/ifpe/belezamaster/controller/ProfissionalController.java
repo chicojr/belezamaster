@@ -30,17 +30,17 @@ public class ProfissionalController {
 	public String incluirProfissional(@Valid Profissional profissional, BindingResult result, Model model) {
 		ProfissionalDao dao = new ProfissionalDao();
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo n√£o pode ser preenchido s√≥ com espa√ßos ou caracteres. ");
+			model.addAttribute("nome", "*O campo n„o pode ser preenchido s„o com espaÁos ou caracteres especias. ");
 			return "forward:exibirIncluirProfissional";
 		}
 
 		if (dao.buscarPorEmail(profissional.getEmail()) != null) {
-			model.addAttribute("email", " E-mail j√° cadastrado");
+			model.addAttribute("email", " E-mail j·° cadastrado");
 			return "forward:exibirIncluirProfissional";
 		}
 		ProfissionalDao dao1 = new ProfissionalDao();
 		if (dao1.buscarPorCpf(profissional.getCpf()) != null) {
-			model.addAttribute("cpf", " Cpf j√° cadastrado");
+			model.addAttribute("cpf", " Cpf j· cadastrado");
 			return "forward:exibirIncluirProfissional";
 
 		} else {
@@ -118,7 +118,7 @@ public class ProfissionalController {
 	@RequestMapping("/alterarProfissional")
 	public String alterarProfissional(@Valid Profissional Profissional, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			model.addAttribute("nome", "*O campo n√£o pode ser preenchido s√≥ com espa√ßos ou caracteres. ");
+			model.addAttribute("nome", "*O campo n„ pode ser preenchido com espaÁos ou caracteres especias. ");
 			return "forward:exibirAlterarProfissional";
 		}
 
@@ -137,7 +137,7 @@ public class ProfissionalController {
 		try {
 			dao.remover(profissional);
 		} catch (ViolacaoIntegridadeException e) {
-			model.addAttribute("mensagem", "Profissional N√£o pode ser Removido, Pois est√° com reservas.");
+			model.addAttribute("mensagem", "Profissional N„o pode ser Removido, Pois est· com reservas.");
 			return "forward:exibirListarProfissional";
 		}
 		model.addAttribute("mensagem", "Profissional Removido com Sucesso");
